@@ -43,7 +43,8 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link rel="alternate" href="/atom.xml" title="CoffeeLin" type="application/atom+xml">
+</head>
   </html>
 </html>
 
@@ -55,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-hello-world"
+  id="post-Markdown基本语法"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -74,7 +75,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/11/05/hello-world/" class="article-date">
+      <a href="/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
   <time datetime="2023-11-05T09:56:05.944Z" itemprop="datePublished">2023-11-05</time>
 </a>   
 <div class="word_count">
@@ -82,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">75</span>
+            <span class="post-count">327</span>
         </span>
     </span>
 
@@ -119,6 +120,117 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><i>markdown:通用html标签</i></p>
+<p>标签后要加空格</p>
+<p><u>块级元素：至少独占一行</u><br><u>行内元素：只占据自身所需空间</u></p>
+<hr>
+
+
+<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><hr>
+
+
+
+
+<blockquote>
+<p>引用</p>
+</blockquote>
+<hr>
+
+
+<p>有序列表:</p>
+<ol>
+<li>a</li>
+<li>b</li>
+<li>c</li>
+</ol>
+<p>无序列表：</p>
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ul>
+<p>任务列表：</p>
+<ul>
+<li><input disabled="" type="checkbox"> a</li>
+<li><input disabled="" type="checkbox"> b</li>
+<li><input checked="" disabled="" type="checkbox"> c</li>
+</ul>
+<hr>
+
+
+<p>代码块：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>:</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>行内代码:<br><code> printf(Hello wold!);</code></p>
+<p>标注：</p>
+<p><code>AAA</code></p>
+<hr>
+
+
+<p>数学公式：有美元符号$才能识别lateX</p>
+<p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
+<p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
+<hr>
+
+
+<p>表格：“:”决定居中居左具右</p>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="right">年龄</th>
+<th align="center">成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="right">22</td>
+<td align="center">92</td>
+</tr>
+</tbody></table>
+<hr>
+
+
+<p>脚注：<br>脚注<a href="%E8%84%9A%E6%B3%A8">^脚注</a></p>
+<hr>
+
+
+<p>横线：</p>
+<hr>
+<hr>
+
+
+<p>链接：<br><a href="baidu.com" title="一个搜索引擎">百度</a><br>例子：给标题设置链接<br>请参考<a href="#%E6%A0%87%E9%A2%981">标题1</a></p>
+<p>引用链接：引用需要回车<br><a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a></p>
+<p>URL:输入网页链接格式，自动识别<br><a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com</a></p>
+<hr>
+
+
+<p>图片：相对地址、绝对地址、网址链接<br><img src="https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="百度" title="百度LOGO"></p>
+<hr>
+
+
+<p><em>斜体</em></p>
+<p><strong>加粗</strong></p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p><del>删除线</del></p>
+<p><u>下划线</u></p>
+<p>高亮：&#x3D;&#x3D;高亮&#x3D;&#x3D;</p>
+<p>下标：H<del>2</del>O</p>
+<p>上标：X^2^</p>
+<p>表情符号：:smile:</p>
+<hr>
+<p>参考视频：</p>
+<iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
+
  
       <!-- reward -->
       
@@ -189,7 +301,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2023/11/05/hello-world/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 

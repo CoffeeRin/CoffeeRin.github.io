@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CoffeeLin</title>
+  
+  <subtitle>一个废物的博客</subtitle>
+  <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://coffeerin.github.io/"/>
+  <updated>2023-11-05T10:36:29.996Z</updated>
+  <id>https://coffeerin.github.io/</id>
+  
+  <author>
+    <name>CoffeeLin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="https://coffeerin.github.io/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <id>https://coffeerin.github.io/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</id>
+    <published>2023-11-05T10:36:29.000Z</published>
+    <updated>2023-11-05T10:36:29.996Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <published>2023-11-05T09:56:05.944Z</published>
+    <updated>2023-11-06T04:21:47.879Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
