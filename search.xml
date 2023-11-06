@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第一篇文章</title>
+    <title>Markdown基本语法</title>
     <url>/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><i>markdown:通用html标签</i></p>
+    <content><![CDATA[<p><i>markdown:通用html标签</i></p>
 <p>标签后要加空格</p>
 <p><u>块级元素：至少独占一行</u><br><u>行内元素：只占据自身所需空间</u></p>
 <hr>
 
 
+
 <h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><hr>
+
 
 
 
@@ -36,6 +20,7 @@
 <p>引用</p>
 </blockquote>
 <hr>
+
 
 
 <p>有序列表:</p>
@@ -59,6 +44,7 @@
 <hr>
 
 
+
 <p>代码块：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>:</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -68,10 +54,12 @@
 <hr>
 
 
+
 <p>数学公式：有美元符号$才能识别lateX</p>
 <p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
 <p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
 <hr>
+
 
 
 <p>表格：“:”决定居中居左具右</p>
@@ -92,13 +80,16 @@
 <hr>
 
 
+
 <p>脚注：<br>脚注<a href="%E8%84%9A%E6%B3%A8">^脚注</a></p>
 <hr>
+
 
 
 <p>横线：</p>
 <hr>
 <hr>
+
 
 
 <p>链接：<br><a href="baidu.com" title="一个搜索引擎">百度</a><br>例子：给标题设置链接<br>请参考<a href="#%E6%A0%87%E9%A2%981">标题1</a></p>
@@ -107,8 +98,10 @@
 <hr>
 
 
+
 <p>图片：相对地址、绝对地址、网址链接<br><img src="https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="百度" title="百度LOGO"></p>
 <hr>
+
 
 
 <p><em>斜体</em></p>
@@ -126,12 +119,30 @@
 <p>参考视频：</p>
 <iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-
-
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
