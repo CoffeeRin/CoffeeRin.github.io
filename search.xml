@@ -145,4 +145,15 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Linux</title>
+    <url>/2023/11/06/Linux/</url>
+    <content><![CDATA[<blockquote>
+<p>父子进程不共享变量，子进程和父进程分别执行程序<br>线程共享</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
