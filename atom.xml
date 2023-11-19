@@ -44,10 +44,10 @@
   
   <entry>
     <title>Markdown基本语法</title>
-    <link href="https://coffeerin.github.io/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>https://coffeerin.github.io/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</id>
+    <link href="https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
     <published>2023-11-05T10:36:29.000Z</published>
-    <updated>2023-11-06T10:10:48.958Z</updated>
+    <updated>2023-11-19T01:24:28.950Z</updated>
     
     
       
@@ -59,9 +59,7 @@
 &lt;p&gt;&lt;u&gt;块级元素：至少独占一行&lt;/u&gt;&lt;br&gt;&lt;u&gt;行内元素：只占据自身所需空间&lt;/u&gt;&lt;/p&gt;
 &lt;hr&gt;
 
-
-
-&lt;h1 id=&quot;标题1&quot;&gt;&lt;a href=&quot;#标题1&quot;</summary>
+&lt;p&gt;# 标题1&lt;br&gt;## 标题2&lt;br&gt;###</summary>
         
       
     
@@ -76,8 +74,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
-    <id>https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://coffeerin.github.io/2023/11/05/HelloWorld/"/>
+    <id>https://coffeerin.github.io/2023/11/05/HelloWorld/</id>
     <published>2023-11-05T09:56:05.944Z</published>
     <updated>2023-11-06T10:10:02.175Z</updated>
     

@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Hello World |  CoffeeLin</title>
+      <title>Markdown基本语法 |  CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World
+  Markdown基本语法
 </h1>
  
 
@@ -76,14 +76,18 @@
      
     <div class="article-meta">
       <a href="/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
-  <time datetime="2023-11-05T09:56:05.944Z" itemprop="datePublished">2023-11-05</time>
-</a>   
+  <time datetime="2023-11-05T10:36:29.000Z" itemprop="datePublished">2023-11-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%AD%E6%B3%95/">语法</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">75</span>
+            <span class="post-count">548</span>
         </span>
     </span>
 
@@ -92,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -107,19 +111,117 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+  <p><i>markdown:通用html标签</i></p>
+<p>标签后要加空格</p>
+<p><u>块级元素：至少独占一行</u><br><u>行内元素：只占据自身所需空间</u></p>
+<hr>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p># 标题1<br>## 标题2<br>### 标题3</p>
+<h1 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h1><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><hr>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>&gt;引用</p>
+<h1 id="效果：-1"><a href="#效果：-1" class="headerlink" title="效果："></a>效果：</h1><blockquote>
+<p>引用</p>
+</blockquote>
+<hr>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>有序列表:<br>1. a<br>2. b<br>3. c</p>
+<p>无序列表：<br>- A<br>- B<br>- C</p>
+<p>任务列表：<br>- [ ] a<br>- [ ] b<br>- [x] c</p>
+<h1 id="效果：-2"><a href="#效果：-2" class="headerlink" title="效果："></a>效果：</h1><p>有序列表:</p>
+<ol>
+<li>a</li>
+<li>b</li>
+<li>c</li>
+</ol>
+<p>无序列表：</p>
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ul>
+<p>任务列表：</p>
+<ul>
+<li><input disabled="" type="checkbox"> a</li>
+<li><input disabled="" type="checkbox"> b</li>
+<li><input checked="" disabled="" type="checkbox"> c</li>
+</ul>
+<hr>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>代码块：<br>``` c(此处c表示代码是C语言)<br>int main():<br>{<br>    printf(“Hello world”);<br>}<br>```<br>行内代码:<br>`&#96; printf(Hello wold!)&#96;&#96;;</p>
+<h1 id="效果：-3"><a href="#效果：-3" class="headerlink" title="效果："></a>效果：</h1><p>代码块：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>:</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>行内代码:<br><code> printf(Hello wold!)</code>;</p>
+<hr>
+
+<p>数学公式：有美元符号$才能识别lateX</p>
+<p>$$<br>\frac{\partial f}{\partial x} = 2\sqrt{a}x<br>$$</p>
+<p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
+<h1 id="效果：-4"><a href="#效果：-4" class="headerlink" title="效果："></a>效果：</h1><p>数学公式：有美元符号$才能识别lateX<br>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
+<p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
+<hr>
+
+<p>表格：“:”决定居中居左具右<br>| 姓名 | 年龄 | 成绩 |<br>| :— | —: | :—: |<br>| 张三 | 22 | 92 |</p>
+<h1 id="效果：-5"><a href="#效果：-5" class="headerlink" title="效果："></a>效果：</h1><p>表格：“:”决定居中居左具右</p>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="right">年龄</th>
+<th align="center">成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="right">22</td>
+<td align="center">92</td>
+</tr>
+</tbody></table>
+<hr>
+
+<p>脚注：<br>脚注[^脚注]<br>[^脚注]:脚注</p>
+<h1 id="效果：-6"><a href="#效果：-6" class="headerlink" title="效果："></a>效果：</h1><p>脚注[^脚注]<br>[^脚注]:脚注</p>
+<hr>
+
+<p>横线：</p>
+<p>- - -或***或_ _ _</p>
+<h1 id="效果：第一条虚线"><a href="#效果：第一条虚线" class="headerlink" title="效果：第一条虚线"></a>效果：第一条虚线</h1><hr>
+<hr>
+
+<p>链接：<br>[百度](baidu.com “一个搜索引擎”)<br>例子：给标题设置链接<br>请参考[标题1](#标题1)</p>
+<p>引用链接：引用需要回车<br>[百度][id],[百度][id],[百度][id]</p>
+<p>[id]: baidu.com &quot;一个搜索引擎”</p>
+<p>URL:输入网页链接格式，自动识别<br>https:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<h1 id="效果：-7"><a href="#效果：-7" class="headerlink" title="效果："></a>效果：</h1><p>链接：<br><a href="baidu.com" title="一个搜索引擎">百度</a><br>例子：给标题设置链接<br>请参考<a href="#%E6%A0%87%E9%A2%981">标题1</a></p>
+<p>引用链接：引用需要回车<br><a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a></p>
+<p>URL:输入网页链接格式，自动识别<br><a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com</a></p>
+<hr>
+
+<p>图片：相对地址、绝对地址、网址链接</p>
+<p>![百度](https:&#x2F;&#x2F;pss.bdstatic.com&#x2F;static&#x2F;superman&#x2F;img&#x2F;logo&#x2F;logo_white-d0c9fe2af5.png “百度LOGO”)</p>
+<h1 id="效果：-8"><a href="#效果：-8" class="headerlink" title="效果："></a>效果：</h1><p><img src="https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="百度" title="百度LOGO"></p>
+<hr>
+
+<p>*斜体*</p>
+<p>**加粗**</p>
+<p>&gt;引用</p>
+<p>~~删除线~~</p>
+<p>&lt;u&gt;下划线&lt;&#x2F;u&gt;</p>
+<p>高亮：=&#x3D;高亮&#x3D;&#x3D;</p>
+<p>下标：H~2~O</p>
+<p>上标：X^2^</p>
+<p>表情符号：:smile:<br><br></p>
+<h1 id="效果：-9"><a href="#效果：-9" class="headerlink" title="效果："></a>效果：</h1><p><em>斜体</em></p>
+<p><strong>加粗</strong></p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p><del>删除线</del></p>
+<p><u>下划线</u></p>
+<p>高亮：&#x3D;&#x3D;高亮&#x3D;&#x3D;</p>
+<p>下标：H<del>2</del>O</p>
+<p>上标：X^2^</p>
+<p>表情符号：:smile:</p>
  
       <!-- reward -->
       
@@ -195,21 +297,28 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="article-nav-link">
+      <a href="/2023/11/06/Linux/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Markdown基本语法
+            Linux
           
         </div>
       </a>
     
+    
+      <a href="/2023/11/05/HelloWorld/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
     
   </nav>
 

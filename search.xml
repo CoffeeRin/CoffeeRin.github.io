@@ -2,28 +2,25 @@
 <search>
   <entry>
     <title>Markdown基本语法</title>
-    <url>/2023/11/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <url>/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p><i>markdown:通用html标签</i></p>
 <p>标签后要加空格</p>
 <p><u>块级元素：至少独占一行</u><br><u>行内元素：只占据自身所需空间</u></p>
 <hr>
 
+<p># 标题1<br>## 标题2<br>### 标题3</p>
+<h1 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h1><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><hr>
 
-
-<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><hr>
-
-
-
-
-
-<blockquote>
+<p>&gt;引用</p>
+<h1 id="效果：-1"><a href="#效果：-1" class="headerlink" title="效果："></a>效果：</h1><blockquote>
 <p>引用</p>
 </blockquote>
 <hr>
 
-
-
-<p>有序列表:</p>
+<p>有序列表:<br>1. a<br>2. b<br>3. c</p>
+<p>无序列表：<br>- A<br>- B<br>- C</p>
+<p>任务列表：<br>- [ ] a<br>- [ ] b<br>- [x] c</p>
+<h1 id="效果：-2"><a href="#效果：-2" class="headerlink" title="效果："></a>效果：</h1><p>有序列表:</p>
 <ol>
 <li>a</li>
 <li>b</li>
@@ -43,26 +40,21 @@
 </ul>
 <hr>
 
-
-
-<p>代码块：</p>
+<p>代码块：<br>``` c(此处c表示代码是C语言)<br>int main():<br>{<br>    printf(“Hello world”);<br>}<br>```<br>行内代码:<br>`&#96; printf(Hello wold!)&#96;&#96;;</p>
+<h1 id="效果：-3"><a href="#效果：-3" class="headerlink" title="效果："></a>效果：</h1><p>代码块：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>:</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>行内代码:<br><code> printf(Hello wold!);</code></p>
-<p>标注：</p>
-<p><code>AAA</code></p>
+<p>行内代码:<br><code> printf(Hello wold!)</code>;</p>
 <hr>
 
-
-
 <p>数学公式：有美元符号$才能识别lateX</p>
-<p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
+<p>$$<br>\frac{\partial f}{\partial x} = 2\sqrt{a}x<br>$$</p>
+<p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
+<h1 id="效果：-4"><a href="#效果：-4" class="headerlink" title="效果："></a>效果：</h1><p>数学公式：有美元符号$才能识别lateX<br>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
 <p>行内数学公式：<br>$\theta &#x3D; x^2$</p>
 <hr>
 
-
-
-<p>表格：“:”决定居中居左具右</p>
+<p>表格：“:”决定居中居左具右<br>| 姓名 | 年龄 | 成绩 |<br>| :— | —: | :—: |<br>| 张三 | 22 | 92 |</p>
+<h1 id="效果：-5"><a href="#效果：-5" class="headerlink" title="效果："></a>效果：</h1><p>表格：“:”决定居中居左具右</p>
 <table>
 <thead>
 <tr>
@@ -79,32 +71,39 @@
 </tbody></table>
 <hr>
 
-
-
-<p>脚注：<br>脚注<a href="%E8%84%9A%E6%B3%A8">^脚注</a></p>
+<p>脚注：<br>脚注[^脚注]<br>[^脚注]:脚注</p>
+<h1 id="效果：-6"><a href="#效果：-6" class="headerlink" title="效果："></a>效果：</h1><p>脚注[^脚注]<br>[^脚注]:脚注</p>
 <hr>
-
-
 
 <p>横线：</p>
+<p>- - -或***或_ _ _</p>
+<h1 id="效果：第一条虚线"><a href="#效果：第一条虚线" class="headerlink" title="效果：第一条虚线"></a>效果：第一条虚线</h1><hr>
 <hr>
-<hr>
 
-
-
-<p>链接：<br><a href="baidu.com" title="一个搜索引擎">百度</a><br>例子：给标题设置链接<br>请参考<a href="#%E6%A0%87%E9%A2%981">标题1</a></p>
+<p>链接：<br>[百度](baidu.com “一个搜索引擎”)<br>例子：给标题设置链接<br>请参考[标题1](#标题1)</p>
+<p>引用链接：引用需要回车<br>[百度][id],[百度][id],[百度][id]</p>
+<p>[id]: baidu.com &quot;一个搜索引擎”</p>
+<p>URL:输入网页链接格式，自动识别<br>https:&#x2F;&#x2F;<a href="http://www.baidu.com/">www.baidu.com</a></p>
+<h1 id="效果：-7"><a href="#效果：-7" class="headerlink" title="效果："></a>效果：</h1><p>链接：<br><a href="baidu.com" title="一个搜索引擎">百度</a><br>例子：给标题设置链接<br>请参考<a href="#%E6%A0%87%E9%A2%981">标题1</a></p>
 <p>引用链接：引用需要回车<br><a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a></p>
 <p>URL:输入网页链接格式，自动识别<br><a href="https://www.baidu.com/">https://www.baidu.com</a></p>
 <hr>
 
-
-
-<p>图片：相对地址、绝对地址、网址链接<br><img src="https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="百度" title="百度LOGO"></p>
+<p>图片：相对地址、绝对地址、网址链接</p>
+<p>![百度](https:&#x2F;&#x2F;pss.bdstatic.com&#x2F;static&#x2F;superman&#x2F;img&#x2F;logo&#x2F;logo_white-d0c9fe2af5.png “百度LOGO”)</p>
+<h1 id="效果：-8"><a href="#效果：-8" class="headerlink" title="效果："></a>效果：</h1><p><img src="https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="百度" title="百度LOGO"></p>
 <hr>
 
-
-
-<p><em>斜体</em></p>
+<p>*斜体*</p>
+<p>**加粗**</p>
+<p>&gt;引用</p>
+<p>~~删除线~~</p>
+<p>&lt;u&gt;下划线&lt;&#x2F;u&gt;</p>
+<p>高亮：=&#x3D;高亮&#x3D;&#x3D;</p>
+<p>下标：H~2~O</p>
+<p>上标：X^2^</p>
+<p>表情符号：:smile:<br><br></p>
+<h1 id="效果：-9"><a href="#效果：-9" class="headerlink" title="效果："></a>效果：</h1><p><em>斜体</em></p>
 <p><strong>加粗</strong></p>
 <blockquote>
 <p>引用</p>
@@ -115,10 +114,6 @@
 <p>下标：H<del>2</del>O</p>
 <p>上标：X^2^</p>
 <p>表情符号：:smile:</p>
-<hr>
-<p>参考视频：</p>
-<iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
 ]]></content>
       <categories>
         <category>语法</category>
@@ -128,8 +123,19 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux</title>
+    <url>/2023/11/06/Linux/</url>
+    <content><![CDATA[<blockquote>
+<p>父子进程不共享变量，子进程和父进程分别执行程序<br>线程共享</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
-    <url>/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <url>/2023/11/05/HelloWorld/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -144,16 +150,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Linux</title>
-    <url>/2023/11/06/Linux/</url>
-    <content><![CDATA[<blockquote>
-<p>父子进程不共享变量，子进程和父进程分别执行程序<br>线程共享</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
   </entry>
 </search>
