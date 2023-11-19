@@ -126,7 +126,14 @@
     <title>Linux</title>
     <url>/2023/11/06/Linux/</url>
     <content><![CDATA[<blockquote>
-<p>父子进程不共享变量，子进程和父进程分别执行程序<br>线程共享</p>
+<ul>
+<li><p>父子进程不共享变量，子进程和父进程分别执行程序</p>
+</li>
+<li><p>创建子进程（父子进程程序相同，进程号不同）并执行时，父子进程分别为2个程序，同时执行各自程序</p>
+</li>
+<li><p>线程共享</p>
+</li>
+</ul>
 </blockquote>
 ]]></content>
       <tags>
