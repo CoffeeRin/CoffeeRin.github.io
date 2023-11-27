@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>语法 |  CoffeeLin</title>
+      <title> CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -55,58 +55,238 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">语法</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  <time datetime="2023-11-05T10:36:29.000Z" itemprop="datePublished">11/05</time>
-</a>
+  <article
+  id="page-"
+  class="article article-type-page"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
-    >Markdown基本语法</a> 
-</h2>
- 
+    <div class="article-entry" itemprop="articleBody">
+       
+  <!DOCTYPE html>
+<html lang="en">
 
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%AD%E6%B3%95/">语法</a>
-  </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee.Linの前端小窝</title>
+    <style>
+        body {
+            font: 100 0 "优设标题黑";
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            /* 设置背景色 */
+            background-image: linear-gradient(to right, #b8cbb8 0%,
+                    #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+        }
 
-    
-    
-  </div>
-</article>
+        /* 设置时钟的样式 */
+        #clock {
+            font-size: 24px;
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -175px;
+            margin-top: -175px;
+        }
+
+        /* 设置时钟中的数字组的样式 */
+        .digit-group {
+            display: inline-block;
+            height: 350px;
+        }
+
+        /* 设置数字组之间的冒号样式 */
+        .digit-group:not(:last-child):after {
+            content: ":";
+            font-size: 72px;
+        }
+
+        /* 设置数字的样式 */
+        .digit {
+            display: inline-block;
+            width: 50px;
+            height: 350px;
+        }
+
+        .digit .digit-number {
+            color: rgba(255, 255, 255, 0.5);
+            transform: rotate(-90deg);
+            transition: font-size 200ms, transform 350ms, color 150ms;
+        }
+
+        /* 设置亮数字的样式 */
+        .digit .digit-number.bright {
+            color: inherit;
+            font-size: 72px;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // 创建一个包含10个元素的数组，每个元素的值为索引  
+    let _time10 = Array.from(Array(10)).map((n, i) => i);
+    // 创建一个包含前6个元素的数组，作为时间的小时和分钟  
+    let _time6 = _time10.slice(0, 6);
+    // 创建一个包含前3个元素的数组，作为时间的秒钟  
+    let _time3 = _time10.slice(0, 3);
+    // 创建一个包含3个子数组的二维数组，用于表示时钟的结构  
+    let _Structure = [
+        [_time3, _time10],
+        [_time6, _time10],
+        [_time6, _time10]
+    ];
+    // 创建一个div元素作为时钟的容器，并设置id为'clock'  
+    let clock = document.createElement('div');
+    clock.id = 'clock';
+    // 将时钟容器添加到元素中元素中  
+    document.body.appendChild(clock);
+    // 创建一个数组用于存储每个数字组的div元素  
+    let digitGroups = [];
+    // 请求动画帧并调用update函数  
+    requestAnimationFrame(update);
+    // 遍历_Structure数组  
+    _Structure.forEach(digits => {
+        // 创建一个div元素作为数字组的容器，并添加类名'digit-group'  
+        let digitGroup = document.createElement('div');
+        digitGroup.classList.add('digit-group');
+        // 将数字组的容器添加到时钟容器中，并将其添加到digitGroups数组中  
+        clock.appendChild(digitGroup);
+        digitGroups.push(digitGroup);
+        // 遍历digits数组  
+        digits.forEach(digitList => {
+            // 创建一个div元素作为数字的容器，并添加类名'digit'  
+            let digit = document.createElement('div');
+            digit.classList.add('digit');
+            // 遍历digitList数组  
+            digitList.forEach(n => {
+                // 创建一个div元素作为数字的子元素，并添加类名'digit-number'，设置文本内容为n  
+                let ele = document.createElement('div');
+                ele.classList.add('digit-number');
+                ele.innerText = n;
+                // 将数字的子元素添加到数字的容器中  
+                digit.appendChild(ele);
+            });
+            // 将数字的容器添加到数字组的容器中  
+            digitGroup.appendChild(digit);
+        });
+    });
+    // 定义update函数  
+    function update() {
+        // 请求动画帧并调用update函数  
+        requestAnimationFrame(update);
+        // 创建一个Date对象表示当前时间  
+        let date = new Date();
+        // 获取当前时间的小时、分钟和秒钟，并将它们转换为两位数的字符串数组  
+        let time = [date.getHours(), date.getMinutes(), date.getSeconds()].
+            map(n => `0${n}`.slice(-2).split('').map(e => +e)).
+            reduce((p, n) => p.concat(n), []);
+        // 遍历time数组  
+        time.forEach((n, i) => {
+            let digit = digitGroups[Math.floor(i * 0.5)].children[i % 2].children;
+            // 遍历数字组的子元素  
+            Array.from(digit).forEach((e, i2) => e.classList[i2 === n ? 'add' : 'remove']('bright'));
+        });
+    }
+
+
+</script>
+
+</html> 
+      <!-- reward -->
       
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
+    
 
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/clock/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
   
+   
+  
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">

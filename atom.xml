@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2023-11-19T02:09:51.076Z</updated>
+  <updated>2023-11-27T14:10:44.348Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>实验8</title>
+    <link href="https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/"/>
+    <id>https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/</id>
+    <published>2023-11-27T13:57:03.000Z</published>
+    <updated>2023-11-27T14:10:44.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-1&quot;&gt;&lt;a href=&quot;#1-1&quot; class=&quot;headerlink&quot; title=&quot;1.1&quot;&gt;&lt;/a&gt;1.1&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;可靠信号&lt;/strong&gt;（Reliable Signals）：</summary>
+        
+      
+    
+    
+    
+    <category term="Linux实验" scheme="https://coffeerin.github.io/categories/Linux%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="Linux" scheme="https://coffeerin.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux</title>
     <link href="https://coffeerin.github.io/2023/11/06/Linux/"/>
     <id>https://coffeerin.github.io/2023/11/06/Linux/</id>
     <published>2023-11-06T13:23:45.000Z</published>
-    <updated>2023-11-19T02:09:51.076Z</updated>
+    <updated>2023-11-26T03:29:54.976Z</updated>
     
     
       
@@ -51,21 +78,16 @@
     <link href="https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
     <id>https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
     <published>2023-11-05T10:36:29.000Z</published>
-    <updated>2023-11-19T01:24:28.950Z</updated>
+    <updated>2023-11-25T02:35:35.591Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;&lt;i&gt;markdown:通用html标签&lt;/i&gt;&lt;/p&gt;
 &lt;p&gt;标签后要加空格&lt;/p&gt;
 &lt;p&gt;&lt;u&gt;块级元素：至少独占一行&lt;/u&gt;&lt;br&gt;&lt;u&gt;行内元素：只占据自身所需空间&lt;/u&gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;# 标题1&lt;br&gt;## 标题2&lt;br&gt;###</summary>
-        
-      
+&lt;p&gt;# 标题1&lt;br&gt;## 标题2&lt;br&gt;### 标题3&lt;/p&gt;
+&lt;h1 id=&quot;效果：&quot;&gt;&lt;a href=&quot;#效果：&quot; class=&quot;headerlink&quot; title=&quot;效果：&quot;&gt;&lt;/a&gt;效果：&lt;/h1&gt;&lt;h1 id=&quot;标题1&quot;&gt;&lt;a href=&quot;#标题1&quot; class=&quot;headerlink&quot; title=&quot;标题1&quot;&gt;&lt;/a&gt;标题1&lt;/h1&gt;&lt;h2 id=&quot;标题2&quot;&gt;&lt;a href=&quot;#标题2&quot; class=&quot;headerlink&quot; title=&quot;标题2&quot;&gt;&lt;/a&gt;标题2&lt;/h2&gt;&lt;h3 id=&quot;标题3&quot;&gt;&lt;a href=&quot;#标题3&quot; class=&quot;headerlink&quot; title=&quot;标题3&quot;&gt;&lt;/a&gt;标题3&lt;/h3&gt;&lt;hr&gt;</summary>
     
     
     
