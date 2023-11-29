@@ -120,6 +120,8 @@
 </li>
 </ul>
 </blockquote>
+<span id="more"></span>
+
 <p><strong>试验：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SIGINT信号处理函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">signal_handler</span><span class="params">(<span class="type">int</span> sig)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\nReceived SIGINT. Processing and saving critical information...\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟处理过程</span></span><br><span class="line">    sleep(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Critical information processed and saved.\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 注册SIGINT信号处理函数</span></span><br><span class="line">    signal(SIGINT, signal_handler);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟程序的主要逻辑</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 在这里添加程序的主要逻辑</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Working...\n&quot;</span>);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -227,6 +229,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            贪心算法
+          
+        </div>
+      </a>
     
     
       <a href="/2023/11/06/Linux/" class="article-nav-link">

@@ -157,67 +157,6 @@
     
     
     <article
-  id="post-Linux"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/11/06/Linux/"
-    >Linux</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/11/06/Linux/" class="article-date">
-  <time datetime="2023-11-06T13:23:45.000Z" itemprop="datePublished">2023-11-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<ul>
-<li><p>父子进程不共享变量，子进程和父进程分别执行程序</p>
-</li>
-<li><p>创建子进程（父子进程程序相同，进程号不同）并执行时，父子进程分别为2个程序，同时执行各自程序</p>
-</li>
-<li><p>线程共享</p>
-</li>
-<li><p>terminal运行.&#x2F;a.out &amp;，’&amp;’表示后台运行    <a target="_blank" rel="noopener" href="https://blog.csdn.net/z19861216/article/details/130848954">相关链接</a></p>
-</li>
-</ul>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
   id="post-Markdown基本语法"
   class="article article-type-post"
   itemscope
@@ -281,6 +220,67 @@
 
     
     <article
+  id="post-Linux"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/06/Linux/"
+    >Linux</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/06/Linux/" class="article-date">
+  <time datetime="2023-11-06T13:23:45.000Z" itemprop="datePublished">2023-11-06</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<ul>
+<li><p>父子进程不共享变量，子进程和父进程分别执行程序</p>
+</li>
+<li><p>创建子进程（父子进程程序相同，进程号不同）并执行时，父子进程分别为2个程序，同时执行各自程序</p>
+</li>
+<li><p>线程共享</p>
+</li>
+<li><p>terminal运行.&#x2F;a.out &amp;，’&amp;’表示后台运行    <a target="_blank" rel="noopener" href="https://blog.csdn.net/z19861216/article/details/130848954">相关链接</a></p>
+</li>
+</ul>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-实验8"
   class="article article-type-post"
   itemscope
@@ -320,33 +320,11 @@
 <p>不可靠信号和可靠信号的区别在于前者不支持排队，可能会造成信号丢失，而后者不会。非可靠信号一般都有确定的用途及含义，可靠信号则可以让用户自定义使用。</p>
 </li>
 </ul>
-</blockquote>
-<p><strong>试验：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SIGINT信号处理函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">signal_handler</span><span class="params">(<span class="type">int</span> sig)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\nReceived SIGINT. Processing and saving critical information...\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟处理过程</span></span><br><span class="line">    sleep(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Critical information processed and saved.\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 注册SIGINT信号处理函数</span></span><br><span class="line">    signal(SIGINT, signal_handler);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟程序的主要逻辑</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 在这里添加程序的主要逻辑</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Working...\n&quot;</span>);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>结果：</strong></p>
-<p><img src="/images/Linux_pic/sy8/1.png"></p>
-<h3 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h3><p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> target_process_id;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">alarm_handler</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGALRM) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;A: Sending a SIGALRM signal to process %d...\n&quot;</span>, target_process_id);</span><br><span class="line">        kill(target_process_id, SIGALRM);  <span class="comment">// 发送 SIGALRM 信号给程序 B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Usage: %s &lt;B_process_id&gt; &lt;timer_seconds&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    target_process_id = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="type">int</span> timer_seconds = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置 SIGALRM 信号处理函数</span></span><br><span class="line">    signal(SIGALRM, alarm_handler);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;A: After %d seconds, send a SIGALRM signal myself.\n&quot;</span>, timer_seconds);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置定时器</span></span><br><span class="line">    alarm(timer_seconds);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等待定时器触发</span></span><br><span class="line">    pause();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//B.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">sigalrm_handler</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGALRM) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;B: Receiving a SIGALRM signal. Exiting...\n&quot;</span>);</span><br><span class="line">        <span class="comment">// 执行程序 B 的其他操作...</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 设置 SIGALRM 信号处理函数</span></span><br><span class="line">    signal(SIGALRM, sigalrm_handler);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出进程 ID</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;B: My process ID is %d\n&quot;</span>, getpid());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保持程序 B 持续运行</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>结果：</strong></p>
-<p><img src="/images/Linux_pic/sy8/2.png"></p>
-<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">sigquit_handler</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGQUIT) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Parent: Received SIGQUIT signal. Sending signals to children...\n&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 向两个子进程发送信号</span></span><br><span class="line">        kill(<span class="number">0</span>, SIGUSR1);  <span class="comment">// 向同一进程组的所有进程发送 SIGUSR1 信号</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">sigusr1_handler</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGUSR1) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Child: Received SIGUSR1 signal. Exiting...\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 设置 SIGQUIT 信号处理函数</span></span><br><span class="line">    signal(SIGQUIT, sigquit_handler);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第一个子进程</span></span><br><span class="line">    <span class="type">pid_t</span> child_pid1 = fork();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (child_pid1 == <span class="number">-1</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Error creating child process 1&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (child_pid1 == <span class="number">0</span>) &#123;  <span class="comment">// 子进程1</span></span><br><span class="line">        signal(SIGUSR1, sigusr1_handler);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 子进程1执行的任务</span></span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第二个子进程</span></span><br><span class="line">    <span class="type">pid_t</span> child_pid2 = fork();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (child_pid2 == <span class="number">-1</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Error creating child process 2&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (child_pid2 == <span class="number">0</span>) &#123;  <span class="comment">// 子进程2</span></span><br><span class="line">        signal(SIGUSR1, sigusr1_handler);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// 子进程2执行的任务</span></span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等待子进程退出</span></span><br><span class="line">    <span class="type">int</span> status1, status2;</span><br><span class="line">    waitpid(child_pid1, &amp;status1, <span class="number">0</span>);</span><br><span class="line">    waitpid(child_pid2, &amp;status2, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当收到 SIGQUIT 信号时，会执行到这里</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Parent: Both children have exited. Exiting...\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>结果：</strong></p>
-<p><img src="/images/Linux_pic/sy8/2.png"></p>
-<h3 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h3><p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_PRIMES 1000</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> primes[MAX_PRIMES];</span><br><span class="line"><span class="type">int</span> num_primes = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_prime</span><span class="params">(<span class="type">int</span> number)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (number &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= number; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (number % i == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">handle_sigint</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGINT) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\nLast prime found: %d\n&quot;</span>, primes[num_primes - <span class="number">1</span>]);</span><br><span class="line">        fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">handle_sigquit</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (signum == SIGQUIT) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\nAll primes found:\n&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num_primes; ++i) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, primes[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\nExiting...\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_SUCCESS);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 设置信号处理函数</span></span><br><span class="line">    signal(SIGINT, handle_sigint);</span><br><span class="line">    signal(SIGQUIT, handle_sigquit);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Searching for primes between 2 and 65535...\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">65535</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime(i)) &#123;</span><br><span class="line">            primes[num_primes++] = i;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 打印找到的素数</span></span><br><span class="line">            <span class="comment">//printf(&quot;%d &quot;, i);</span></span><br><span class="line">            fflush(<span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 添加睡眠函数，使效果明显</span></span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>结果：</strong></p>
-<p><img src="/images/Linux_pic/sy8/4.png"></p>
-<h3 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h3><p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">displayDateTime</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">time_t</span> currentTime;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tm</span> *<span class="title">localTime</span>;</span></span><br><span class="line"></span><br><span class="line">    currentTime = time(<span class="literal">NULL</span>);</span><br><span class="line">    localTime = localtime(&amp;currentTime);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用 \033 进行颜色设置，\033[0m 恢复默认颜色</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\033[34;47m%04d-%02d-%02d %02d:%02d:%02d\033[0m\n&quot;</span>,</span><br><span class="line">           localTime-&gt;tm_year + <span class="number">1900</span>, localTime-&gt;tm_mon + <span class="number">1</span>, localTime-&gt;tm_mday,</span><br><span class="line">           localTime-&gt;tm_hour, localTime-&gt;tm_min, localTime-&gt;tm_sec);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">handleAlarm</span><span class="params">(<span class="type">int</span> signum)</span> &#123;</span><br><span class="line">    <span class="comment">// 重置闹钟</span></span><br><span class="line">    alarm(<span class="number">1</span>);</span><br><span class="line">    displayDateTime();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 注册信号处理函数</span></span><br><span class="line">    signal(SIGALRM, handleAlarm);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初次触发闹钟</span></span><br><span class="line">    alarm(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 主循环</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 空循环等待信号</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>结果：</strong></p>
-<p><img src="/images/Linux_pic/sy8/5.png"></p>
- 
+</blockquote> 
+      <a class="article-more-link" href="/2023/11/27/%E5%AE%9E%E9%AA%8C8/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -357,6 +335,127 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-实验9"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/29/%E5%AE%9E%E9%AA%8C9/"
+    >实验9</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/29/%E5%AE%9E%E9%AA%8C9/" class="article-date">
+  <time datetime="2023-11-29T15:17:33.000Z" itemprop="datePublished">2023-11-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux%E5%AE%9E%E9%AA%8C/">Linux实验</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><blockquote>
+<p>​	操作系统中进程通信的作用是允许不同的进程之间交换信息和共享资源，以实现协同工作和数据共享。这有助于多任务处理和分布式系统的有效管理。进程通信可通过各种机制实现，包括共享内存、消息传递、管道等。通过进程通信，不同的进程可以协调完成任务、共享数据，提高系统的整体效率。</p>
+</blockquote>
+<hr> 
+      <a class="article-more-link" href="/2023/11/29/%E5%AE%9E%E9%AA%8C9/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-贪心算法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"
+    >贪心算法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2023-11-29T13:03:04.000Z" itemprop="datePublished">2023-11-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="实验项目名称：贪婪算法技术的应用"><a href="#实验项目名称：贪婪算法技术的应用" class="headerlink" title="实验项目名称：贪婪算法技术的应用"></a>实验项目名称：贪婪算法技术的应用</h3><h3 id="一、实验任务和要求"><a href="#一、实验任务和要求" class="headerlink" title="一、实验任务和要求"></a>一、实验任务和要求</h3><pre><code>1、问题描述
+2、设计问题求解的算法、并进行代码的编写、调试、运行。
+3、分析算法的时间复杂度
+</code></pre>
+<h3 id="二、算法描述"><a href="#二、算法描述" class="headerlink" title="二、算法描述"></a>二、算法描述</h3><p>1）问题描述<br><strong>a</strong>.活动安排问题<br><strong>b</strong>.背包问题</p> 
+      <a class="article-more-link" href="/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a></li></ul>
 
     </footer>
   </div>

@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2023-11-27T14:10:44.348Z</updated>
+  <updated>2023-11-29T15:22:48.869Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -17,22 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>实验9</title>
+    <link href="https://coffeerin.github.io/2023/11/29/%E5%AE%9E%E9%AA%8C9/"/>
+    <id>https://coffeerin.github.io/2023/11/29/%E5%AE%9E%E9%AA%8C9/</id>
+    <published>2023-11-29T15:17:33.000Z</published>
+    <updated>2023-11-29T15:22:48.869Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;1-1&quot;&gt;&lt;a href=&quot;#1-1&quot; class=&quot;headerlink&quot; title=&quot;1.1&quot;&gt;&lt;/a&gt;1.1&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;​	操作系统中进程通信的作用是允许不同的进程之间交换信息和共享资源，以实现协同工作和数据共享。这有助于多任务处理和分布式系统的有效管理。进程通信可通过各种机制实现，包括共享内存、消息传递、管道等。通过进程通信，不同的进程可以协调完成任务、共享数据，提高系统的整体效率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="Linux实验" scheme="https://coffeerin.github.io/categories/Linux%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="Linux" scheme="https://coffeerin.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贪心算法</title>
+    <link href="https://coffeerin.github.io/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    <id>https://coffeerin.github.io/2023/11/29/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</id>
+    <published>2023-11-29T13:03:04.000Z</published>
+    <updated>2023-11-29T13:11:00.883Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;实验项目名称：贪婪算法技术的应用&quot;&gt;&lt;a href=&quot;#实验项目名称：贪婪算法技术的应用&quot; class=&quot;headerlink&quot; title=&quot;实验项目名称：贪婪算法技术的应用&quot;&gt;&lt;/a&gt;实验项目名称：贪婪算法技术的应用&lt;/h3&gt;&lt;h3 id=&quot;一、实验任务和要求&quot;&gt;&lt;a href=&quot;#一、实验任务和要求&quot; class=&quot;headerlink&quot; title=&quot;一、实验任务和要求&quot;&gt;&lt;/a&gt;一、实验任务和要求&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1、问题描述
+2、设计问题求解的算法、并进行代码的编写、调试、运行。
+3、分析算法的时间复杂度
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;二、算法描述&quot;&gt;&lt;a href=&quot;#二、算法描述&quot; class=&quot;headerlink&quot; title=&quot;二、算法描述&quot;&gt;&lt;/a&gt;二、算法描述&lt;/h3&gt;&lt;p&gt;1）问题描述&lt;br&gt;&lt;strong&gt;a&lt;/strong&gt;.活动安排问题&lt;br&gt;&lt;strong&gt;b&lt;/strong&gt;.背包问题&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://coffeerin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="贪心算法" scheme="https://coffeerin.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实验8</title>
     <link href="https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/"/>
     <id>https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/</id>
     <published>2023-11-27T13:57:03.000Z</published>
-    <updated>2023-11-27T14:10:44.348Z</updated>
+    <updated>2023-11-29T13:02:19.933Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h3 id=&quot;1-1&quot;&gt;&lt;a href=&quot;#1-1&quot; class=&quot;headerlink&quot; title=&quot;1.1&quot;&gt;&lt;/a&gt;1.1&lt;/h3&gt;&lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;可靠信号&lt;/strong&gt;（Reliable Signals）：</summary>
-        
-      
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;可靠信号&lt;/strong&gt;（Reliable Signals）： 这种信号在发送时不会丢失，系统会确保信号最终被接收。当进程处于阻塞状态时，可靠信号会被排队，直到进程解除阻塞后才被传递。SIGINT通常被认为是可靠信号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;不可靠信号&lt;/strong&gt;（Unreliable Signals）： 这种信号可能在发送时丢失，而且不会在信号过多导致排队不足时保存。进程在信号未被处理完全之前，可能不会接收到新的信号。SIGIO和SIGURG通常被认为是不可靠信号。&lt;/p&gt;
+&lt;p&gt;不可靠信号和可靠信号的区别在于前者不支持排队，可能会造成信号丢失，而后者不会。非可靠信号一般都有确定的用途及含义，可靠信号则可以让用户自定义使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -48,7 +93,7 @@
     <link href="https://coffeerin.github.io/2023/11/06/Linux/"/>
     <id>https://coffeerin.github.io/2023/11/06/Linux/</id>
     <published>2023-11-06T13:23:45.000Z</published>
-    <updated>2023-11-26T03:29:54.976Z</updated>
+    <updated>2023-11-29T13:02:28.335Z</updated>
     
     
       
