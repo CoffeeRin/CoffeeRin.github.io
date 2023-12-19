@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2023-11-30T00:21:45.783Z</updated>
+  <updated>2023-12-19T13:40:15.710Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,125 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最大子段和问题的多算法实现</title>
+    <link href="https://coffeerin.github.io/2023/12/19/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://coffeerin.github.io/2023/12/19/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</id>
+    <published>2023-12-19T13:38:42.000Z</published>
+    <updated>2023-12-19T13:40:15.710Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;最大子段和问题的多算法实现&quot;&gt;&lt;a href=&quot;#最大子段和问题的多算法实现&quot; class=&quot;headerlink&quot; title=&quot;最大子段和问题的多算法实现&quot;&gt;&lt;/a&gt;最大子段和问题的多算法实现&lt;/h3&gt;&lt;p&gt;1.BF&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="https://coffeerin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分治法</title>
+    <link href="https://coffeerin.github.io/2023/12/19/%E5%88%86%E6%B2%BB%E6%B3%95/"/>
+    <id>https://coffeerin.github.io/2023/12/19/%E5%88%86%E6%B2%BB%E6%B3%95/</id>
+    <published>2023-12-19T13:37:58.000Z</published>
+    <updated>2023-12-19T13:39:29.102Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.&lt;strong&gt;ChessCovering 问题&lt;/strong&gt;（棋盘覆盖）&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="https://coffeerin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态规划</title>
+    <link href="https://coffeerin.github.io/2023/12/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <id>https://coffeerin.github.io/2023/12/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</id>
+    <published>2023-12-19T13:37:49.000Z</published>
+    <updated>2023-12-19T13:39:57.353Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.&lt;strong&gt;Trangle Problem&lt;/strong&gt;（数字三角形问题）&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="https://coffeerin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>暴力算法</title>
+    <link href="https://coffeerin.github.io/2023/12/19/%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95/"/>
+    <id>https://coffeerin.github.io/2023/12/19/%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95/</id>
+    <published>2023-12-19T13:37:33.000Z</published>
+    <updated>2023-12-19T13:39:01.861Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;**a.**最接近点对问题的BF算法实现&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="https://coffeerin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux期末题目</title>
+    <link href="https://coffeerin.github.io/2023/12/19/Linux%E6%9C%9F%E6%9C%AB%E9%A2%98%E7%9B%AE&amp;%E6%BA%90%E7%A0%81/"/>
+    <id>https://coffeerin.github.io/2023/12/19/Linux%E6%9C%9F%E6%9C%AB%E9%A2%98%E7%9B%AE&amp;%E6%BA%90%E7%A0%81/</id>
+    <published>2023-12-19T13:13:00.000Z</published>
+    <updated>2023-12-19T13:15:03.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-文件处理&quot;&gt;&lt;a href=&quot;#1-文件处理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://coffeerin.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>实验9</title>
