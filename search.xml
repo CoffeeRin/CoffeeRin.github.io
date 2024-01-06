@@ -711,7 +711,7 @@
 <li><p>自动估计成本技术</p>
 </li>
 </ol>
-<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><h4 id="需求分析的任务"><a href="#需求分析的任务" class="headerlink" title="需求分析的任务"></a>需求分析的任务</h4><p><strong>确定对系统的综合要求</strong></p>
+<h3 id="第3章-需求分析"><a href="#第3章-需求分析" class="headerlink" title="第3章 需求分析"></a>第3章 需求分析</h3><h4 id="需求分析的任务"><a href="#需求分析的任务" class="headerlink" title="需求分析的任务"></a>需求分析的任务</h4><p><strong>确定对系统的综合要求</strong></p>
 <ol>
 <li><p>功能需求</p>
 </li>
@@ -751,7 +751,7 @@
 <li>第二范式</li>
 <li>第三范式</li>
 </ol>
-<h3 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h3><h4 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h4><ol>
+<h3 id="第5章-总体设计"><a href="#第5章-总体设计" class="headerlink" title="第5章 总体设计"></a>第5章 总体设计</h3><h4 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h4><ol>
 <li><p><strong>设想供选择的方案</strong> </p>
 </li>
 <li><p><strong>选择合理的方案</strong></p>
@@ -882,7 +882,7 @@
 <li>变换型数据流</li>
 <li>事务型数据流</li>
 </ol>
-<h3 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a><strong>详细设计</strong></h3><p><strong>目标</strong>：确定如何具体实现所要求的系统。</p>
+<h3 id="第6章-详细设计"><a href="#第6章-详细设计" class="headerlink" title="第6章 详细设计"></a>第6章 <strong>详细设计</strong></h3><p><strong>目标</strong>：确定如何具体实现所要求的系统。</p>
 <h4 id="结构程序设计"><a href="#结构程序设计" class="headerlink" title="结构程序设计"></a><strong>结构程序设计</strong></h4><p><strong>结构程序设计</strong>： 一种设计程序的技术，它采用自顶向下逐步求精的设计方法和单入口单出口的控制结构。  一种设计程序的技术，它采用自顶向下逐步求精的设计方法和单入口单出口的控制结构。 </p>
 <p><strong>使用结构程序设计技术的好处：</strong></p>
 <ol>
@@ -1123,7 +1123,7 @@
 <p><strong>指重新执行已经做过的部分测试。</strong></p>
 <p><strong>回归测试用于保证由于调试或其他原因引起的程序变化，不会导致额外错误的测试活动。</strong></p>
 <hr>
-<h3 id="确认测试"><a href="#确认测试" class="headerlink" title="确认测试"></a>确认测试</h3><p><strong>确认测试的范围</strong>：</p>
+<h4 id="确认测试"><a href="#确认测试" class="headerlink" title="确认测试"></a>确认测试</h4><p><strong>确认测试的范围</strong>：</p>
 <ol>
 <li>也称为验收测试，目标是验证软件的有效性。</li>
 <li>如果软件的功能和性能符合用户的期待，软件就是有效的。</li>
