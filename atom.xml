@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-01-06T15:10:51.326Z</updated>
+  <updated>2024-05-30T08:47:57.229Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MyBatis插入中文时乱码</title>
+    <link href="https://coffeerin.github.io/2024/05/30/MyBatis%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%97%B6%E4%B9%B1%E7%A0%81/"/>
+    <id>https://coffeerin.github.io/2024/05/30/MyBatis%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%97%B6%E4%B9%B1%E7%A0%81/</id>
+    <published>2024-05-30T08:47:17.000Z</published>
+    <updated>2024-05-30T08:47:57.229Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot;&gt;&lt;a href=&quot;#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="问题解决" scheme="https://coffeerin.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>问题解决：mybatis插入数据中文乱码</title>
+    <link href="https://coffeerin.github.io/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
+    <id>https://coffeerin.github.io/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</id>
+    <published>2024-05-10T07:36:18.000Z</published>
+    <updated>2024-05-10T07:36:48.879Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot;&gt;&lt;a href=&quot;#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="问题解决" scheme="https://coffeerin.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>软件工程导论概念</title>

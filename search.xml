@@ -1532,4 +1532,40 @@
         <tag>软件工程导论</tag>
       </tags>
   </entry>
+  <entry>
+    <title>问题解决：mybatis插入数据中文乱码</title>
+    <url>/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</url>
+    <content><![CDATA[<h3 id="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"><a href="#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？" class="headerlink" title="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"></a>问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？</h3><hr>
+<ul>
+<li><p>首先，检查数据库设置是否为UTF-8，如果是数据库设置编码问题，则改正。</p>
+</li>
+<li><p>如果问题依旧无法解决，则向Mybatis的核心配置文件mybatis-config.xml中的数据库环境配置中的<code>url</code>添加以下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;&quot;/&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>问题解决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MyBatis插入中文时乱码</title>
+    <url>/2024/05/30/MyBatis%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%97%B6%E4%B9%B1%E7%A0%81/</url>
+    <content><![CDATA[<h3 id="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"><a href="#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？" class="headerlink" title="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"></a>问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？</h3><hr>
+<ul>
+<li><p>首先，检查数据库设置是否为UTF-8，如果是数据库设置编码问题，则改正。</p>
+</li>
+<li><p>如果问题依旧无法解决，则向Mybatis的核心配置文件mybatis-config.xml中的数据库环境配置中的<code>url</code>添加以下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;&quot;/&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>问题解决</tag>
+      </tags>
+  </entry>
 </search>
