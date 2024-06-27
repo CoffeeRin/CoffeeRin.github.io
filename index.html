@@ -510,10 +510,9 @@
 <li>开启定时器，存入到定时器变量</li>
 <li>定时器里调用传入的函数</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn,t</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer) <span class="comment">//若存在定时器，则删除</span></span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">			<span class="title function_">fn</span>()</span><br><span class="line">		&#125;,t)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn,t</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer) <span class="comment">//若存在定时器，则删除</span></span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">			<span class="title function_">fn</span>()</span><br><span class="line">		&#125;,t)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
 
-
-
+<p>一直移动鼠标，停下来后，等500毫秒才执行。</p>
 <h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><blockquote>
 <p>单位事件内（周期），频繁触发事件，只执行一次。</p>
 <p>高频事件触发，但在n秒内只会执行一次。应用场景：window对象的页面尺寸缩放resize、滚动条滚动scroll事件，文字输入，mousemove，射击游戏的mousedown，keydown</p>
@@ -522,6 +521,22 @@
 <p><img src="/images/JavaScript/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/%E8%8A%82%E6%B5%81.PNG"></p>
 <p>实现：</p>
 <p>利用lodash的<code>_.throttle(func, [wait=0], [options=])</code>，wait&#x3D;n毫秒内，只会执行一次操作。</p>
+<p>底层实现：</p>
+<ol>
+<li><p>声明一个定时器变量</p>
+</li>
+<li><p>每次事件触发前先判断是否存在定时器，如果有则不开启新定时器</p>
+</li>
+<li><p>如果没有定时器则开启定时器，存入定时器变量</p>
+<pre><code>- 定时器里面调用执行的函数
+
+- 定时器里面要把定时器清空
+</code></pre>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn,t</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="comment">//如果不存在定时器,则创建新定时器</span></span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">			timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="title function_">fn</span>() </span><br><span class="line">                <span class="comment">//清空定时器</span></span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;,t)</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
+
+<p>一直移动鼠标，单位时间500毫秒内无论执行多少次，只执行一次。</p>
  
       <!-- reward -->
       
