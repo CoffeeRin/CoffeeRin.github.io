@@ -1902,4 +1902,17 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
         <tag>-面试 -八股文</tag>
       </tags>
   </entry>
+  <entry>
+    <title>防抖和节流</title>
+    <url>/2024/06/27/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+    <content><![CDATA[<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><blockquote>
+<p>单位时间内，频繁触发时间，只执行最后一次。</p>
+<p>触发高频时间后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。应用场景：手机号、邮箱验证、搜索框输入。</p>
+</blockquote>
+<p><img src="/images/JavaScript/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/%E9%98%B2%E6%8A%96.PNG"></p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
