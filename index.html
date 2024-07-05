@@ -466,6 +466,294 @@
 
     
     <article
+  id="post-vue笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/05/vue%E7%AC%94%E8%AE%B0/"
+    >vue笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/05/vue%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2024-07-05T08:49:06.000Z" itemprop="datePublished">2024-07-05</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>模板中需要用方法&#x2F;复杂逻辑：<script></script>里就用计算属性<code>computed:&#123;&#125;</code> <strong>类似方法</strong>，在模板中调&gt;用时不需要加括号</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>模板里若需要调用方法则要加括号，用计算属性更优</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>安装yarn <code>npm i -g yarn</code></li>
+<li>安装vue-Cli <code>npm i -g @vue/cli</code> or <code>yarn global add @vue/cli</code> 创建项目 <code>vue create my-app</code></li>
+<li>运行项目<code>npm run serve</code> or <code>yarn run</code></li>
+</ul>
+<h1 id="vue3-ts"><a href="#vue3-ts" class="headerlink" title="vue3+ts"></a>vue3+ts</h1><hr>
+<p>js，ts变量名和值名字一样直接省略写法：<code>name:name</code>-&gt;<code>name</code></p>
+<p>箭头函数vscode快捷写法：dfi</p>
+<hr>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>1.Vue-CLi</p>
+<p><code>vue create 项目名</code></p>
+<p>2.Vite</p>
+<p>基于create-vue 创建出来的项目默认没有初始化git仓库</p>
+<ul>
+<li><p><code>npm create vue@latest</code></p>
+</li>
+<li><p><code>npm init vue@latest</code></p>
+</li>
+</ul>
+<p>以上两种方法创建的项目相同</p>
+<p>创建vite项目</p>
+<ul>
+<li>&#96;&#96;&#96;npm create vite@latest&#96;&#96;</li>
+</ul>
+<p>图形化界面创建</p>
+<p><code>vue ui</code></p>
+<hr>
+<h3 id="状态管理工具"><a href="#状态管理工具" class="headerlink" title="状态管理工具"></a>状态管理工具</h3><p>1.Vue3 -&gt; Piania(good),Vuex</p>
+<p>2.Vue2 -&gt; Vuex</p>
+<hr>
+<h3 id="语法检查工具"><a href="#语法检查工具" class="headerlink" title="语法检查工具"></a>语法检查工具</h3><p>ESLint</p>
+<ul>
+<li>其他：获取id：uuid,nanoid</li>
+</ul>
+<hr>
+<h3 id="组合式api命名组件的两种方式："><a href="#组合式api命名组件的两种方式：" class="headerlink" title="组合式api命名组件的两种方式："></a>组合式api命名组件的两种方式：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.命名组件:2个script</span><br><span class="line">&lt;script lang=&#x27;ts&#x27;&gt;</span><br><span class="line">	export default()&#123;</span><br><span class="line">		name:&#x27;Person&#x27;//name=&#x27;Person&#x27;命名组件</span><br><span class="line">		data()&#123;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&#x27;ts&#x27; setup&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>命名组件：</span><br><span class="line">需先安装插件<span class="string">`npm i vite-plugin-vue-setup-extend -D`</span></span><br><span class="line">再到vite.<span class="property">config</span>.<span class="property">ts</span>引用</span><br><span class="line">&lt;script lang=<span class="string">&#x27;ts&#x27;</span> setup name=<span class="string">&#x27;Person&#x27;</span>&gt;<span class="comment">//name=&#x27;Person&#x27;命名组件</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.ts</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./assets/main.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span> <span class="comment">//根组件App</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>) <span class="comment">//创建App并挂载到index.html的id为app的元素</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//根目录的index.html</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/favicon.ico&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vite App<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入main.ts --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/src/main.ts&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="ref和reactive-响应式数据"><a href="#ref和reactive-响应式数据" class="headerlink" title="ref和reactive-响应式数据"></a>ref和reactive-响应式数据</h3><p><code>import &#123;ref,reactive&#125; from &#39;vue&#39;</code></p>
+<ul>
+<li><p>ref:适用于基本类型和对象。</p>
+<ul>
+<li><code>let name = ref(&#39;Coffee&#39;)</code> <code>let person = ref(&#123;name:&#39;Coffee&#39;,age:22&#125;)</code> <code>let arr = [&#39;a&#39;,&#123;name:&#39;Coffee&#39;,age:22&#125;]</code>。</li>
+<li>在模板直接使用<code>&#123;&#123;arr[1]&#125;&#125;</code>。</li>
+<li>改数据：在方法中需要先<code>.value</code>再赋值<code>name.value</code> <code>person.value.name</code> <code>arr.value[1].name</code>。</li>
+</ul>
+</li>
+<li><p>reactive:适用于对象和数组。</p>
+<ul>
+<li><code>let person = reactive(&#123;name:&#39;Coffee&#39;,age:22&#125;)</code>。获取属性值直接<code>对象.属性名</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="toRefs和toRef"><a href="#toRefs和toRef" class="headerlink" title="toRefs和toRef"></a>toRefs和toRef</h3><ul>
+<li><p>将reactive定义的<strong>对象的属性</strong>转为ref</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//toRefs</span><br><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let &#123;name,age&#125; = toRefs(person)</span><br><span class="line">/*let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;, -&gt;ref</span><br><span class="line">	age:22         -&gt;ref</span><br><span class="line">&#125;)*/person仍为reactive</span><br><span class="line"></span><br><span class="line">console.log(name.value,age.value)</span><br><span class="line">console.log(person.name,person.age)</span><br><span class="line"></span><br><span class="line">//toRef</span><br><span class="line">let &#123;name,age&#125; = toRef(person,&#x27;name&#x27;)</span><br><span class="line">console.log(name.value)</span><br><span class="line">console.log(person.name)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="computed计算属性"><a href="#computed计算属性" class="headerlink" title="computed计算属性:"></a>computed计算属性:</h3><ul>
+<li>计算属性也是属性且是只读的。<code>默认为ref响应式数据</code>。</li>
+<li>计算属性有缓存，只计算一次，缓存中数据变化时才再次计算。而方法每次调用都计算一次。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let a = ref(&#x27;a&#x27;)</span><br><span class="line">let b = ref(&#x27;b&#x27;)</span><br><span class="line"></span><br><span class="line">let c = computed(()=&gt;&#123;</span><br><span class="line">	return a.value + b.value //回调函数</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//通过getter和setter获取和更改计算属性</span><br><span class="line">let c = computed(()=&gt;&#123;</span><br><span class="line">	get()&#123;</span><br><span class="line">		return a.value + b.value //回调函数</span><br><span class="line">	&#125;</span><br><span class="line">	set(val)&#123;</span><br><span class="line">		a.value = val</span><br><span class="line">		b.value = val</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="Watch监视"><a href="#Watch监视" class="headerlink" title="Watch监视"></a>Watch监视</h3><p>参数：</p>
+<p><code>watch(被监视数据，(newValue,oldValue)=&gt;&#123; &#125;,配置对象)</code></p>
+<ul>
+<li><p>ref：</p>
+<ul>
+<li><p>监视<strong>ref</strong>定义的<strong>基本类型</strong>数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let a = ref(0)</span><br><span class="line"></span><br><span class="line">//watch()调用时有返回值，调用停止监视</span><br><span class="line">const stopWatch = watch(a,(newValue,oldValue)=&gt;&#123; </span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">	if(条件)&#123;</span><br><span class="line">		stopWatch() //结束监视 </span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视<strong>ref</strong>定义的<strong>对象</strong>数据：监听对象属性时：<code>deep:true</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let person = ref(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视整个对象的变化，对象本身变成新的对象才监视</span><br><span class="line">watch(person,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视对象的属性和对象本身，手动开启深度监听</span><br><span class="line">//添加配置对象&#123;deep:true,immediate:true&#125;</span><br><span class="line">//修改属性时，对象地址不变属性值变，oldValue仍指向原来的对象，故newValue=oldValue</span><br><span class="line">watch(person,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true,immediate:true&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视<strong>ref</strong>定义的<strong>对象</strong>的某个属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let person = ref(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">watch(() =&gt; person.name,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视多个属性</span><br><span class="line">watch([() =&gt; person.name,() =&gt; person.age],(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>reactive</p>
+<ul>
+<li><p>监视reactive定义的对象类型数据，默认开启深度监视（隐式创建）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视属性变化和对象本身变化</span><br><span class="line">watch(person,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视监视reactive定义的对象类型数据的属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22,</span><br><span class="line">	car:&#123;</span><br><span class="line">		c1:&#x27;gti&#x27;,</span><br><span class="line">		c2:&#x27;a4l&#x27;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视的对象的属性为基本类型</span><br><span class="line">watch(()=&gt;person.name,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//1.监视的对象的属性为对象,监视car本身而不监视car的属性变化：</span><br><span class="line">watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//2.监视的对象的属性为对象,监视car的属性变化,需要手动开启深度监视</span><br><span class="line">watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true&#125;)</span><br><span class="line"></span><br><span class="line">//监视多个属性</span><br><span class="line">watch([() =&gt; person.name,() =&gt; person.age,person.car],(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tip:无论是ref还是reactive定义的对象：要监视对象的某个属性，watch里要用回调函数监视，</p>
+<p>如<code>watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;&#125;,&#123;&#125;)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="html标签中的ref："><a href="#html标签中的ref：" class="headerlink" title="html标签中的ref："></a>html标签中的ref：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template中：</span><br><span class="line">&lt;h1 ref=&#x27;tag&#x27;&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">ts/js中：</span><br><span class="line">let tag = ref()</span><br><span class="line"></span><br><span class="line">可以通过tag变量名标识h1和获取h1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="限制对象属性的名字和类型"><a href="#限制对象属性的名字和类型" class="headerlink" title="限制对象属性的名字和类型"></a>限制对象属性的名字和类型</h3><p>定义接口</p>
+<p>创建文件夹：<code>types-&gt;index.ts</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//index.ts</span><br><span class="line">//限制对象Obj的属性</span><br><span class="line">export interface ObjInter&#123;</span><br><span class="line">	id:string,</span><br><span class="line">	age:number,</span><br><span class="line">	sex?:string //加?表示为可选项</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//用export暴露出去</span><br><span class="line"></span><br><span class="line">//限制数组的元素为对象类型的属性</span><br><span class="line">export type Objs = Array&lt;ObjInter&gt;</span><br><span class="line">export type Objs = ObjInter[]</span><br></pre></td></tr></table></figure>
+
+<p>引用：</p>
+<p><code>import &#123;type ObjInter,type Objs&#125; from &#39;@/types&#39;</code></p>
+<p>使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let obj:ObjInter = &#123;id:&#x27;1&#x27;,age:1&#125;</span><br><span class="line">let objs:Array&lt;ObjInter&gt; = [</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">let objs:Objs = [</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">//&lt;泛型&gt;</span><br><span class="line">let objs = reactive&lt;Objs&gt;([</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>父组件传</p>
+<p>子组件收：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123;defineProps,withDefault&#125; from &#x27;vue&#x27;//宏函数可以不引入</span><br><span class="line"></span><br><span class="line">defineProps([&#x27;a&#x27;,&#x27;b&#x27;])</span><br><span class="line"></span><br><span class="line">//限制类型</span><br><span class="line">defineProps&lt;&#123;a:Objs&#125;&gt;()</span><br><span class="line"></span><br><span class="line">withDefault(defineProps&lt;&#123;a?:Objs&#125;&gt;(),&#123;</span><br><span class="line">	a:()=&gt;[&#123;默认值&#125;]</span><br><span class="line">&#125;)//&#x27;?&#x27;表可选项,</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="defineExpose"><a href="#defineExpose" class="headerlink" title="defineExpose"></a>defineExpose</h3><p>vue3子组件的数据只有暴露之后父组件才能获取到</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">defineExpose</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>)<span class="comment">//a,b为子组件数据名，暴露后父组件可以获得</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><h4 id="1-vue2组合式api"><a href="#1-vue2组合式api" class="headerlink" title="1. vue2组合式api"></a>1. vue2组合式api</h4><p>  生命周期            钩子</p>
+<ul>
+<li><p>创建  （创建前beforeCreate()，创建完毕created()）</p>
+</li>
+<li><p>挂载  （挂载前beforeMounte()，挂载完毕mounted()）</p>
+</li>
+<li><p>更新  （更新前beforeUpdate()，更新完毕updated()）</p>
+</li>
+<li><p>销毁  （销毁前beforeDestory()，销毁完毕destoryed()）</p>
+</li>
+</ul>
+<p>钩子：生命周期函数</p>
+<h4 id="2-vue3选项式api"><a href="#2-vue3选项式api" class="headerlink" title="2. vue3选项式api"></a>2. vue3选项式api</h4><p>  生命周期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;onBeforeMount,onMounted,onBeforeUpdate,onUpdated,onBeforeUnmounte，onUnmounted,onBeforeDestory,onDestoryed&#125; from &#x27;vue&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建:<ul>
+<li>setup。setup时自动return，setup时创建完毕。</li>
+</ul>
+</li>
+<li>挂载:子组件挂载到父组件，父组件再挂载到<ul>
+<li>挂载前：onBeforeMount( ( ) &#x3D;&gt; { } )</li>
+<li>挂载完毕：onMounted( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+<li>更新:<ul>
+<li>更新前：onBeforeUpdate( ( ) &#x3D;&gt; { } )</li>
+<li>更新完毕：onUpdated( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+<li>卸载：v-show()<ul>
+<li>卸载前：onBeforeUnmounte( ( ) &#x3D;&gt; { } )  </li>
+<li>卸载完毕：onUnmounted( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Hooks：useXxx-ts命名文件的为hooks"><a href="#Hooks：useXxx-ts命名文件的为hooks" class="headerlink" title="Hooks：useXxx.ts命名文件的为hooks"></a>Hooks：useXxx.ts命名文件的为hooks</h3><blockquote>
+<p>创建hooks文件夹，hooks-&gt;useName.ts</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//useName.ts</span><br><span class="line">export default function()&#123;</span><br><span class="line">	</span><br><span class="line">	return &#123;name,age&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//调用useName.ts的vue文件</span><br><span class="line">&lt;script setup lang=&#x27;ts&#x27;&gt;</span><br><span class="line">	import useName from &#x27;@hooks/useName&#x27;</span><br><span class="line"></span><br><span class="line">	//调用</span><br><span class="line">	const &#123;name,age&#125; = useName()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><ul>
+<li><p>父传子：</p>
+<ul>
+<li>props:父组件直接传给子组件。父组件传<code>&lt;Son name=&#39;coffee&#39; /&gt;</code>,子组件接收<code>defineProps([&#39;name&#39;])</code></li>
+</ul>
+</li>
+<li><p>子传父：</p>
+<ul>
+<li>props:通过传递函数给子组件，子组件将数据传给函数，父组件接收到数据<ul>
+<li>父组件定义一个方法<code>f(value)</code></li>
+<li>父组件将该方法传给子组件<code>&lt;Son :func=&#39;f&#39; /&gt;</code></li>
+<li>子组件接收方法<code>defineProps([&#39;func&#39;])</code></li>
+<li>子组件调用方法<code>func(params)</code></li>
+</ul>
+</li>
+<li>自定义事件：<ul>
+<li>父组件定义方法<code>getSon(value:string)</code></li>
+<li>父组件给子组件绑定自定义事件<code>&lt;Son @send-from-son=&#39;getSon&#39; /&gt;</code>  <strong>自定义事件的事件名命名规范：a-b-c,v-on对大小写不敏感</strong></li>
+<li>子组件接收自定义事件<code>const emit = defineEmits([&#39;sendFromSon&#39;])</code></li>
+<li>子组件调用事件，<code>&lt;button @click=&#39;emit(&#39;sendFromSon&#39;,name)&#39;&gt;&lt;/button&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><p>用<code>v-bind</code>传对象，对象里面是<code>key:value</code></p>
+<p><code>v-bind=&#39;&#123;a:&#39;1&#39;,b:&#39;2&#39;&#125;&#39;</code> &#x3D;&#x3D;传递&#x3D;&#x3D;&gt;<code>a:&#39;1&#39;,b:&#39;2&#39;</code></p>
+<hr>
+<h3 id="宏函数"><a href="#宏函数" class="headerlink" title="宏函数"></a>宏函数</h3><p>define开头</p>
+<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>use开头或者on开头</p>
+<hr>
+<h3 id="forin遍历"><a href="#forin遍历" class="headerlink" title="forin遍历"></a>forin遍历</h3><p><code>forin</code>遍历根据索引遍历：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(index in arr)&#123;</span><br><span class="line">	console.log(arr[index])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当索引值是key时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;Child1 ref=&#x27;c1&#x27; /&gt;</span><br><span class="line">&lt;Child2 ref=&#x27;c2&#x27; /&gt;</span><br><span class="line">&lt;button @click=&#x27;getAllChilds($refs)&#x27;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">getAllChilds(refs:any)&#123;</span><br><span class="line">	console.log(refs)</span><br><span class="line">	/*	key:value</span><br><span class="line">		refs:&#123;</span><br><span class="line">			c1:Child1,</span><br><span class="line">			c2:Child2</span><br><span class="line">		&#125;</span><br><span class="line">	*/</span><br><span class="line">	</span><br><span class="line">	//同样地,遍历refs</span><br><span class="line">	for(key in refs)&#123;</span><br><span class="line">		console.log(refs[key])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><ul>
+<li><p>数据源在父组件，用<strong>默认插槽</strong>和<strong>具名插槽</strong>给子组件插标签</p>
+</li>
+<li><p>数据源在子组件，用<strong>作用域插槽</strong>。处理过程：子组件先给插槽传数据，插槽再将数据传给父组件中的子组件标签，从而实现数据访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//父组件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;Child&gt;</span><br><span class="line">        &lt;template #insert=&quot;params&quot;&gt; //#insert=&quot;params&quot;等价于v-slot:insert=&quot;params&quot;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li v-for=&quot;games111 in params.games111&quot; :key=&quot;games111.id&quot;&gt;</span><br><span class="line">					&#123;&#123;game111.name&#125;&#125;</span><br><span class="line">				&lt;li&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;template&gt;</span><br><span class="line">	&lt;/Child&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//子组件，数据在子组件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;slot name=&quot;insert&quot; :games111=&quot;game&quot; x=&quot;1&quot; y=&quot;2&quot;&gt;	//作用域插槽子组件传数据给插槽，数据包装成一个对象</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><p><code>/api/category?a=1&amp;b=2&amp;c=3</code></p>
+<p><code>?</code>表示要开始传参了</p>
+<p><code>&amp;</code>用来分隔参数</p>
+<p>prams传参：<code>:</code>路由中的表示占位符</p>
+<hr>
+<h3 id="全局api（vue2）转移到应用对象（vue3）"><a href="#全局api（vue2）转移到应用对象（vue3）" class="headerlink" title="全局api（vue2）转移到应用对象（vue3）"></a>全局api（vue2）转移到应用对象（vue3）</h3><ol>
+<li>vue2：<code>Vue.use(),Vue.mount()</code></li>
+<li>vue3:<code> const app = createApp(App)</code> <code>app.use(),app.mount()</code></li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-防抖和节流"
   class="article article-type-post"
   itemscope
@@ -744,7 +1032,32 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h4 id="26-浏览器的存储方式有哪些？"><a href="#26-浏览器的存储方式有哪些？" class="headerlink" title="26.浏览器的存储方式有哪些？"></a>26.浏览器的存储方式有哪些？</h4><p>1.cookies<br>    H5标准前的本地存储方式<br>    兼容性好，请求头自带cookie<br>    存储量小，资源浪费，使用麻烦（封装）<br>2.localstorage<br>    H5加入的以键值对为标准的方式<br>    操作方便，永久存储，兼容性较好<br>    保存值的类型被限定，浏览器在隐私模式下不可读取，不能被爬虫<br>3.sessionstorage<br>    当前页面关闭后就会立刻清理，会话级别的存储方式<br>4.indexedDB<br>    H5标准的存储方式，他是以键值对进行存储，可以快速读取，适合WEB场景</p>
 <h4 id="27-token存在sessionstorage还是loaclstorage？"><a href="#27-token存在sessionstorage还是loaclstorage？" class="headerlink" title="27.token存在sessionstorage还是loaclstorage？"></a>27.token存在sessionstorage还是loaclstorage？</h4><p>token：验证身份的令牌，一般就是用户通过账号密码登录后，服务端把这些凭证通过加密等一系列操作后得到的字符串<br>1.存loaclstorage里，后期每次请求接口都需要把它当作一个字段传给后台<br>2.存cookie中，会自动发送，缺点就是不能跨域<br>如果存在localstorage中，容易被XSS攻击，但是如果做好了对应的措施，那么是利大于弊<br>如果存在cookie中会有CSRF攻击</p>
 <h4 id="28-token的登录流程。"><a href="#28-token的登录流程。" class="headerlink" title="28.token的登录流程。"></a>28.token的登录流程。</h4><p>1.客户端用账号密码请求登录<br>2.服务端收到请求后，需要去验证账号密码<br>3.验证成功之后，服务端会签发一个token，把这个token发送给客户端<br>4.客户端收到token后保存起来，可以放在cookie也可以是localstorage<br>5.客户端每次向服务端发送请求资源的时候，都需要携带这个token<br>6.服务端收到请求，接着去验证客户端里的token，验证成功才会返回客户端请求的数据</p>
-<h4 id="29-页面渲染的过程是怎样的？"><a href="#29-页面渲染的过程是怎样的？" class="headerlink" title="29.页面渲染的过程是怎样的？"></a>29.页面渲染的过程是怎样的？</h4><p>DNS解析<br>建立TCP连接<br>发送HTTP请求<br>服务器处理请求<br>渲染页面<br>    浏览器会获取HTML和CSS的资源，然后把HTML解析成DOM树<br>    再把CSS解析成CSSOM<br>    把DOM和CSSOM合并为渲染树<br>    布局<br>    把渲染树的每个节点渲染到屏幕上（绘制）<br>断开TCP连接</p>
+<h4 id="29-页面渲染的过程是怎样的？"><a href="#29-页面渲染的过程是怎样的？" class="headerlink" title="29.页面渲染的过程是怎样的？"></a>29.页面渲染的过程是怎样的？</h4><ol>
+<li><p>DNS解析</p>
+</li>
+<li><p>建立TCP连接</p>
+</li>
+<li><p>发送HTTP请求</p>
+</li>
+<li><p>服务器处理请求</p>
+</li>
+<li><p>渲染页面</p>
+<ul>
+<li><p>浏览器会获取HTML和CSS的资源，然后把HTML解析成DOM树</p>
+</li>
+<li><p>再把CSS解析成CSSOM</p>
+</li>
+<li><p>把DOM和CSSOM合并为渲染树</p>
+</li>
+<li><p>布局</p>
+</li>
+<li><p>把渲染树的每个节点渲染到屏幕上（绘制）</p>
+</li>
+</ul>
+</li>
+<li><p>断开TCP连接</p>
+</li>
+</ol>
 <h4 id="30-DOM树和渲染树有什么区别？"><a href="#30-DOM树和渲染树有什么区别？" class="headerlink" title="30.DOM树和渲染树有什么区别？"></a>30.DOM树和渲染树有什么区别？</h4><p>DOM树是和HTML标签一一对应的，包括head和隐藏元素<br>渲染树是不包含head和隐藏元素</p>
 <h4 id="31-精灵图和base64的区别是什么？"><a href="#31-精灵图和base64的区别是什么？" class="headerlink" title="31.精灵图和base64的区别是什么？"></a>31.精灵图和base64的区别是什么？</h4><p>精灵图：把多张小图整合到一张大图上，利用定位的一些属性把小图显示在页面上，当访问页面可以减少请求，提高加载速度<br>base64：传输8Bit字节代码的编码方式，把原本二进制形式转为64个字符的单位，最后组成字符串<br>base64是会和html css一起下载到浏览器中，减少请求，减少跨域问题，但是一些低版本不支持，若base64体积比原图片大，不利于css的加载。</p>
 <h4 id="32-svg格式了解多少？"><a href="#32-svg格式了解多少？" class="headerlink" title="32.svg格式了解多少？"></a>32.svg格式了解多少？</h4><p>可缩放矢量图，基于<strong>XML语法格式</strong>的图像格式，其他图像是基于像素的，SVG是属于对图像形状的描述，本质是文本文件，体积小，并且不管放大多少倍都不会失真<br>1.SVG可直接插入页面中，成为DOM一部分，然后用JS或CSS进行操作</p>
@@ -1215,73 +1528,6 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 
 <p>如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;&quot;/&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-问题解决：mybatis插入数据中文乱码"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"
-    >问题解决：mybatis插入数据中文乱码</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="article-date">
-  <time datetime="2024-05-10T07:36:18.000Z" itemprop="datePublished">2024-05-10</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"><a href="#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？" class="headerlink" title="问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？"></a>问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？</h3><hr>
-<ul>
-<li><p>首先，检查数据库设置是否为UTF-8，如果是数据库设置编码问题，则改正。</p>
-</li>
-<li><p>如果问题依旧无法解决，则向Mybatis的核心配置文件mybatis-config.xml中的数据库环境配置中的<code>url</code>添加以下信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;</span><br></pre></td></tr></table></figure>
-
-<p>如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;&quot;/&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>SpringBoot中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/shop?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
-
-<pre><code class="spring.datasource.url=jdbc:mysql://localhost:3306/shop?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC">
-</code></pre>
-</li>
 </ul>
  
       <!-- reward -->
