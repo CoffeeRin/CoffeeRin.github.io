@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-07-05T08:49:28.098Z</updated>
+  <updated>2024-07-06T02:45:45.322Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ajax请求</title>
+    <link href="https://coffeerin.github.io/2024/07/06/Ajax%E8%AF%B7%E6%B1%82/"/>
+    <id>https://coffeerin.github.io/2024/07/06/Ajax%E8%AF%B7%E6%B1%82/</id>
+    <published>2024-07-06T02:45:14.000Z</published>
+    <updated>2024-07-06T02:45:45.322Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;Ajax请求&quot;&gt;&lt;a href=&quot;#Ajax请求&quot; class=&quot;headerlink&quot; title=&quot;Ajax请求&quot;&gt;&lt;/a&gt;Ajax请求&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建 XMLHttpRequest</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>路由缓存问题</title>
+    <link href="https://coffeerin.github.io/2024/07/05/%E8%B7%AF%E7%94%B1%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/"/>
+    <id>https://coffeerin.github.io/2024/07/05/%E8%B7%AF%E7%94%B1%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</id>
+    <published>2024-07-05T09:10:10.000Z</published>
+    <updated>2024-07-05T09:11:01.064Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;路由缓存问题&quot;&gt;&lt;a href=&quot;#路由缓存问题&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>无感登录</title>
+    <link href="https://coffeerin.github.io/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/"/>
+    <id>https://coffeerin.github.io/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/</id>
+    <published>2024-07-05T08:59:37.000Z</published>
+    <updated>2024-07-05T09:00:04.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;目录&lt;/p&gt;
+&lt;p&gt;1.解决方案&lt;/p&gt;
+&lt;p&gt;2.实现流程&lt;/p&gt;
+&lt;p&gt;1.解决方案&lt;br&gt;        无感登录实际上就是无感刷新 token。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    1.在响应器中拦截，判断 token 返回过期后，调用刷新 token</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>vue笔记</title>
@@ -449,27 +517,6 @@
     
     
     <category term="Markdown" scheme="https://coffeerin.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://coffeerin.github.io/2023/11/05/HelloWorld/"/>
-    <id>https://coffeerin.github.io/2023/11/05/HelloWorld/</id>
-    <published>2023-11-05T09:56:05.944Z</published>
-    <updated>2023-11-06T10:10:02.175Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
