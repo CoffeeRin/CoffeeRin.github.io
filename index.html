@@ -466,6 +466,57 @@
 
     
     <article
+  id="post-接口封装"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/"
+    >接口封装</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/" class="article-date">
+  <time datetime="2024-07-07T08:13:38.000Z" itemprop="datePublished">2024-07-07</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//http.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//axios基础的封装</span></span><br><span class="line"><span class="comment">//导出的httpInstance实例为apis服务</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;@/router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//只使用组件 API</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/theme-chalk/el-message.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElMessage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引入pinia(user)</span></span><br><span class="line"><span class="keyword">import</span> &#123; useUserStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@/stores/userStore&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建axios实例</span></span><br><span class="line"><span class="keyword">const</span> httpInstance = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">baseURL</span>: <span class="string">&#x27;http://pcapi-xiaotuxian-front-devtest.itheima.net&#x27;</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">6000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//拦截器，e代表error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// axios请求拦截器</span></span><br><span class="line">httpInstance.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//1.获取pinia中user数据</span></span><br><span class="line">  <span class="keyword">const</span> userStore = <span class="title function_">useUserStore</span>()</span><br><span class="line">  <span class="comment">//2.按照后端的要求拼接token数据</span></span><br><span class="line">  <span class="keyword">const</span> token = userStore.<span class="property">userInfo</span>.<span class="property">token</span></span><br><span class="line">  <span class="keyword">if</span> (token) &#123;</span><br><span class="line">    config.<span class="property">headers</span>.<span class="property">Authorization</span> = <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span> <span class="comment">//请求的config拼接token到header上</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;, <span class="function"><span class="params">e</span> =&gt;</span> &#123; <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(e) &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// axios响应式拦截器</span></span><br><span class="line">httpInstance.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">data</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> userStore = <span class="title function_">useUserStore</span>()</span><br><span class="line">  <span class="comment">//统一错误提示  </span></span><br><span class="line">  <span class="title class_">ElMessage</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span>,</span><br><span class="line">    <span class="attr">message</span>: e.<span class="property">response</span>.<span class="property">data</span>.<span class="property">message</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">//401token失效处理</span></span><br><span class="line">  <span class="comment">//1.清除本地用户数据</span></span><br><span class="line">  <span class="comment">//2.跳转到登录页</span></span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">response</span>.<span class="property">status</span> === <span class="number">401</span>) &#123;</span><br><span class="line">    userStore.<span class="title function_">clearUserInfo</span>()</span><br><span class="line">    router.<span class="title function_">push</span>(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(e)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> httpInstance</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Ajax请求"
   class="article article-type-post"
   itemscope
@@ -988,99 +1039,6 @@
     
     <footer class="article-footer">
        
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-防抖和节流"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/27/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"
-    >防抖和节流</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/27/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="article-date">
-  <time datetime="2024-06-27T14:48:18.000Z" itemprop="datePublished">2024-06-27</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><blockquote>
-<p>单位时间内，频繁触发事件，只执行最后一次。</p>
-<p>触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。应用场景：手机号、邮箱验证、搜索框输入。</p>
-</blockquote>
-<p><img src="/images/JavaScript/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/%E9%98%B2%E6%8A%96.PNG"></p>
-<p>实现：</p>
-<p>利用lodash的 debounced（防抖动）函数。</p>
-<p><code>_.debounce(func, [wait=0], [options=])</code> 等待时间：[wait&#x3D;0]单位是多少毫秒，先等待再执行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,_.<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
-
-<p>其底层是用定时器setTimeout实现的，每次执行前先判断有没有定时器，有则清除定时器。</p>
-<ol>
-<li>声明定时器变量</li>
-<li>每次事件触发前判断有没有存在定时器，有则清除</li>
-<li>开启定时器，存入到定时器变量</li>
-<li>定时器里调用传入的函数</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn,t</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer) <span class="comment">//若存在定时器，则删除</span></span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">			<span class="title function_">fn</span>()</span><br><span class="line">		&#125;,t)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
-
-<p>一直移动鼠标，停下来后，等500毫秒才执行。</p>
-<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><blockquote>
-<p>单位事件内（周期），频繁触发事件，只执行一次。</p>
-<p>高频事件触发，但在n秒内只会执行一次。应用场景：window对象的页面尺寸缩放resize、滚动条滚动scroll事件，文字输入，mousemove，射击游戏的mousedown，keydown</p>
-</blockquote>
-<p>例子，射击游戏频繁点击鼠标，为了节流，规定单位事件内点击的n次鼠标只执行一次操作。</p>
-<p><img src="/images/JavaScript/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/%E8%8A%82%E6%B5%81.PNG"></p>
-<p>实现：</p>
-<p>利用lodash的<code>_.throttle(func, [wait=0], [options=])</code>，wait&#x3D;n毫秒内，只会执行一次操作。</p>
-<p>底层实现：</p>
-<ol>
-<li><p>声明一个定时器变量</p>
-</li>
-<li><p>每次事件触发前先判断是否存在定时器，如果有则不开启新定时器</p>
-</li>
-<li><p>如果没有定时器则开启定时器，存入定时器变量</p>
-<pre><code>- 定时器里面调用执行的函数
-
-- 定时器里面要把定时器清空
-</code></pre>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn,t</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="comment">//如果不存在定时器,则创建新定时器</span></span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">			timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="title function_">fn</span>() </span><br><span class="line">                <span class="comment">//清空定时器</span></span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;,t)</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>,<span class="title function_">debounce</span>(fn,<span class="number">500</span>))</span><br></pre></td></tr></table></figure>
-
-<p>一直移动鼠标，单位时间500毫秒内无论执行多少次，只执行一次。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
     </footer>
   </div>
 

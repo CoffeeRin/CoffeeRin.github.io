@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-07-06T02:45:45.322Z</updated>
+  <updated>2024-07-07T08:14:08.384Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接口封装</title>
+    <link href="https://coffeerin.github.io/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/"/>
+    <id>https://coffeerin.github.io/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/</id>
+    <published>2024-07-07T08:13:38.000Z</published>
+    <updated>2024-07-07T08:14:08.384Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Vue" scheme="https://coffeerin.github.io/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Ajax请求</title>
@@ -492,31 +515,6 @@
     
     
     <category term="Linux" scheme="https://coffeerin.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown基本语法</title>
-    <link href="https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
-    <id>https://coffeerin.github.io/2023/11/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
-    <published>2023-11-05T10:36:29.000Z</published>
-    <updated>2023-11-25T02:35:35.591Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;i&gt;markdown:通用html标签&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;标签后要加空格&lt;/p&gt;
-&lt;p&gt;&lt;u&gt;块级元素：至少独占一行&lt;/u&gt;&lt;br&gt;&lt;u&gt;行内元素：只占据自身所需空间&lt;/u&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;# 标题1&lt;br&gt;## 标题2&lt;br&gt;### 标题3&lt;/p&gt;
-&lt;h1 id=&quot;效果：&quot;&gt;&lt;a href=&quot;#效果：&quot; class=&quot;headerlink&quot; title=&quot;效果：&quot;&gt;&lt;/a&gt;效果：&lt;/h1&gt;&lt;h1 id=&quot;标题1&quot;&gt;&lt;a href=&quot;#标题1&quot; class=&quot;headerlink&quot; title=&quot;标题1&quot;&gt;&lt;/a&gt;标题1&lt;/h1&gt;&lt;h2 id=&quot;标题2&quot;&gt;&lt;a href=&quot;#标题2&quot; class=&quot;headerlink&quot; title=&quot;标题2&quot;&gt;&lt;/a&gt;标题2&lt;/h2&gt;&lt;h3 id=&quot;标题3&quot;&gt;&lt;a href=&quot;#标题3&quot; class=&quot;headerlink&quot; title=&quot;标题3&quot;&gt;&lt;/a&gt;标题3&lt;/h3&gt;&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="语法" scheme="https://coffeerin.github.io/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-    <category term="Markdown" scheme="https://coffeerin.github.io/tags/Markdown/"/>
     
   </entry>
   
