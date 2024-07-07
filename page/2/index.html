@@ -157,6 +157,294 @@
     
     
     <article
+  id="post-vue笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/05/vue%E7%AC%94%E8%AE%B0/"
+    >vue笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/05/vue%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2024-07-05T08:49:06.000Z" itemprop="datePublished">2024-07-05</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>模板中需要用方法&#x2F;复杂逻辑：<script></script>里就用计算属性<code>computed:&#123;&#125;</code> <strong>类似方法</strong>，在模板中调&gt;用时不需要加括号</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>模板里若需要调用方法则要加括号，用计算属性更优</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>安装yarn <code>npm i -g yarn</code></li>
+<li>安装vue-Cli <code>npm i -g @vue/cli</code> or <code>yarn global add @vue/cli</code> 创建项目 <code>vue create my-app</code></li>
+<li>运行项目<code>npm run serve</code> or <code>yarn run</code></li>
+</ul>
+<h1 id="vue3-ts"><a href="#vue3-ts" class="headerlink" title="vue3+ts"></a>vue3+ts</h1><hr>
+<p>js，ts变量名和值名字一样直接省略写法：<code>name:name</code>-&gt;<code>name</code></p>
+<p>箭头函数vscode快捷写法：dfi</p>
+<hr>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>1.Vue-CLi</p>
+<p><code>vue create 项目名</code></p>
+<p>2.Vite</p>
+<p>基于create-vue 创建出来的项目默认没有初始化git仓库</p>
+<ul>
+<li><p><code>npm create vue@latest</code></p>
+</li>
+<li><p><code>npm init vue@latest</code></p>
+</li>
+</ul>
+<p>以上两种方法创建的项目相同</p>
+<p>创建vite项目</p>
+<ul>
+<li>&#96;&#96;&#96;npm create vite@latest&#96;&#96;</li>
+</ul>
+<p>图形化界面创建</p>
+<p><code>vue ui</code></p>
+<hr>
+<h3 id="状态管理工具"><a href="#状态管理工具" class="headerlink" title="状态管理工具"></a>状态管理工具</h3><p>1.Vue3 -&gt; Piania(good),Vuex</p>
+<p>2.Vue2 -&gt; Vuex</p>
+<hr>
+<h3 id="语法检查工具"><a href="#语法检查工具" class="headerlink" title="语法检查工具"></a>语法检查工具</h3><p>ESLint</p>
+<ul>
+<li>其他：获取id：uuid,nanoid</li>
+</ul>
+<hr>
+<h3 id="组合式api命名组件的两种方式："><a href="#组合式api命名组件的两种方式：" class="headerlink" title="组合式api命名组件的两种方式："></a>组合式api命名组件的两种方式：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.命名组件:2个script</span><br><span class="line">&lt;script lang=&#x27;ts&#x27;&gt;</span><br><span class="line">	export default()&#123;</span><br><span class="line">		name:&#x27;Person&#x27;//name=&#x27;Person&#x27;命名组件</span><br><span class="line">		data()&#123;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&#x27;ts&#x27; setup&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>命名组件：</span><br><span class="line">需先安装插件<span class="string">`npm i vite-plugin-vue-setup-extend -D`</span></span><br><span class="line">再到vite.<span class="property">config</span>.<span class="property">ts</span>引用</span><br><span class="line">&lt;script lang=<span class="string">&#x27;ts&#x27;</span> setup name=<span class="string">&#x27;Person&#x27;</span>&gt;<span class="comment">//name=&#x27;Person&#x27;命名组件</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.ts</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./assets/main.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span> <span class="comment">//根组件App</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>) <span class="comment">//创建App并挂载到index.html的id为app的元素</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//根目录的index.html</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/favicon.ico&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vite App<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入main.ts --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/src/main.ts&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="ref和reactive-响应式数据"><a href="#ref和reactive-响应式数据" class="headerlink" title="ref和reactive-响应式数据"></a>ref和reactive-响应式数据</h3><p><code>import &#123;ref,reactive&#125; from &#39;vue&#39;</code></p>
+<ul>
+<li><p>ref:适用于基本类型和对象。</p>
+<ul>
+<li><code>let name = ref(&#39;Coffee&#39;)</code> <code>let person = ref(&#123;name:&#39;Coffee&#39;,age:22&#125;)</code> <code>let arr = [&#39;a&#39;,&#123;name:&#39;Coffee&#39;,age:22&#125;]</code>。</li>
+<li>在模板直接使用<code>&#123;&#123;arr[1]&#125;&#125;</code>。</li>
+<li>改数据：在方法中需要先<code>.value</code>再赋值<code>name.value</code> <code>person.value.name</code> <code>arr.value[1].name</code>。</li>
+</ul>
+</li>
+<li><p>reactive:适用于对象和数组。</p>
+<ul>
+<li><code>let person = reactive(&#123;name:&#39;Coffee&#39;,age:22&#125;)</code>。获取属性值直接<code>对象.属性名</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="toRefs和toRef"><a href="#toRefs和toRef" class="headerlink" title="toRefs和toRef"></a>toRefs和toRef</h3><ul>
+<li><p>将reactive定义的<strong>对象的属性</strong>转为ref</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//toRefs</span><br><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let &#123;name,age&#125; = toRefs(person)</span><br><span class="line">/*let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;, -&gt;ref</span><br><span class="line">	age:22         -&gt;ref</span><br><span class="line">&#125;)*/person仍为reactive</span><br><span class="line"></span><br><span class="line">console.log(name.value,age.value)</span><br><span class="line">console.log(person.name,person.age)</span><br><span class="line"></span><br><span class="line">//toRef</span><br><span class="line">let &#123;name,age&#125; = toRef(person,&#x27;name&#x27;)</span><br><span class="line">console.log(name.value)</span><br><span class="line">console.log(person.name)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="computed计算属性"><a href="#computed计算属性" class="headerlink" title="computed计算属性:"></a>computed计算属性:</h3><ul>
+<li>计算属性也是属性且是只读的。<code>默认为ref响应式数据</code>。</li>
+<li>计算属性有缓存，只计算一次，缓存中数据变化时才再次计算。而方法每次调用都计算一次。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let a = ref(&#x27;a&#x27;)</span><br><span class="line">let b = ref(&#x27;b&#x27;)</span><br><span class="line"></span><br><span class="line">let c = computed(()=&gt;&#123;</span><br><span class="line">	return a.value + b.value //回调函数</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//通过getter和setter获取和更改计算属性</span><br><span class="line">let c = computed(()=&gt;&#123;</span><br><span class="line">	get()&#123;</span><br><span class="line">		return a.value + b.value //回调函数</span><br><span class="line">	&#125;</span><br><span class="line">	set(val)&#123;</span><br><span class="line">		a.value = val</span><br><span class="line">		b.value = val</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="Watch监视"><a href="#Watch监视" class="headerlink" title="Watch监视"></a>Watch监视</h3><p>参数：</p>
+<p><code>watch(被监视数据，(newValue,oldValue)=&gt;&#123; &#125;,配置对象)</code></p>
+<ul>
+<li><p>ref：</p>
+<ul>
+<li><p>监视<strong>ref</strong>定义的<strong>基本类型</strong>数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let a = ref(0)</span><br><span class="line"></span><br><span class="line">//watch()调用时有返回值，调用停止监视</span><br><span class="line">const stopWatch = watch(a,(newValue,oldValue)=&gt;&#123; </span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">	if(条件)&#123;</span><br><span class="line">		stopWatch() //结束监视 </span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视<strong>ref</strong>定义的<strong>对象</strong>数据：监听对象属性时：<code>deep:true</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let person = ref(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视整个对象的变化，对象本身变成新的对象才监视</span><br><span class="line">watch(person,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视对象的属性和对象本身，手动开启深度监听</span><br><span class="line">//添加配置对象&#123;deep:true,immediate:true&#125;</span><br><span class="line">//修改属性时，对象地址不变属性值变，oldValue仍指向原来的对象，故newValue=oldValue</span><br><span class="line">watch(person,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true,immediate:true&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视<strong>ref</strong>定义的<strong>对象</strong>的某个属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let person = ref(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">watch(() =&gt; person.name,(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视多个属性</span><br><span class="line">watch([() =&gt; person.name,() =&gt; person.age],(newValue,oldValue)=&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>reactive</p>
+<ul>
+<li><p>监视reactive定义的对象类型数据，默认开启深度监视（隐式创建）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视属性变化和对象本身变化</span><br><span class="line">watch(person,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监视监视reactive定义的对象类型数据的属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22,</span><br><span class="line">	car:&#123;</span><br><span class="line">		c1:&#x27;gti&#x27;,</span><br><span class="line">		c2:&#x27;a4l&#x27;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//监视的对象的属性为基本类型</span><br><span class="line">watch(()=&gt;person.name,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//1.监视的对象的属性为对象,监视car本身而不监视car的属性变化：</span><br><span class="line">watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//2.监视的对象的属性为对象,监视car的属性变化,需要手动开启深度监视</span><br><span class="line">watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true&#125;)</span><br><span class="line"></span><br><span class="line">//监视多个属性</span><br><span class="line">watch([() =&gt; person.name,() =&gt; person.age,person.car],(newValue,oldValue)=&gt;&#123;</span><br><span class="line">	console.log(newValue,oldValue)</span><br><span class="line">&#125;,&#123;deep:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tip:无论是ref还是reactive定义的对象：要监视对象的某个属性，watch里要用回调函数监视，</p>
+<p>如<code>watch(()=&gt;person.car,(newValue,oldValue)=&gt;&#123;&#125;,&#123;&#125;)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="html标签中的ref："><a href="#html标签中的ref：" class="headerlink" title="html标签中的ref："></a>html标签中的ref：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template中：</span><br><span class="line">&lt;h1 ref=&#x27;tag&#x27;&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">ts/js中：</span><br><span class="line">let tag = ref()</span><br><span class="line"></span><br><span class="line">可以通过tag变量名标识h1和获取h1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="限制对象属性的名字和类型"><a href="#限制对象属性的名字和类型" class="headerlink" title="限制对象属性的名字和类型"></a>限制对象属性的名字和类型</h3><p>定义接口</p>
+<p>创建文件夹：<code>types-&gt;index.ts</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//index.ts</span><br><span class="line">//限制对象Obj的属性</span><br><span class="line">export interface ObjInter&#123;</span><br><span class="line">	id:string,</span><br><span class="line">	age:number,</span><br><span class="line">	sex?:string //加?表示为可选项</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//用export暴露出去</span><br><span class="line"></span><br><span class="line">//限制数组的元素为对象类型的属性</span><br><span class="line">export type Objs = Array&lt;ObjInter&gt;</span><br><span class="line">export type Objs = ObjInter[]</span><br></pre></td></tr></table></figure>
+
+<p>引用：</p>
+<p><code>import &#123;type ObjInter,type Objs&#125; from &#39;@/types&#39;</code></p>
+<p>使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let obj:ObjInter = &#123;id:&#x27;1&#x27;,age:1&#125;</span><br><span class="line">let objs:Array&lt;ObjInter&gt; = [</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">let objs:Objs = [</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">//&lt;泛型&gt;</span><br><span class="line">let objs = reactive&lt;Objs&gt;([</span><br><span class="line">	&#123;id:&#x27;1&#x27;,age:1&#125;,</span><br><span class="line">	&#123;id:&#x27;2&#x27;,age:2&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>父组件传</p>
+<p>子组件收：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123;defineProps,withDefault&#125; from &#x27;vue&#x27;//宏函数可以不引入</span><br><span class="line"></span><br><span class="line">defineProps([&#x27;a&#x27;,&#x27;b&#x27;])</span><br><span class="line"></span><br><span class="line">//限制类型</span><br><span class="line">defineProps&lt;&#123;a:Objs&#125;&gt;()</span><br><span class="line"></span><br><span class="line">withDefault(defineProps&lt;&#123;a?:Objs&#125;&gt;(),&#123;</span><br><span class="line">	a:()=&gt;[&#123;默认值&#125;]</span><br><span class="line">&#125;)//&#x27;?&#x27;表可选项,</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="defineExpose"><a href="#defineExpose" class="headerlink" title="defineExpose"></a>defineExpose</h3><p>vue3子组件的数据只有暴露之后父组件才能获取到</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">defineExpose</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>)<span class="comment">//a,b为子组件数据名，暴露后父组件可以获得</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><h4 id="1-vue2组合式api"><a href="#1-vue2组合式api" class="headerlink" title="1. vue2组合式api"></a>1. vue2组合式api</h4><p>  生命周期            钩子</p>
+<ul>
+<li><p>创建  （创建前beforeCreate()，创建完毕created()）</p>
+</li>
+<li><p>挂载  （挂载前beforeMounte()，挂载完毕mounted()）</p>
+</li>
+<li><p>更新  （更新前beforeUpdate()，更新完毕updated()）</p>
+</li>
+<li><p>销毁  （销毁前beforeDestory()，销毁完毕destoryed()）</p>
+</li>
+</ul>
+<p>钩子：生命周期函数</p>
+<h4 id="2-vue3选项式api"><a href="#2-vue3选项式api" class="headerlink" title="2. vue3选项式api"></a>2. vue3选项式api</h4><p>  生命周期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;onBeforeMount,onMounted,onBeforeUpdate,onUpdated,onBeforeUnmounte，onUnmounted,onBeforeDestory,onDestoryed&#125; from &#x27;vue&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建:<ul>
+<li>setup。setup时自动return，setup时创建完毕。</li>
+</ul>
+</li>
+<li>挂载:子组件挂载到父组件，父组件再挂载到<ul>
+<li>挂载前：onBeforeMount( ( ) &#x3D;&gt; { } )</li>
+<li>挂载完毕：onMounted( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+<li>更新:<ul>
+<li>更新前：onBeforeUpdate( ( ) &#x3D;&gt; { } )</li>
+<li>更新完毕：onUpdated( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+<li>卸载：v-show()<ul>
+<li>卸载前：onBeforeUnmounte( ( ) &#x3D;&gt; { } )  </li>
+<li>卸载完毕：onUnmounted( ( ) &#x3D;&gt; { } )</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Hooks：useXxx-ts命名文件的为hooks"><a href="#Hooks：useXxx-ts命名文件的为hooks" class="headerlink" title="Hooks：useXxx.ts命名文件的为hooks"></a>Hooks：useXxx.ts命名文件的为hooks</h3><blockquote>
+<p>创建hooks文件夹，hooks-&gt;useName.ts</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//useName.ts</span><br><span class="line">export default function()&#123;</span><br><span class="line">	</span><br><span class="line">	return &#123;name,age&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//调用useName.ts的vue文件</span><br><span class="line">&lt;script setup lang=&#x27;ts&#x27;&gt;</span><br><span class="line">	import useName from &#x27;@hooks/useName&#x27;</span><br><span class="line"></span><br><span class="line">	//调用</span><br><span class="line">	const &#123;name,age&#125; = useName()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><ul>
+<li><p>父传子：</p>
+<ul>
+<li>props:父组件直接传给子组件。父组件传<code>&lt;Son name=&#39;coffee&#39; /&gt;</code>,子组件接收<code>defineProps([&#39;name&#39;])</code></li>
+</ul>
+</li>
+<li><p>子传父：</p>
+<ul>
+<li>props:通过传递函数给子组件，子组件将数据传给函数，父组件接收到数据<ul>
+<li>父组件定义一个方法<code>f(value)</code></li>
+<li>父组件将该方法传给子组件<code>&lt;Son :func=&#39;f&#39; /&gt;</code></li>
+<li>子组件接收方法<code>defineProps([&#39;func&#39;])</code></li>
+<li>子组件调用方法<code>func(params)</code></li>
+</ul>
+</li>
+<li>自定义事件：<ul>
+<li>父组件定义方法<code>getSon(value:string)</code></li>
+<li>父组件给子组件绑定自定义事件<code>&lt;Son @send-from-son=&#39;getSon&#39; /&gt;</code>  <strong>自定义事件的事件名命名规范：a-b-c,v-on对大小写不敏感</strong></li>
+<li>子组件接收自定义事件<code>const emit = defineEmits([&#39;sendFromSon&#39;])</code></li>
+<li>子组件调用事件，<code>&lt;button @click=&#39;emit(&#39;sendFromSon&#39;,name)&#39;&gt;&lt;/button&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><p>用<code>v-bind</code>传对象，对象里面是<code>key:value</code></p>
+<p><code>v-bind=&#39;&#123;a:&#39;1&#39;,b:&#39;2&#39;&#125;&#39;</code> &#x3D;&#x3D;传递&#x3D;&#x3D;&gt;<code>a:&#39;1&#39;,b:&#39;2&#39;</code></p>
+<hr>
+<h3 id="宏函数"><a href="#宏函数" class="headerlink" title="宏函数"></a>宏函数</h3><p>define开头</p>
+<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>use开头或者on开头</p>
+<hr>
+<h3 id="forin遍历"><a href="#forin遍历" class="headerlink" title="forin遍历"></a>forin遍历</h3><p><code>forin</code>遍历根据索引遍历：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(index in arr)&#123;</span><br><span class="line">	console.log(arr[index])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当索引值是key时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;Child1 ref=&#x27;c1&#x27; /&gt;</span><br><span class="line">&lt;Child2 ref=&#x27;c2&#x27; /&gt;</span><br><span class="line">&lt;button @click=&#x27;getAllChilds($refs)&#x27;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">getAllChilds(refs:any)&#123;</span><br><span class="line">	console.log(refs)</span><br><span class="line">	/*	key:value</span><br><span class="line">		refs:&#123;</span><br><span class="line">			c1:Child1,</span><br><span class="line">			c2:Child2</span><br><span class="line">		&#125;</span><br><span class="line">	*/</span><br><span class="line">	</span><br><span class="line">	//同样地,遍历refs</span><br><span class="line">	for(key in refs)&#123;</span><br><span class="line">		console.log(refs[key])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><ul>
+<li><p>数据源在父组件，用<strong>默认插槽</strong>和<strong>具名插槽</strong>给子组件插标签</p>
+</li>
+<li><p>数据源在子组件，用<strong>作用域插槽</strong>。处理过程：子组件先给插槽传数据，插槽再将数据传给父组件中的子组件标签，从而实现数据访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//父组件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;Child&gt;</span><br><span class="line">        &lt;template #insert=&quot;params&quot;&gt; //#insert=&quot;params&quot;等价于v-slot:insert=&quot;params&quot;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li v-for=&quot;games111 in params.games111&quot; :key=&quot;games111.id&quot;&gt;</span><br><span class="line">					&#123;&#123;game111.name&#125;&#125;</span><br><span class="line">				&lt;li&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;template&gt;</span><br><span class="line">	&lt;/Child&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//子组件，数据在子组件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;slot name=&quot;insert&quot; :games111=&quot;game&quot; x=&quot;1&quot; y=&quot;2&quot;&gt;	//作用域插槽子组件传数据给插槽，数据包装成一个对象</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><p><code>/api/category?a=1&amp;b=2&amp;c=3</code></p>
+<p><code>?</code>表示要开始传参了</p>
+<p><code>&amp;</code>用来分隔参数</p>
+<p>prams传参：<code>:</code>路由中的表示占位符</p>
+<hr>
+<h3 id="全局api（vue2）转移到应用对象（vue3）"><a href="#全局api（vue2）转移到应用对象（vue3）" class="headerlink" title="全局api（vue2）转移到应用对象（vue3）"></a>全局api（vue2）转移到应用对象（vue3）</h3><ol>
+<li>vue2：<code>Vue.use(),Vue.mount()</code></li>
+<li>vue3:<code> const app = createApp(App)</code> <code>app.use(),app.mount()</code></li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-防抖和节流"
   class="article article-type-post"
   itemscope
@@ -2256,68 +2544,6 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-暴力算法"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/19/%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95/"
-    >暴力算法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/19/%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95/" class="article-date">
-  <time datetime="2023-12-19T13:37:33.000Z" itemprop="datePublished">2023-12-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><strong>a.</strong> 最接近点对问题的BF算法实现</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;float.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> <span class="title function_">calculateDistance</span><span class="params">(<span class="keyword">struct</span> Point p1, <span class="keyword">struct</span> Point p2)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>(<span class="built_in">pow</span>(p1.x - p2.x, <span class="number">2</span>) + <span class="built_in">pow</span>(p1.y - p2.y, <span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">closestPair</span><span class="params">(<span class="keyword">struct</span> Point points[], <span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">float</span> minDistance = FLT_MAX;</span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">			<span class="type">float</span> distance = calculateDistance(points[i], points[j]);</span><br><span class="line">			<span class="keyword">if</span> (distance &lt; minDistance) &#123;</span><br><span class="line">				minDistance = distance;</span><br><span class="line">				a = i;</span><br><span class="line">				b = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;最近点对的距离是 %f&quot;</span>, minDistance);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;最近点对是&lt;%d,%d&gt;,&lt;%d,%d&gt;&quot;</span>, points[a].x, points[a].y, points[b].x, points[b].y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Point</span> <span class="title">points</span>[] =</span> &#123;</span><br><span class="line">		&#123;<span class="number">8</span>,<span class="number">-15</span>&#125;,&#123;<span class="number">9</span>,<span class="number">-29</span>&#125;,&#123;<span class="number">29</span>,<span class="number">-28</span>&#125;,&#123;<span class="number">-30</span>,<span class="number">-13</span>&#125;,&#123;<span class="number">-3</span>,<span class="number">45</span>&#125;,&#123;<span class="number">-33</span>,<span class="number">-12</span>&#125;,&#123;<span class="number">-7</span>,<span class="number">35</span>&#125;,&#123;<span class="number">47</span>,<span class="number">-45</span>&#125;,&#123;<span class="number">43</span>,<span class="number">-10</span>&#125;,&#123;<span class="number">24</span>,<span class="number">-6</span>&#125;,</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">int</span> n = <span class="keyword">sizeof</span>(points) / <span class="keyword">sizeof</span>(points[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">	closestPair(points, n);</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>b.</strong> Hamilton回路问题的BF算法实现</p>
-<blockquote>
-<p>哈密顿图（哈密尔顿图）（英语：Hamiltonian graph，或Traceable graph）是一个无向图，由天文学家哈密顿提出，由指定的起点前往指定的终点，途中经过所有其他节点且只经过一次。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> V 4 <span class="comment">// 图的顶点数  </span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">printSolution</span><span class="params">(<span class="type">int</span> path[])</span>;  </span><br><span class="line"></span><br><span class="line"><span class="comment">//pos:当前位置，表示当前在构建路径的过程中所处的位置</span></span><br><span class="line"><span class="comment">//函数用于检查在当前路径构建的情况下，是否可以安全地将指定的顶点 v 加入到路径中</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">isSafe</span><span class="params">(<span class="type">int</span> v, <span class="type">bool</span> graph[V][V], <span class="type">int</span> path[], <span class="type">int</span> pos)</span> &#123;  </span><br><span class="line">	<span class="keyword">if</span> (graph[path[pos - <span class="number">1</span>]][v] == <span class="number">0</span>) &#123;  <span class="comment">//前一个顶点到当前顶点是否有边相连</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;  </span><br><span class="line">		<span class="keyword">if</span> (path[i] == v) &#123;  <span class="comment">//检查路径中是否已经包含了顶点 v</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">hamiltonianCycleUtil</span><span class="params">(<span class="type">bool</span> graph[V][V], <span class="type">int</span> path[], <span class="type">int</span> pos)</span> &#123; <span class="comment">//构建哈密尔顿回路的路径</span></span><br><span class="line">	<span class="comment">//最后一个点</span></span><br><span class="line">	<span class="keyword">if</span> (pos == V) &#123;  </span><br><span class="line">		<span class="keyword">if</span> (graph[path[pos - <span class="number">1</span>]][path[<span class="number">0</span>]] == <span class="number">1</span>) &#123;  <span class="comment">//最后一个点和起始点有连接，即构成回路</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> v = <span class="number">1</span>; v &lt; V; v++) &#123;  </span><br><span class="line">		<span class="keyword">if</span> (isSafe(v, graph, path, pos)) &#123;  </span><br><span class="line">			path[pos] = v;  </span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (hamiltonianCycleUtil(graph, path, pos + <span class="number">1</span>)) &#123;  <span class="comment">//构建哈密尔顿回路的路径</span></span><br><span class="line">				<span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">			&#125;  </span><br><span class="line">			</span><br><span class="line">			path[pos] = <span class="number">-1</span>; <span class="comment">// 否则回溯</span></span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">hamiltonianCycle</span><span class="params">(<span class="type">bool</span> graph[V][V])</span> &#123;  </span><br><span class="line">	<span class="type">int</span> path[V];  </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; V; i++) &#123;  </span><br><span class="line">		path[i] = <span class="number">-1</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	path[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// 从第一个顶点开始  </span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (!hamiltonianCycleUtil(graph, path, <span class="number">1</span>)) &#123;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;No Hamiltonian Cycle exists&quot;</span>);  </span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">	printSolution(path);  </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">printSolution</span><span class="params">(<span class="type">int</span> path[])</span> &#123;  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hamiltonian Cycle found: \n&quot;</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; V; i++) &#123;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, path[i]);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, path[<span class="number">0</span>]); <span class="comment">//完成循环  </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;  </span><br><span class="line">	<span class="type">bool</span> graph[V][V] = &#123;  </span><br><span class="line">		&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>&#125;</span><br><span class="line">	&#125;;  </span><br><span class="line">	</span><br><span class="line">	hamiltonianCycle(graph);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BF/" rel="tag">BF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
 
     </footer>
   </div>
