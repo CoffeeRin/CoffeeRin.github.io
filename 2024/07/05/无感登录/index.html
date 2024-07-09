@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>无感登录 |  CoffeeLin</title>
+      <title>无感登录实现思路 |  CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  无感登录
+  无感登录实现思路
 </h1>
  
 
@@ -83,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">358</span>
+            <span class="post-count">505</span>
         </span>
     </span>
 
@@ -105,33 +105,25 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>目录</p>
-<p>1.解决方案</p>
-<p>2.实现流程</p>
-<p>1.解决方案<br>        无感登录实际上就是无感刷新 token。</p>
-<pre><code>    1.在响应器中拦截，判断 token 返回过期后，调用刷新 token 的接口。
-
-    2.后端返回过期时间，前端判断 token 的过期时间，去调用刷新 token 的接口。
-
-    3.写一个定时器，定时刷新 token。
-
-    我们常用的第一种方法实现无感登录。
-</code></pre>
+  <p>1.解决方案<br>        无感登录实际上就是无感刷新 token。</p>
+<blockquote>
+<p>1.在响应器中拦截，判断 token 返回过期后，调用刷新 token 的接口。</p>
+<p>2.后端返回过期时间，前端判断 token 的过期时间，去调用刷新 token 的接口。</p>
+<p>3.写一个定时器，定时刷新 token。</p>
+<p>我们常用的第一种方法实现无感登录。</p>
+</blockquote>
 <p>2.实现流程<br>1.登录流程</p>
 <pre><code>    用户输入用户名和密码进行登录。
 
     后端验证用户信息，如果验证通过，返回一个 token 和 refresh_token。
-
     前端将 token 和 refresh_token 保存在本地（例如 localStorage）。
 </code></pre>
 <p>2.拦截响应</p>
 <pre><code>    在前端，我们可以在响应拦截器中处理返回的响应。
-
     如果返回的状态码为401（未授权），说明 token 已经过期。
 </code></pre>
 <p>3.刷新 token</p>
 <pre><code>    使用本地保存的 refresh_token 来请求新的 token。
-
     请求时可以携带当前 token 的过期时间，以便后端可以更精确地控制新 token 的过期时间。
 </code></pre>
 <p>4.替换 token</p>
@@ -143,6 +135,24 @@
 <p>6.错误处理</p>
 <pre><code>    如果 refresh_token 也过期了，那么需要重新登录。清除所有过期的 token，然后重新执行登录流程。
 </code></pre>
+<p>​    <strong>三种方法：</strong></p>
+<ol>
+<li><p>在响应器中拦截到401，判断token返回过期后，调用刷新token的接口</p>
+</li>
+<li><p>后端返回过期时间，前端判断token的过期时间，去调用刷新token的接口</p>
+</li>
+<li><p>前端写定时器，定时刷新token接口</p>
+<p>方法1流程：</p>
+<ol>
+<li>登录成功后保存token 和 refresh_token</li>
+<li>在响应拦截器中对401状态码引入刷新token的api方法调用</li>
+<li>替换保存本地新的token</li>
+<li>把错误对象里的token替换</li>
+<li>再次发送未完成的请求</li>
+<li>如果refresh_token过期了，判断是否过期，过期了就清除所有token重新登录</li>
+</ol>
+</li>
+</ol>
  
       <!-- reward -->
       

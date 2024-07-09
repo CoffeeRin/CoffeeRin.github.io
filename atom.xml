@@ -131,22 +131,21 @@
   </entry>
   
   <entry>
-    <title>无感登录</title>
+    <title>无感登录实现思路</title>
     <link href="https://coffeerin.github.io/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/"/>
     <id>https://coffeerin.github.io/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/</id>
     <published>2024-07-05T08:59:37.000Z</published>
-    <updated>2024-07-05T09:00:04.889Z</updated>
+    <updated>2024-07-09T00:52:45.405Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;目录&lt;/p&gt;
-&lt;p&gt;1.解决方案&lt;/p&gt;
-&lt;p&gt;2.实现流程&lt;/p&gt;
-&lt;p&gt;1.解决方案&lt;br&gt;        无感登录实际上就是无感刷新 token。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    1.在响应器中拦截，判断 token 返回过期后，调用刷新 token</summary>
+    <summary type="html">&lt;p&gt;1.解决方案&lt;br&gt;        无感登录实际上就是无感刷新 token。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.在响应器中拦截，判断 token 返回过期后，调用刷新 token 的接口。&lt;/p&gt;
+&lt;p&gt;2.后端返回过期时间，前端判断 token</summary>
         
       
     
