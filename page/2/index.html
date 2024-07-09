@@ -157,6 +157,91 @@
     
     
     <article
+  id="post-无感登录"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/"
+    >无感登录</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/05/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" class="article-date">
+  <time datetime="2024-07-05T08:59:37.000Z" itemprop="datePublished">2024-07-05</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>目录</p>
+<p>1.解决方案</p>
+<p>2.实现流程</p>
+<p>1.解决方案<br>        无感登录实际上就是无感刷新 token。</p>
+<pre><code>    1.在响应器中拦截，判断 token 返回过期后，调用刷新 token 的接口。
+
+    2.后端返回过期时间，前端判断 token 的过期时间，去调用刷新 token 的接口。
+
+    3.写一个定时器，定时刷新 token。
+
+    我们常用的第一种方法实现无感登录。
+</code></pre>
+<p>2.实现流程<br>1.登录流程</p>
+<pre><code>    用户输入用户名和密码进行登录。
+
+    后端验证用户信息，如果验证通过，返回一个 token 和 refresh_token。
+
+    前端将 token 和 refresh_token 保存在本地（例如 localStorage）。
+</code></pre>
+<p>2.拦截响应</p>
+<pre><code>    在前端，我们可以在响应拦截器中处理返回的响应。
+
+    如果返回的状态码为401（未授权），说明 token 已经过期。
+</code></pre>
+<p>3.刷新 token</p>
+<pre><code>    使用本地保存的 refresh_token 来请求新的 token。
+
+    请求时可以携带当前 token 的过期时间，以便后端可以更精确地控制新 token 的过期时间。
+</code></pre>
+<p>4.替换 token</p>
+<pre><code>    一旦新的 token 返回，前端将其保存，并替换本地旧的 token。
+</code></pre>
+<p>5.处理请求</p>
+<pre><code>    前端将新的 token 放入未完成的请求中，并重新发送请求。
+</code></pre>
+<p>6.错误处理</p>
+<pre><code>    如果 refresh_token 也过期了，那么需要重新登录。清除所有过期的 token，然后重新执行登录流程。
+</code></pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-vue笔记"
   class="article article-type-post"
   itemscope
@@ -2485,65 +2570,6 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E6%B2%BB/" rel="tag">分治</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-动态规划"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"
-    >动态规划</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-date">
-  <time datetime="2023-12-19T13:37:49.000Z" itemprop="datePublished">2023-12-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>1.<strong>Trangle Problem</strong>（数字三角形问题）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ROWS 6</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_COLS 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算最小路径和并填充值表和路表</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">minimumTotal</span><span class="params">(<span class="type">int</span> triangle[ROWS][MAX_COLS], <span class="type">int</span> valueTable[ROWS][MAX_COLS], <span class="type">int</span> pathTable[ROWS][MAX_COLS])</span> &#123;</span><br><span class="line">	<span class="comment">// 初始化最后一行</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; MAX_COLS; j++) &#123;</span><br><span class="line">		valueTable[ROWS - <span class="number">1</span>][j] = triangle[ROWS - <span class="number">1</span>][j];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 从倒数第二层开始向上计算</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = ROWS - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">			<span class="comment">// 当前位置的最小路径和等于当前位置的值加上下一层相邻位置的最小路径和的较小值</span></span><br><span class="line">			valueTable[i][j] = triangle[i][j] + ((valueTable[i + <span class="number">1</span>][j] &lt; valueTable[i + <span class="number">1</span>][j + <span class="number">1</span>]) ? valueTable[i + <span class="number">1</span>][j] : valueTable[i + <span class="number">1</span>][j + <span class="number">1</span>]);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 记录路径信息</span></span><br><span class="line">			pathTable[i][j] = (valueTable[i + <span class="number">1</span>][j] &lt; valueTable[i + <span class="number">1</span>][j + <span class="number">1</span>]) ? j : j + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 返回最终结果,自底向上</span></span><br><span class="line">	<span class="keyword">return</span> valueTable[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印最短路径</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">printShortestPath</span><span class="params">(<span class="type">int</span> triangle[ROWS][MAX_COLS], <span class="type">int</span> pathTable[ROWS][MAX_COLS])</span> &#123;</span><br><span class="line">	<span class="type">int</span> row = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;最短路径: %d&quot;</span>, triangle[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; ROWS; i++) &#123;</span><br><span class="line">		<span class="type">int</span> col = pathTable[i - <span class="number">1</span>][row];</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; -&gt; %d&quot;</span>, triangle[i][col]);</span><br><span class="line">		row = col;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">int</span> triangle[ROWS][MAX_COLS] = &#123;</span><br><span class="line">		&#123;<span class="number">2</span>&#125;,</span><br><span class="line">		&#123;<span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">		&#123;<span class="number">6</span>, <span class="number">5</span>, <span class="number">7</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">3</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">11</span>&#125;,</span><br><span class="line">		&#123;<span class="number">12</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">2</span>&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> valueTable[ROWS][MAX_COLS];</span><br><span class="line">	<span class="type">int</span> pathTable[ROWS][MAX_COLS];</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> result = minimumTotal(triangle, valueTable, pathTable);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;最小路径和: %d\n&quot;</span>, result);</span><br><span class="line">	</span><br><span class="line">	printShortestPath(triangle, pathTable);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.<strong>LCS Promblem</strong>(最长公共子序列)</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算最长公共子序列的长度</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">lcs</span><span class="params">(<span class="type">char</span> X[], <span class="type">char</span> Y[], <span class="type">int</span> m, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">int</span> dp[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//初始化状态表</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=m;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=n;j++)</span><br><span class="line">			dp[i][j] = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 填充动态规划表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>)</span><br><span class="line">				dp[i][j] = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (X[i - <span class="number">1</span>] == Y[j - <span class="number">1</span>])<span class="comment">//最后一个相等</span></span><br><span class="line">				dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				dp[i][j] = (dp[i - <span class="number">1</span>][j] &gt; dp[i][j - <span class="number">1</span>]) ? dp[i - <span class="number">1</span>][j] : dp[i][j - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> dp[m][n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">char</span> X[] = <span class="string">&quot;ABCBDABAABCDBABDDCBABDBCA&quot;</span>;</span><br><span class="line">	<span class="type">char</span> Y[] = <span class="string">&quot;BDCABAABDBCBDABDAAADCABC&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> m = <span class="keyword">sizeof</span>(X) / <span class="keyword">sizeof</span>(X[<span class="number">0</span>]) - <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> n = <span class="keyword">sizeof</span>(Y) / <span class="keyword">sizeof</span>(Y[<span class="number">0</span>]) - <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> result = lcs(X, Y, m, n);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;最长公共子序列的长度: %d\n&quot;</span>, result);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
 
     </footer>
   </div>

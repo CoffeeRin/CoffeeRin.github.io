@@ -2583,4 +2583,21 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
         <tag>sass</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JWT和token有什么区别？</title>
+    <url>/2024/07/09/JWT%E5%92%8Ctoken%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
+    <content><![CDATA[<h3 id="JWT和token有什么区别？"><a href="#JWT和token有什么区别？" class="headerlink" title="JWT和token有什么区别？"></a>JWT和token有什么区别？</h3><ul>
+<li><p>Token其实就是一个加密的字符串，通过MD5等一些不可逆加密算法实现的，可以保证唯一性。</p>
+</li>
+<li><p>JWT是json web token缩写，是一种特定类型的Token，它采用了JSON格式来存储有关用户身份和访问权限的信息。JWT会把用户信息加密到token里，服务器不保存任何用户信息，服务器通过使用保存的密钥来验证JWT Token。</p>
+</li>
+</ul>
+<blockquote>
+<p>JWT由三部分组成，分别是头部（Header）、载荷（Payload）和签名（Signature），头部包含有关JWT的元数据和算法信息，载荷包含实际的用户数据，例如用户ID、角色等，签名用于验证JWT的完整性和真实性。</p>
+</blockquote>
+<blockquote>
+<p>JWT和token的区别主要体现在是否需要查询数据库。对了Token来说，服务端验证客户端发送过来的 Token 时，还需要查询数据库获取用户信息，然后验证 Token 是否有效。而JWT则不需要，因为用户的信息及加密信息、过期时间，都存储在JWT里，服务端只需要使用密钥解密进行校验即可，不需要查询或者减少查询数据库。</p>
+</blockquote>
+]]></content>
+  </entry>
 </search>

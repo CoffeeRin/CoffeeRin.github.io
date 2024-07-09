@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-07-07T14:49:30.969Z</updated>
+  <updated>2024-07-09T00:28:36.330Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JWT和token有什么区别？</title>
+    <link href="https://coffeerin.github.io/2024/07/09/JWT%E5%92%8Ctoken%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
+    <id>https://coffeerin.github.io/2024/07/09/JWT%E5%92%8Ctoken%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</id>
+    <published>2024-07-09T00:28:25.000Z</published>
+    <updated>2024-07-09T00:28:36.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;JWT和token有什么区别？&quot;&gt;&lt;a href=&quot;#JWT和token有什么区别？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>sass全局样式</title>
@@ -485,33 +506,6 @@
     <category term="贪心算法" scheme="https://coffeerin.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
     
     <category term="算法" scheme="https://coffeerin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验8</title>
-    <link href="https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/"/>
-    <id>https://coffeerin.github.io/2023/11/27/%E5%AE%9E%E9%AA%8C8/</id>
-    <published>2023-11-27T13:57:03.000Z</published>
-    <updated>2023-12-03T13:58:34.182Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;1-1&quot;&gt;&lt;a href=&quot;#1-1&quot; class=&quot;headerlink&quot; title=&quot;1.1&quot;&gt;&lt;/a&gt;1.1&lt;/h3&gt;&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;可靠信号&lt;/strong&gt;（Reliable Signals）： 这种信号在发送时不会丢失，系统会确保信号最终被接收。当进程处于阻塞状态时，可靠信号会被排队，直到进程解除阻塞后才被传递。SIGINT通常被认为是可靠信号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;不可靠信号&lt;/strong&gt;（Unreliable Signals）： 这种信号可能在发送时丢失，而且不会在信号过多导致排队不足时保存。进程在信号未被处理完全之前，可能不会接收到新的信号。SIGIO和SIGURG通常被认为是不可靠信号。&lt;/p&gt;
-&lt;p&gt;不可靠信号和可靠信号的区别在于前者不支持排队，可能会造成信号丢失，而后者不会。非可靠信号一般都有确定的用途及含义，可靠信号则可以让用户自定义使用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Linux实验" scheme="https://coffeerin.github.io/categories/Linux%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="Linux" scheme="https://coffeerin.github.io/tags/Linux/"/>
     
   </entry>
   
