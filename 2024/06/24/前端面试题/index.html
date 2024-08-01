@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">50 min</span>
+            <span class="post-count">51 min</span>
         </span>
     </span>
 </div>
@@ -113,7 +113,7 @@
        
   <h3 id="一、CSS"><a href="#一、CSS" class="headerlink" title="一、CSS"></a>一、CSS</h3><h4 id="1-说一下CSS的盒模型。"><a href="#1-说一下CSS的盒模型。" class="headerlink" title="1.说一下CSS的盒模型。"></a>1.说一下CSS的盒模型。</h4><p>盒模型的属性：</p>
 <p><em>width、height、padding、border、margin</em></p>
-<p>​        在HTML页面中的所有元素都可以看成是一个盒子<br>​        盒子的组成：内容content、内边距padding、边框border、外边距margin<br>​        盒模型的类型：<br>​            标准盒模型<br>​                margin + border + padding + content<br>​            IE盒模型<br>​                margin + content(border + padding)<br>​        控制盒模型的模式：box-sizing:content-box（默认值，标准盒模型）、border-box（IE盒模型）;</p>
+<p>​        在HTML页面中的所有元素都可以看成是一个盒子<br>​        盒子的组成：内容content、内边距padding、边框border、外边距margin<br>​        盒模型的类型：<br>​            标准盒模型<br>​                margin + border + padding + content，宽高不包含内边距和边框<br>​            IE盒模型<br>​                margin + content(border + padding)，宽高包含内边距和边框<br>​        控制盒模型的模式：box-sizing:content-box（默认值，标准盒模型）、border-box（IE盒模型）;</p>
 <h4 id="2-CSS选择器的优先级？"><a href="#2-CSS选择器的优先级？" class="headerlink" title="2.CSS选择器的优先级？"></a>2.CSS选择器的优先级？</h4><p>​        CSS的特性：继承性、层叠性、优先级<br>​        优先级：写CSS样式的时候，会给同一个元素添加多个样式，此时谁的权重高就显示谁的样式<br>​        标签、类&#x2F;伪类&#x2F;属性、全局选择器、行内样式、id、!important<br>​        !important &gt; 行内样式 &gt; id &gt; 类&#x2F;伪类&#x2F;属性 &gt; 标签 &gt; 全局选择器</p>
 <h4 id="3-隐藏元素的方法有哪些，特点是？"><a href="#3-隐藏元素的方法有哪些，特点是？" class="headerlink" title="3.隐藏元素的方法有哪些，特点是？"></a>3.隐藏元素的方法有哪些，特点是？</h4><ol>
 <li>display:none;元素在页面上消失，不占据空间</li>
@@ -176,10 +176,10 @@ ervery() some() reduce() isArray() findIndex()
 哪些方法会改变原数组？
     push() pop() unshift() shift() sort() reverse() splice()
 </code></pre>
-<h4 id="4-JS对数据类的检测方式有哪些？"><a href="#4-JS对数据类的检测方式有哪些？" class="headerlink" title="4.JS对数据类的检测方式有哪些？"></a>4.JS对数据类的检测方式有哪些？</h4><pre><code>typeof()--基本数据类型
-instanceof()--引用数据类型
-constructor
-Object.prototype.toString.call()
+<h4 id="4-JS对数据类的检测方式有哪些？"><a href="#4-JS对数据类的检测方式有哪些？" class="headerlink" title="4.JS对数据类的检测方式有哪些？"></a>4.JS对数据类的检测方式有哪些？</h4><pre><code>typeof       --基本数据类型	typeof 5 -&gt; &quot;number&quot;
+instanceof   --引用数据类型	p instanceof Person -&gt; true
+.constructor --均可	      (5).constructor === Number -&gt; true,&quot;text&quot;.constructor === String,p.constructor === Person-&gt;true
+Object.prototype.toString.call() -&gt; &quot;[object Object/Array/Function/String/Number/Date...]&quot;
 </code></pre>
 <h4 id="5-说一下闭包，闭包有什么特点？"><a href="#5-说一下闭包，闭包有什么特点？" class="headerlink" title="5.说一下闭包，闭包有什么特点？"></a>5.说一下闭包，闭包有什么特点？</h4><pre><code>什么是闭包？函数嵌套函数，内部函数被外部函数返回并保存下来时，就会产生闭包。
 特点：可以重复利用变量，并且这个变量不会污染全局的一种机制；这个变量是一直保存再内存中，不会被垃圾回收机制回收
@@ -624,7 +624,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            防抖和节流
+            防抖和节流及其底层实现
           
         </div>
       </a>

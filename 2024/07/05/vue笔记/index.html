@@ -83,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.6k</span>
+            <span class="post-count">2.7k</span>
         </span>
     </span>
 
@@ -182,6 +182,8 @@
 <li><p>将reactive定义的<strong>对象的属性</strong>转为ref</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//toRefs</span><br><span class="line">let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;,</span><br><span class="line">	age:22</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let &#123;name,age&#125; = toRefs(person)</span><br><span class="line">/*let person = reactive(&#123;</span><br><span class="line">	name:&#x27;Coffee&#x27;, -&gt;ref</span><br><span class="line">	age:22         -&gt;ref</span><br><span class="line">&#125;)*/person仍为reactive</span><br><span class="line"></span><br><span class="line">console.log(name.value,age.value)</span><br><span class="line">console.log(person.name,person.age)</span><br><span class="line"></span><br><span class="line">//toRef</span><br><span class="line">let &#123;name,age&#125; = toRef(person,&#x27;name&#x27;)</span><br><span class="line">console.log(name.value)</span><br><span class="line">console.log(person.name)</span><br></pre></td></tr></table></figure></li>
 </ul>
+<hr>
+<h3 id="v-for为什么加-key"><a href="#v-for为什么加-key" class="headerlink" title="v-for为什么加:key"></a>v-for为什么加:key</h3><p>例：用删除操作删除复选框，如果不加:key,则会出错。:key用于标识每个循环的元素，防止诸如删除出错等问题。</p>
 <hr>
 <h3 id="computed计算属性"><a href="#computed计算属性" class="headerlink" title="computed计算属性:"></a>computed计算属性:</h3><ul>
 <li>计算属性也是属性且是只读的。<code>默认为ref响应式数据</code>。</li>
@@ -441,7 +443,7 @@
     
       <a href="/2024/06/27/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">防抖和节流</div>
+        <div class="article-nav-title">防抖和节流及其底层实现</div>
       </a>
     
   </nav>

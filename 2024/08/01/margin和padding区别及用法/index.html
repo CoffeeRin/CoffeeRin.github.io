@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>JWT和token有什么区别？ |  CoffeeLin</title>
+      <title>margin和padding区别及用法 |  CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-JWT和token有什么区别？"
+  id="post-margin和padding区别及用法"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  JWT和token有什么区别？
+  margin和padding区别及用法
 </h1>
  
 
@@ -75,8 +75,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/07/09/JWT%E5%92%8Ctoken%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="article-date">
-  <time datetime="2024-07-09T00:28:25.000Z" itemprop="datePublished">2024-07-09</time>
+      <a href="/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2024-08-01T09:07:08.000Z" itemprop="datePublished">2024-08-01</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
@@ -99,26 +99,21 @@
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="JWT和token有什么区别？"><a href="#JWT和token有什么区别？" class="headerlink" title="JWT和token有什么区别？"></a>JWT和token有什么区别？</h3><ul>
-<li><p>Token其实就是一个加密的字符串，通过MD5等一些不可逆加密算法实现的，可以保证唯一性。</p>
-</li>
-<li><p>JWT是json web token缩写，是一种特定类型的Token，它采用了JSON格式来存储有关用户身份和访问权限的信息。JWT会把用户信息加密到token里，服务器不保存任何用户信息，服务器通过使用保存的密钥来验证JWT Token。</p>
-</li>
-</ul>
-<blockquote>
-<p>JWT由三部分组成，分别是头部（Header）、载荷（Payload）和签名（Signature），头部包含有关JWT的元数据和算法信息，载荷包含实际的用户数据，例如用户ID、角色等，签名用于验证JWT的完整性和真实性。</p>
-</blockquote>
-<blockquote>
-<p>JWT和token的区别主要体现在是否需要查询数据库。对了Token来说，服务端验证客户端发送过来的 Token 时，还需要查询数据库获取用户信息，然后验证 Token 是否有效。而JWT则不需要，因为用户的信息及加密信息、过期时间，都存储在JWT里，服务端只需要使用密钥解密进行校验即可，不需要查询或者减少查询数据库。</p>
-</blockquote>
+  <p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。<br>1.使用margin的场景：<br>①若需要在border外侧添加空白时。<br>②空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）<br>2.使用padding的场景<br>①需要在border内侧添加空白时<br>②空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</p>
+<p>盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
+<p>margin折叠是指当有两个或多个垂直边距相遇时，形成的一个外边距，这个外边距的高度等于两个元素发生叠加的外边距中高度较大的一个。</p>
+<p>发生margin折叠的三种情况</p>
+<ol>
+<li>元素自身的折叠</li>
+<li>相邻两个元素折叠</li>
+<li>父子元素的折叠</li>
+</ol>
  
       <!-- reward -->
       
@@ -189,30 +184,23 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/07/09/JWT%E5%92%8Ctoken%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
+    
       <a href="/2024/07/30/CSS%E7%AC%94%E8%AE%B0/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            CSS笔记
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2024/07/07/sass%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">sass全局样式</div>
+        <div class="article-nav-title">CSS笔记</div>
       </a>
     
   </nav>
