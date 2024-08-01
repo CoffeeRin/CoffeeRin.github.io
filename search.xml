@@ -2628,6 +2628,18 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><p>设置行高<code>line-height</code>和盒子高度相等时，实现显示一行的效果。</p>
 <h3 id="换行溢出内容省略号"><a href="#换行溢出内容省略号" class="headerlink" title="换行溢出内容省略号"></a>换行溢出内容省略号</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: hidden;			//隐藏溢出内容</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;		//不换行</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;	//溢出字符省略号代替</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="图片在盒子内圆角效果失效border-radius"><a href="#图片在盒子内圆角效果失效border-radius" class="headerlink" title="图片在盒子内圆角效果失效border-radius"></a>图片在盒子内圆角效果失效border-radius</h3><p>给img标签的父级元素添加圆角时，需要给父级元素设置<code>overfloor: hidden;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	height: 340rpx;</span><br><span class="line">	border-radius: 30rpx;	//uniapp单位</span><br><span class="line">	overfloor: hidden;		//解决圆角失效问题</span><br><span class="line">	.image&#123;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 100%;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="磨砂玻璃效果"><a href="#磨砂玻璃效果" class="headerlink" title="磨砂玻璃效果"></a>磨砂玻璃效果</h3><blockquote>
+<p>background: rgba(0,0,0,0.2);		&#x2F;&#x2F;添加半透明背景颜色<br>backdrop-filter: blur(20rpx);		&#x2F;&#x2F;添加失焦磨砂效果</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">	height: 340rpx;</span><br><span class="line">	border-radius: 10rpx;</span><br><span class="line">	overflow: hidden;	//溢出部分隐藏，使圆角效果生效</span><br><span class="line">	position: relative;</span><br><span class="line"></span><br><span class="line">	.pic &#123;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 100%;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.tab&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		top: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		border-radius: 0 0 20rpx 0;</span><br><span class="line">		background: rgba(250,129,90,0.7);	//添加背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx); 		//添加失焦磨砂滤镜效果</span><br><span class="line">		font-size: 22rpx;</span><br><span class="line">		transform: scale(0.8);				//缩放</span><br><span class="line">		transform-origin: left top; 		//左上为基准</span><br><span class="line">		padding: 6rpx 10rpx;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.mask&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 70rpx;</span><br><span class="line">		bottom: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		display: flex;</span><br><span class="line">		justify-content: center;</span><br><span class="line">		align-items: center;</span><br><span class="line">		background: rgba(0,0,0,0.2);		//添加半透明背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx);		//添加失焦磨砂效果</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>CSS</tag>
@@ -2645,6 +2657,9 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <li>相邻两个元素折叠</li>
 <li>父子元素的折叠</li>
 </ol>
+<blockquote>
+<p>盒子用padding居多，盒子内元素用margin居多</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>CSS</tag>
