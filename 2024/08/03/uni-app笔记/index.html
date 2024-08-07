@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>margin和padding区别及用法 |  CoffeeLin</title>
+      <title>uni-app笔记 |  CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-margin和padding区别及用法"
+  id="post-uni-app笔记"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  margin和padding区别及用法
+  uni-app笔记
 </h1>
  
 
@@ -75,15 +75,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" class="article-date">
-  <time datetime="2024-08-01T09:07:08.000Z" itemprop="datePublished">2024-08-01</time>
+      <a href="/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2024-08-03T14:16:58.000Z" itemprop="datePublished">2024-08-03</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">346</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -92,37 +92,137 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。</p>
-<ol>
-<li>使用<code>margin</code>的场景：<br><strong>①若需要在border外侧添加空白时。</strong><br>②盒子空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）</li>
-<li>使用<code>padding</code>的场景<br><strong>①需要在border内侧添加空白时。</strong><br>②盒子空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</li>
-</ol>
-<blockquote>
-<p>根据具体情况使用为妙</p>
+  <h2 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h2><blockquote>
+<p>各种方法在API里找，拨打电话等…</p>
+<p>各种组件在组件里找</p>
+<p>js等文件配置在全局文件里找，底部导航栏等…</p>
+<p>编译语法在教程找</p>
 </blockquote>
-<p>? 盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
-<p>margin折叠是指当有两个或多个垂直边距相遇时，形成的一个外边距，这个外边距的高度等于两个元素发生叠加的外边距中高度较大的一个。</p>
-<p>发生margin折叠的三种情况</p>
-<ol>
-<li>元素自身的折叠</li>
-<li>相邻两个元素折叠</li>
-<li>父子元素的折叠</li>
-</ol>
+<ul>
+<li><p>view - div:view标签不能拷贝文字内容。</p>
+</li>
+<li><p>text - span</p>
+</li>
+<li><p>navigator - a</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+<ul>
+<li><p>纵向滑动：<code>&lt;scroll-view scroll-y&gt; 子元素 &lt;/scroll-view&gt;</code></p>
+</li>
+<li><p>横向滑动：<code>&lt;scroll-view scroll-x&gt; 子元素&lt;/scroll-view&gt;</code>，样式设置子元素为<code>display: inline-block;</code>，父元素设置<code>white-space: nowrap;</code></p>
+</li>
+</ul>
+</li>
+<li><p>swiper - 轮播图</p>
+</li>
+</ul>
+<h3 id="uniapp页面生命周期"><a href="#uniapp页面生命周期" class="headerlink" title="uniapp页面生命周期"></a>uniapp页面生命周期</h3><ul>
+<li><p>onLoad(e) – setup&#x2F;Created，只有onLoad()能拿到<strong>页面路由参数</strong></p>
+</li>
+<li><p>onShow()</p>
+</li>
+<li><p>onReady() – onMounted，只有onReady()才能获取到dom节点</p>
+</li>
+</ul>
+<h3 id="uniapp像素单位rpx"><a href="#uniapp像素单位rpx" class="headerlink" title="uniapp像素单位rpx"></a>uniapp像素单位rpx</h3><p>以750为基准</p>
+<h3 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h3><h4 id="全局组件样式-直接应用-："><a href="#全局组件样式-直接应用-：" class="headerlink" title="全局组件样式(直接应用)："></a>全局组件样式(直接应用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/common-style.scss</code>(css&#x2F;scss&#x2F;less)，然后在<code>App.vue</code>用@import导入到<code>&lt;style&gt;&lt;/style&gt;</code>中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">@import &quot;@/common/style/common-style.scss&quot;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>盒子外空白用margin居多，盒子内空白元素用padding居多</p>
+<p>uni.scss：</p>
+<p>项目自带颜色样式，可直接使用，也可在此文件创建新颜色样式。如<code>background: $uni-color-primary</code></p>
+</blockquote>
+<h4 id="全局颜色字体样式-需要自行使用-："><a href="#全局颜色字体样式-需要自行使用-：" class="headerlink" title="全局颜色字体样式(需要自行使用)："></a>全局颜色字体样式(需要自行使用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/base-style.scss</code>,然后在<code>uni.scss</code>中引入</p>
+<ol>
+<li>修改字体等直接用color:$变量名</li>
+<li>修改uni-icons字体图标组件时，需要用到vue的<code>:deep</code>深度选择器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:deep()&#123;</span><br><span class="line">	.uni-icons&#123;</span><br><span class="line">		color:$brand-theme-color !important;	// !important表优先级最高，高于默认的行内样式</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>vite.config中安装插件<code>unplugin-auto-import</code>自动导入vue和uniapp的<strong>生命周期、函数</strong>等</li>
+</ul>
+<p><code>npm i unplugin-auto-import</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在vite.config.js中引入</span><br><span class="line"></span><br><span class="line">import &#123; defineConfig &#125; from &#x27;vite&#x27;</span><br><span class="line">import uni from &#x27;@dcloudio/vite-plugin-uni&#x27;</span><br><span class="line">import AutoImport from &#x27;unplugin-auto-import/vite&#x27;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">	plugins: [</span><br><span class="line">		uni(),</span><br><span class="line">		//自动导入配置</span><br><span class="line">		AutoImport(&#123;</span><br><span class="line">			imports: [</span><br><span class="line">				//预设</span><br><span class="line">				&#x27;vue&#x27;,</span><br><span class="line">				&#x27;uni-app&#x27;</span><br><span class="line">			]</span><br><span class="line">		&#125;)</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="扩展组件uni-ui"><a href="#扩展组件uni-ui" class="headerlink" title="扩展组件uni-ui"></a>扩展组件uni-ui</h3><p>登录uniapp账号后直接按需下载相应组件，下载完项目根目录有uni_modules文件夹</p>
+<h3 id="网络请求的三种处理方式"><a href="#网络请求的三种处理方式" class="headerlink" title="网络请求的三种处理方式"></a>网络请求的三种处理方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//1.success里对返回结果进行处理，易产生回调地狱</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;,</span><br><span class="line">		success:res=&gt;&#123;</span><br><span class="line">			console.log(res);</span><br><span class="line">			arrs.value = res.data </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.使用.then对返回结果进行处理</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;).then(res=&gt;&#123;</span><br><span class="line">		//处理返回结果</span><br><span class="line">		arrs.value = res.data </span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.异步操作同步化</span><br><span class="line">const request = async () =&gt; &#123;</span><br><span class="line">	const res = await uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;)</span><br><span class="line">	//处理返回结果</span><br><span class="line">	arrs.value = res.data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="微信开发者工具跳转到指定页面"><a href="#微信开发者工具跳转到指定页面" class="headerlink" title="微信开发者工具跳转到指定页面"></a>微信开发者工具跳转到指定页面</h3><ul>
+<li>到编译模式里设置相关页面路径即可</li>
+</ul>
+<h3 id="下拉刷新实现"><a href="#下拉刷新实现" class="headerlink" title="下拉刷新实现"></a>下拉刷新实现</h3><p>下拉刷新利用生命周期钩子onPullDownRefresh()</p>
+<p>使用前要在pages.json开启配置：</p>
+<blockquote>
+<ul>
+<li>需要在 <code>pages.json</code> 里，找到的当前页面的pages节点，并在 <code>style</code> 选项中开启 <code>enablePullDownRefresh</code>。</li>
+<li>当处理完数据刷新后，<code>uni.stopPullDownRefresh</code> 可以停止当前页面的下拉刷新。一般在finally里调用<code>uni.stopPullDownRefresh</code></li>
+</ul>
+</blockquote>
+<p>相关api：</p>
+<blockquote>
+<p>uni.startPullDownRefresh(OBJECT):相当于手动下拉刷新</p>
+<p>uni.stopPullDownRefresh()</p>
+</blockquote>
+<p>加载更多字样：在列表尾部加扩展组件</p>
+<p><code>&lt;uni-load-more status=&quot;loading&quot;&gt;&lt;/uni-load-more&gt;</code></p>
+<h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>env(safe-area-inset-bottom)：移动端设置，可防止触摸无效等。</p>
+<p>可设置为<code>height:env(safe-area-inset-bottom);</code>,<code>padding-bottom:env(safe-area-inset-bottom);</code></p>
+<h3 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h3><ul>
+<li>条件编译处理多端差异，处理跨端兼容。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>条件编译写法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#ifdef <strong>APP-PLUS</strong> 需条件编译的代码 #endif</td>
+<td>仅出现在 App 平台下的代码</td>
+</tr>
+<tr>
+<td>#ifndef <strong>H5</strong> 需条件编译的代码 #endif</td>
+<td>除了 H5 平台，其它平台均存在的代码（注意if后面有个n）</td>
+</tr>
+<tr>
+<td>#ifdef <strong>H5</strong> || <strong>MP-WEIXIN</strong> 需条件编译的代码 #endif</td>
+<td>在 H5 平台或微信小程序平台存在的代码（这里只有||，不可能出现&amp;&amp;，因为没有交集）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>适用于html和css，通过注释方式进行编译</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//html：</span><br><span class="line">&lt;!-- #ifdef APP --&gt;</span><br><span class="line">条件编译标签					</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//css:</span><br><span class="line">/* #ifdef APP */</span><br><span class="line">条件编译样式	</span><br><span class="line">/* #endif */</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//小程序时</span><br><span class="line">&lt;!-- #ifdef MP --&gt;</span><br><span class="line">&lt;button open-type=&quot;contact&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//不是小程序时</span><br><span class="line">&lt;!-- #ifndef MP --&gt;</span><br><span class="line">&lt;button&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元素顶到状态栏问题"><a href="#元素顶到状态栏问题" class="headerlink" title="元素顶到状态栏问题"></a>元素顶到状态栏问题</h3><p>全屏时，元素顶到状态栏时解决：</p>
+<blockquote>
+<p>在元素前设置一个空盒子，通过API <code>uni.getSystemInfoSync()</code>获取到状态栏高度<code>statusBarHeight</code>,然后给空盒子设置高度，使空盒子顶下占用到状态栏的元素</p>
 </blockquote>
  
       <!-- reward -->
@@ -194,12 +294,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a></li></ul>
 
     </footer>
   </div>
@@ -207,19 +307,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+      <a href="/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            uni-app笔记
+            vue响应式数据原理
           
         </div>
       </a>
     
     
-      <a href="/2024/07/30/CSS%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+      <a href="/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CSS笔记</div>
+        <div class="article-nav-title">margin和padding区别及用法</div>
       </a>
     
   </nav>

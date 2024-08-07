@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>margin和padding区别及用法 |  CoffeeLin</title>
+      <title>vue响应式数据原理 |  CoffeeLin</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/咖啡.svg" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-margin和padding区别及用法"
+  id="post-vue响应式数据原理"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  margin和padding区别及用法
+  vue响应式数据原理
 </h1>
  
 
@@ -75,15 +75,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" class="article-date">
-  <time datetime="2024-08-01T09:07:08.000Z" itemprop="datePublished">2024-08-01</time>
+      <a href="/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2024-08-07T06:47:35.000Z" itemprop="datePublished">2024-08-07</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">346</span>
+            <span class="post-count">536</span>
         </span>
     </span>
 
@@ -92,38 +92,64 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。</p>
-<ol>
-<li>使用<code>margin</code>的场景：<br><strong>①若需要在border外侧添加空白时。</strong><br>②盒子空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）</li>
-<li>使用<code>padding</code>的场景<br><strong>①需要在border内侧添加空白时。</strong><br>②盒子空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</li>
-</ol>
-<blockquote>
-<p>根据具体情况使用为妙</p>
-</blockquote>
-<p>? 盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
-<p>margin折叠是指当有两个或多个垂直边距相遇时，形成的一个外边距，这个外边距的高度等于两个元素发生叠加的外边距中高度较大的一个。</p>
-<p>发生margin折叠的三种情况</p>
-<ol>
-<li>元素自身的折叠</li>
-<li>相邻两个元素折叠</li>
-<li>父子元素的折叠</li>
-</ol>
-<blockquote>
-<p>盒子外空白用margin居多，盒子内空白元素用padding居多</p>
-</blockquote>
+  <h3 id="vue2-x的响应式"><a href="#vue2-x的响应式" class="headerlink" title="vue2.x的响应式"></a>vue2.x的响应式</h3><p>劫持一个个属性</p>
+<ul>
+<li><p>实现原理：</p>
+<ul>
+<li><p>对象类型：通过<code>Object.defineProperty()</code>对属性的读取(getter)、修改(setter)进行拦截（<strong>数据劫持</strong>）。</p>
+</li>
+<li><p>数组类型：通过重写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(data, <span class="string">&#x27;count&#x27;</span>, &#123;</span><br><span class="line">    get () &#123;&#125;, </span><br><span class="line">    set () &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>存在问题：</p>
+<ul>
+<li>新增属性、删除属性, 界面不会更新。</li>
+<li>直接通过下标修改数组, 界面不会自动更新。</li>
+<li>不能监视到数组索引的值的变化。</li>
+</ul>
+</li>
+</ul>
+<p>&#x2F;&#x2F;模拟实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">	<span class="attr">address</span>:<span class="string">&#x27;xx&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个监视的实例对象，用于监视data中属性的变化</span></span><br><span class="line"><span class="keyword">const</span> obs = <span class="keyword">new</span> <span class="title class_">Observer</span>(data)		</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obs)	</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备一个vm实例对象</span></span><br><span class="line"><span class="keyword">let</span> vm = &#123;&#125;</span><br><span class="line">vm.<span class="property">_data</span> = data = obs</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Observer</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">	<span class="comment">//汇总对象中所有的属性形成一个数组</span></span><br><span class="line">	<span class="keyword">const</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj)</span><br><span class="line">	<span class="comment">//遍历</span></span><br><span class="line">	keys.<span class="title function_">forEach</span>(<span class="function">(<span class="params">k</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">this</span>,k,&#123;</span><br><span class="line">			<span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> obj[k]</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="title function_">set</span>(<span class="params">val</span>)&#123;</span><br><span class="line">				<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;k&#125;</span>被改了，我要去解析模板，生成虚拟DOM.....我要开始忙了`</span>)</span><br><span class="line">				obj[k] = val</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析模板，生成虚拟DOM，对比虚拟dom</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Vue3-0的响应式"><a href="#Vue3-0的响应式" class="headerlink" title="Vue3.0的响应式"></a>Vue3.0的响应式</h3><p>代理整个对象</p>
+<ul>
+<li><p>实现原理: </p>
+<ul>
+<li><p>通过Proxy（代理）:  拦截对象中任意属性的变化, 包括：属性值的读写、属性的添加、属性的删除、根据数组下标更改值等。</p>
+</li>
+<li><p>通过Reflect（反射）:  对源对象的属性进行操作。</p>
+</li>
+<li><p>MDN文档中描述的Proxy与Reflect：</p>
+<ul>
+<li><p>Proxy：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy</a></p>
+</li>
+<li><p>Reflect：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p:代理数据， data:源数据， target: 目标对象/源数据， prop:目标对象的某个属性名， value:要修改的值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Proxy</span>(data, &#123;</span><br><span class="line">	<span class="comment">// 拦截读取属性值</span></span><br><span class="line">    get (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(target, prop)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截设置属性值或添加新属性</span></span><br><span class="line">    set (target, prop, value) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, prop, value)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截删除属性</span></span><br><span class="line">    deleteProperty (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">deleteProperty</span>(target, prop)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">proxy.<span class="property">name</span> = <span class="string">&#x27;tom&#x27;</span>   </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>不写<code>&#123;&#125;</code>的get、set、deleteProperty也可，但是无法捕获到数据的变化</p>
+</li>
+</ul>
  
       <!-- reward -->
       
@@ -194,32 +220,21 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://coffeerin.github.io/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
+    
       <a href="/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            uni-app笔记
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2024/07/30/CSS%E7%AC%94%E8%AE%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CSS笔记</div>
+        <div class="article-nav-title">uni-app笔记</div>
       </a>
     
   </nav>

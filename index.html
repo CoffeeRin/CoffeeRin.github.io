@@ -466,6 +466,262 @@
 
     
     <article
+  id="post-vue响应式数据原理"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/"
+    >vue响应式数据原理</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2024-08-07T06:47:35.000Z" itemprop="datePublished">2024-08-07</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="vue2-x的响应式"><a href="#vue2-x的响应式" class="headerlink" title="vue2.x的响应式"></a>vue2.x的响应式</h3><p>劫持一个个属性</p>
+<ul>
+<li><p>实现原理：</p>
+<ul>
+<li><p>对象类型：通过<code>Object.defineProperty()</code>对属性的读取(getter)、修改(setter)进行拦截（<strong>数据劫持</strong>）。</p>
+</li>
+<li><p>数组类型：通过重写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(data, <span class="string">&#x27;count&#x27;</span>, &#123;</span><br><span class="line">    get () &#123;&#125;, </span><br><span class="line">    set () &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>存在问题：</p>
+<ul>
+<li>新增属性、删除属性, 界面不会更新。</li>
+<li>直接通过下标修改数组, 界面不会自动更新。</li>
+<li>不能监视到数组索引的值的变化。</li>
+</ul>
+</li>
+</ul>
+<p>&#x2F;&#x2F;模拟实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">	<span class="attr">address</span>:<span class="string">&#x27;xx&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个监视的实例对象，用于监视data中属性的变化</span></span><br><span class="line"><span class="keyword">const</span> obs = <span class="keyword">new</span> <span class="title class_">Observer</span>(data)		</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obs)	</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备一个vm实例对象</span></span><br><span class="line"><span class="keyword">let</span> vm = &#123;&#125;</span><br><span class="line">vm.<span class="property">_data</span> = data = obs</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Observer</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">	<span class="comment">//汇总对象中所有的属性形成一个数组</span></span><br><span class="line">	<span class="keyword">const</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj)</span><br><span class="line">	<span class="comment">//遍历</span></span><br><span class="line">	keys.<span class="title function_">forEach</span>(<span class="function">(<span class="params">k</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">this</span>,k,&#123;</span><br><span class="line">			<span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> obj[k]</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="title function_">set</span>(<span class="params">val</span>)&#123;</span><br><span class="line">				<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;k&#125;</span>被改了，我要去解析模板，生成虚拟DOM.....我要开始忙了`</span>)</span><br><span class="line">				obj[k] = val</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析模板，生成虚拟DOM，对比虚拟dom</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Vue3-0的响应式"><a href="#Vue3-0的响应式" class="headerlink" title="Vue3.0的响应式"></a>Vue3.0的响应式</h3><p>代理整个对象</p>
+<ul>
+<li><p>实现原理: </p>
+<ul>
+<li><p>通过Proxy（代理）:  拦截对象中任意属性的变化, 包括：属性值的读写、属性的添加、属性的删除、根据数组下标更改值等。</p>
+</li>
+<li><p>通过Reflect（反射）:  对源对象的属性进行操作。</p>
+</li>
+<li><p>MDN文档中描述的Proxy与Reflect：</p>
+<ul>
+<li><p>Proxy：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy</a></p>
+</li>
+<li><p>Reflect：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p:代理数据， data:源数据， target: 目标对象/源数据， prop:目标对象的某个属性名， value:要修改的值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Proxy</span>(data, &#123;</span><br><span class="line">	<span class="comment">// 拦截读取属性值</span></span><br><span class="line">    get (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(target, prop)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截设置属性值或添加新属性</span></span><br><span class="line">    set (target, prop, value) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, prop, value)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截删除属性</span></span><br><span class="line">    deleteProperty (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">deleteProperty</span>(target, prop)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">proxy.<span class="property">name</span> = <span class="string">&#x27;tom&#x27;</span>   </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>不写<code>&#123;&#125;</code>的get、set、deleteProperty也可，但是无法捕获到数据的变化</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-uni-app笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/"
+    >uni-app笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2024-08-03T14:16:58.000Z" itemprop="datePublished">2024-08-03</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h2><blockquote>
+<p>各种方法在API里找，拨打电话等…</p>
+<p>各种组件在组件里找</p>
+<p>js等文件配置在全局文件里找，底部导航栏等…</p>
+<p>编译语法在教程找</p>
+</blockquote>
+<ul>
+<li><p>view - div:view标签不能拷贝文字内容。</p>
+</li>
+<li><p>text - span</p>
+</li>
+<li><p>navigator - a</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+<ul>
+<li><p>纵向滑动：<code>&lt;scroll-view scroll-y&gt; 子元素 &lt;/scroll-view&gt;</code></p>
+</li>
+<li><p>横向滑动：<code>&lt;scroll-view scroll-x&gt; 子元素&lt;/scroll-view&gt;</code>，样式设置子元素为<code>display: inline-block;</code>，父元素设置<code>white-space: nowrap;</code></p>
+</li>
+</ul>
+</li>
+<li><p>swiper - 轮播图</p>
+</li>
+</ul>
+<h3 id="uniapp页面生命周期"><a href="#uniapp页面生命周期" class="headerlink" title="uniapp页面生命周期"></a>uniapp页面生命周期</h3><ul>
+<li><p>onLoad(e) – setup&#x2F;Created，只有onLoad()能拿到<strong>页面路由参数</strong></p>
+</li>
+<li><p>onShow()</p>
+</li>
+<li><p>onReady() – onMounted，只有onReady()才能获取到dom节点</p>
+</li>
+</ul>
+<h3 id="uniapp像素单位rpx"><a href="#uniapp像素单位rpx" class="headerlink" title="uniapp像素单位rpx"></a>uniapp像素单位rpx</h3><p>以750为基准</p>
+<h3 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h3><h4 id="全局组件样式-直接应用-："><a href="#全局组件样式-直接应用-：" class="headerlink" title="全局组件样式(直接应用)："></a>全局组件样式(直接应用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/common-style.scss</code>(css&#x2F;scss&#x2F;less)，然后在<code>App.vue</code>用@import导入到<code>&lt;style&gt;&lt;/style&gt;</code>中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">@import &quot;@/common/style/common-style.scss&quot;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>uni.scss：</p>
+<p>项目自带颜色样式，可直接使用，也可在此文件创建新颜色样式。如<code>background: $uni-color-primary</code></p>
+</blockquote>
+<h4 id="全局颜色字体样式-需要自行使用-："><a href="#全局颜色字体样式-需要自行使用-：" class="headerlink" title="全局颜色字体样式(需要自行使用)："></a>全局颜色字体样式(需要自行使用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/base-style.scss</code>,然后在<code>uni.scss</code>中引入</p>
+<ol>
+<li>修改字体等直接用color:$变量名</li>
+<li>修改uni-icons字体图标组件时，需要用到vue的<code>:deep</code>深度选择器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:deep()&#123;</span><br><span class="line">	.uni-icons&#123;</span><br><span class="line">		color:$brand-theme-color !important;	// !important表优先级最高，高于默认的行内样式</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>vite.config中安装插件<code>unplugin-auto-import</code>自动导入vue和uniapp的<strong>生命周期、函数</strong>等</li>
+</ul>
+<p><code>npm i unplugin-auto-import</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在vite.config.js中引入</span><br><span class="line"></span><br><span class="line">import &#123; defineConfig &#125; from &#x27;vite&#x27;</span><br><span class="line">import uni from &#x27;@dcloudio/vite-plugin-uni&#x27;</span><br><span class="line">import AutoImport from &#x27;unplugin-auto-import/vite&#x27;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">	plugins: [</span><br><span class="line">		uni(),</span><br><span class="line">		//自动导入配置</span><br><span class="line">		AutoImport(&#123;</span><br><span class="line">			imports: [</span><br><span class="line">				//预设</span><br><span class="line">				&#x27;vue&#x27;,</span><br><span class="line">				&#x27;uni-app&#x27;</span><br><span class="line">			]</span><br><span class="line">		&#125;)</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="扩展组件uni-ui"><a href="#扩展组件uni-ui" class="headerlink" title="扩展组件uni-ui"></a>扩展组件uni-ui</h3><p>登录uniapp账号后直接按需下载相应组件，下载完项目根目录有uni_modules文件夹</p>
+<h3 id="网络请求的三种处理方式"><a href="#网络请求的三种处理方式" class="headerlink" title="网络请求的三种处理方式"></a>网络请求的三种处理方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//1.success里对返回结果进行处理，易产生回调地狱</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;,</span><br><span class="line">		success:res=&gt;&#123;</span><br><span class="line">			console.log(res);</span><br><span class="line">			arrs.value = res.data </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.使用.then对返回结果进行处理</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;).then(res=&gt;&#123;</span><br><span class="line">		//处理返回结果</span><br><span class="line">		arrs.value = res.data </span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.异步操作同步化</span><br><span class="line">const request = async () =&gt; &#123;</span><br><span class="line">	const res = await uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;)</span><br><span class="line">	//处理返回结果</span><br><span class="line">	arrs.value = res.data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="微信开发者工具跳转到指定页面"><a href="#微信开发者工具跳转到指定页面" class="headerlink" title="微信开发者工具跳转到指定页面"></a>微信开发者工具跳转到指定页面</h3><ul>
+<li>到编译模式里设置相关页面路径即可</li>
+</ul>
+<h3 id="下拉刷新实现"><a href="#下拉刷新实现" class="headerlink" title="下拉刷新实现"></a>下拉刷新实现</h3><p>下拉刷新利用生命周期钩子onPullDownRefresh()</p>
+<p>使用前要在pages.json开启配置：</p>
+<blockquote>
+<ul>
+<li>需要在 <code>pages.json</code> 里，找到的当前页面的pages节点，并在 <code>style</code> 选项中开启 <code>enablePullDownRefresh</code>。</li>
+<li>当处理完数据刷新后，<code>uni.stopPullDownRefresh</code> 可以停止当前页面的下拉刷新。一般在finally里调用<code>uni.stopPullDownRefresh</code></li>
+</ul>
+</blockquote>
+<p>相关api：</p>
+<blockquote>
+<p>uni.startPullDownRefresh(OBJECT):相当于手动下拉刷新</p>
+<p>uni.stopPullDownRefresh()</p>
+</blockquote>
+<p>加载更多字样：在列表尾部加扩展组件</p>
+<p><code>&lt;uni-load-more status=&quot;loading&quot;&gt;&lt;/uni-load-more&gt;</code></p>
+<h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>env(safe-area-inset-bottom)：移动端设置，可防止触摸无效等。</p>
+<p>可设置为<code>height:env(safe-area-inset-bottom);</code>,<code>padding-bottom:env(safe-area-inset-bottom);</code></p>
+<h3 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h3><ul>
+<li>条件编译处理多端差异，处理跨端兼容。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>条件编译写法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#ifdef <strong>APP-PLUS</strong> 需条件编译的代码 #endif</td>
+<td>仅出现在 App 平台下的代码</td>
+</tr>
+<tr>
+<td>#ifndef <strong>H5</strong> 需条件编译的代码 #endif</td>
+<td>除了 H5 平台，其它平台均存在的代码（注意if后面有个n）</td>
+</tr>
+<tr>
+<td>#ifdef <strong>H5</strong> || <strong>MP-WEIXIN</strong> 需条件编译的代码 #endif</td>
+<td>在 H5 平台或微信小程序平台存在的代码（这里只有||，不可能出现&amp;&amp;，因为没有交集）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>适用于html和css，通过注释方式进行编译</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//html：</span><br><span class="line">&lt;!-- #ifdef APP --&gt;</span><br><span class="line">条件编译标签					</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//css:</span><br><span class="line">/* #ifdef APP */</span><br><span class="line">条件编译样式	</span><br><span class="line">/* #endif */</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//小程序时</span><br><span class="line">&lt;!-- #ifdef MP --&gt;</span><br><span class="line">&lt;button open-type=&quot;contact&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//不是小程序时</span><br><span class="line">&lt;!-- #ifndef MP --&gt;</span><br><span class="line">&lt;button&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元素顶到状态栏问题"><a href="#元素顶到状态栏问题" class="headerlink" title="元素顶到状态栏问题"></a>元素顶到状态栏问题</h3><p>全屏时，元素顶到状态栏时解决：</p>
+<blockquote>
+<p>在元素前设置一个空盒子，通过API <code>uni.getSystemInfoSync()</code>获取到状态栏高度<code>statusBarHeight</code>,然后给空盒子设置高度，使空盒子顶下占用到状态栏的元素</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-margin和padding区别及用法"
   class="article article-type-post"
   itemscope
@@ -493,8 +749,15 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。<br>1.使用margin的场景：<br>①若需要在border外侧添加空白时。<br>②空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）<br>2.使用padding的场景<br>①需要在border内侧添加空白时<br>②空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</p>
-<p>盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
+  <p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。</p>
+<ol>
+<li>使用<code>margin</code>的场景：<br><strong>①若需要在border外侧添加空白时。</strong><br>②盒子空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）</li>
+<li>使用<code>padding</code>的场景<br><strong>①需要在border内侧添加空白时。</strong><br>②盒子空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</li>
+</ol>
+<blockquote>
+<p>根据具体情况使用为妙</p>
+</blockquote>
+<p>? 盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
 <p>margin折叠是指当有两个或多个垂直边距相遇时，形成的一个外边距，这个外边距的高度等于两个元素发生叠加的外边距中高度较大的一个。</p>
 <p>发生margin折叠的三种情况</p>
 <ol>
@@ -503,7 +766,7 @@
 <li>父子元素的折叠</li>
 </ol>
 <blockquote>
-<p>盒子用padding居多，盒子内元素用margin居多</p>
+<p>盒子外空白用margin居多，盒子内空白元素用padding居多</p>
 </blockquote>
  
       <!-- reward -->
@@ -579,6 +842,391 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">	height: 340rpx;</span><br><span class="line">	border-radius: 10rpx;</span><br><span class="line">	overflow: hidden;	//溢出部分隐藏，使圆角效果生效</span><br><span class="line">	position: relative;</span><br><span class="line"></span><br><span class="line">	.pic &#123;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 100%;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.tab&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		top: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		border-radius: 0 0 20rpx 0;</span><br><span class="line">		background: rgba(250,129,90,0.7);	//添加背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx); 		//添加失焦磨砂滤镜效果</span><br><span class="line">		font-size: 22rpx;</span><br><span class="line">		transform: scale(0.8);				//缩放</span><br><span class="line">		transform-origin: left top; 		//左上为基准</span><br><span class="line">		padding: 6rpx 10rpx;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.mask&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 70rpx;</span><br><span class="line">		bottom: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		display: flex;</span><br><span class="line">		justify-content: center;</span><br><span class="line">		align-items: center;</span><br><span class="line">		background: rgba(0,0,0,0.2);		//添加半透明背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx);		//添加失焦磨砂效果</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="网格布局"><a href="#网格布局" class="headerlink" title="网格布局"></a>网格布局</h3><p>grid-template-columns 属性用于设置网格布局中的列数及宽度。</p>
+<p>grid-template-rows 属性用于设置网格布局中的行数及高度。</p>
+<p>gap:网格间距</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display: grid;</span><br><span class="line">grid-template-columns: repeat(3,1fr);	//3列</span><br><span class="line">gap: 10px;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="渐变背景"><a href="#渐变背景" class="headerlink" title="渐变背景"></a>渐变背景</h3><p>以下实例演示了从左侧开始的线性渐变，从红色开始，转为黄色:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: linear-gradient(to right, red , yellow); </span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了从左上角到右下角的线性渐变:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: linear-gradient(to bottom right, red , yellow);</span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了线性渐变指定一个角度:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: linear-gradient(180deg, red, yellow); </span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了多个终止色:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);</span><br></pre></td></tr></table></figure>
+
+<p>以下实例使用了透明度:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grad &#123;  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));</span><br></pre></td></tr></table></figure>
+
+<p>两个方向进行层叠：<strong>实现从从右到左渐变，上到下淡化的效果。</strong></p>
+<ul>
+<li>color 50%指定渐变中的颜色起始点</li>
+<li>color 400px指定渐变中的颜色起始点</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: </span><br><span class="line">	linear-gradient(to bottom,rgba(0,0,0,0) 0%,#fff 50%),//透明到白色，rgba(0,0,0,0)和transparent一样都是透明色，透明从0开始，白色50%开始</span><br><span class="line">	linear-gradient(to left,red,blue);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: </span><br><span class="line">	linear-gradient(to bottom,transparent,#fff 400rpx),	//transparent透明色，白色400rpx时开始</span><br><span class="line">	linear-gradient(to right,#beecd8 20%,#F4E2D8);		//#beecd8从20%开始渐变</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定位元素居中方式"><a href="#定位元素居中方式" class="headerlink" title="定位元素居中方式"></a>定位元素居中方式</h3><ol>
+<li><code>left:0;</code> <code>right:0;</code>，将拉伸宽度；</li>
+<li><code>width: fit-content;</code>，宽度根据内容自适应</li>
+<li><code>margin: auto;</code>，居中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">margin: auto;</span><br><span class="line">width: fit-content;	//宽度根据内容自适应</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h3><p>scss：&amp;&gt;view：选择所有父级是&amp;的view</p>
+<table>
+<thead>
+<tr>
+<th align="left">选择器</th>
+<th align="left">示例</th>
+<th align="left">示例说明</th>
+<th align="left">CSS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-class.html">.<em>class</em></a></td>
+<td align="left">.intro</td>
+<td align="left">选择所有class&#x3D;”intro”的元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-id.html">#<em>id</em></a></td>
+<td align="left">#firstname</td>
+<td align="left">选择所有id&#x3D;”firstname”的元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-all.html">*</a></td>
+<td align="left">*</td>
+<td align="left">选择所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><em><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element.html">element</a></em></td>
+<td align="left">p</td>
+<td align="left">选择所有<p>元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><em><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element-comma.html">element,element</a></em></td>
+<td align="left">div,p</td>
+<td align="left">选择所有<div>元素和 <p> 元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element-class.html">element*.class*</a></td>
+<td align="left">p.hometown</td>
+<td align="left">选择所有 class&#x3D;”hometown” 的 <p> 元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element-element.html"><em>element</em> <em>element</em></a></td>
+<td align="left">div p</td>
+<td align="left">选择<div>元素内的所有<p>元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element-gt.html"><em>element</em>&gt;<em>element</em></a></td>
+<td align="left">div&gt;p</td>
+<td align="left">选择所有父级是 <div> 元素的 <p> 元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-element-pluss.html"><em>element</em>+<em>element</em></a></td>
+<td align="left">div+p</td>
+<td align="left">选择所有紧跟在 <div> 元素之后的第一个 <p> 元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attribute.html"><em>attribute</em>]</a></td>
+<td align="left">[target]</td>
+<td align="left">选择所有带有target属性元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attribute-value.html"><em>attribute</em>&#x3D;<em>value</em>]</a></td>
+<td align="left">[target&#x3D;-blank]</td>
+<td align="left">选择所有使用target&#x3D;”-blank”的元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attribute-value-contains.html"><em>attribute</em>~&#x3D;<em>value</em>]</a></td>
+<td align="left">[title~&#x3D;flower]</td>
+<td align="left">选择标题属性包含单词”flower”的所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attribute-value-lang.html"><em>attribute</em>|&#x3D;<em>language</em>]</a></td>
+<td align="left">[lang|&#x3D;en]</td>
+<td align="left">选择 lang 属性等于 <strong>en</strong>，或者以 <strong>en-</strong> 为开头的所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-link.html">:link</a></td>
+<td align="left">a:link</td>
+<td align="left">选择所有未访问链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-visited.html">:visited</a></td>
+<td align="left">a:visited</td>
+<td align="left">选择所有访问过的链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-active.html">:active</a></td>
+<td align="left">a:active</td>
+<td align="left">选择活动链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-hover.html">:hover</a></td>
+<td align="left">a:hover</td>
+<td align="left">选择鼠标在链接上面时</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-focus.html">:focus</a></td>
+<td align="left">input:focus</td>
+<td align="left">选择具有焦点的输入元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-firstletter.html">:first-letter</a></td>
+<td align="left">p:first-letter</td>
+<td align="left">选择每一个<p>元素的第一个字母</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-firstline.html">:first-line</a></td>
+<td align="left">p:first-line</td>
+<td align="left">选择每一个<p>元素的第一行</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-firstchild.html">:first-child</a></td>
+<td align="left">p:first-child</td>
+<td align="left">指定只有当<p>元素是其父级的第一个子级的样式。</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-before.html">:before</a></td>
+<td align="left">p:before</td>
+<td align="left">在每个<p>元素之前插入内容</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-after.html">:after</a></td>
+<td align="left">p:after</td>
+<td align="left">在每个<p>元素之后插入内容</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-lang.html">:lang(<em>language</em>)</a></td>
+<td align="left">p:lang(it)</td>
+<td align="left">选择一个lang属性的起始值&#x3D;”it”的所有<p>元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-gen-sibling.html"><em>element1</em>~<em>element2</em></a></td>
+<td align="left">p~ul</td>
+<td align="left">选择p元素之后的每一个ul元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attr-begin.html"><em>attribute</em>^&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src^&#x3D;”https”]</td>
+<td align="left">选择每一个src属性的值以”https”开头的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attr-end.html"><em>attribute</em>$&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src$&#x3D;”.pdf”]</td>
+<td align="left">选择每一个src属性的值以”.pdf”结尾的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-attr-contain.html"><em>attribute</em>*&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src*&#x3D;”runoob”]</td>
+<td align="left">选择每一个src属性的值包含子字符串”runoob”的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-first-of-type.html">:first-of-type</a></td>
+<td align="left">p:first-of-type</td>
+<td align="left">选择每个p元素是其父级的第一个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-last-of-type.html">:last-of-type</a></td>
+<td align="left">p:last-of-type</td>
+<td align="left">选择每个p元素是其父级的最后一个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-only-of-type.html">:only-of-type</a></td>
+<td align="left">p:only-of-type</td>
+<td align="left">选择每个p元素是其父级的唯一p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-only-child.html">:only-child</a></td>
+<td align="left">p:only-child</td>
+<td align="left">选择每个p元素是其父级的唯一子元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-nth-child.html">:nth-child(<em>n</em>)</a></td>
+<td align="left">p:nth-child(2)</td>
+<td align="left">选择每个p元素是其父级的第二个子元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-nth-last-child.html">:nth-last-child(<em>n</em>)</a></td>
+<td align="left">p:nth-last-child(2)</td>
+<td align="left">选择每个p元素的是其父级的第二个子元素，从最后一个子项计数</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-nth-of-type.html">:nth-of-type(<em>n</em>)</a></td>
+<td align="left">p:nth-of-type(2)</td>
+<td align="left">选择每个p元素是其父级的第二个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-nth-last-of-type.html">:nth-last-of-type(<em>n</em>)</a></td>
+<td align="left">p:nth-last-of-type(2)</td>
+<td align="left">选择每个p元素的是其父级的第二个p元素，从最后一个子项计数</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-last-child.html">:last-child</a></td>
+<td align="left">p:last-child</td>
+<td align="left">选择每个p元素是其父级的最后一个子级。</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-root.html">:root</a></td>
+<td align="left">:root</td>
+<td align="left">选择文档的根元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-empty.html">:empty</a></td>
+<td align="left">p:empty</td>
+<td align="left">选择每个没有任何子级的p元素（包括文本节点）</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-target.html">:target</a></td>
+<td align="left">#news:target</td>
+<td align="left">选择当前活动的#news元素（包含该锚名称的点击的URL）</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-enabled.html">:enabled</a></td>
+<td align="left">input:enabled</td>
+<td align="left">选择每一个已启用的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-disabled.html">:disabled</a></td>
+<td align="left">input:disabled</td>
+<td align="left">选择每一个禁用的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-checked.html">:checked</a></td>
+<td align="left">input:checked</td>
+<td align="left">选择每个选中的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-not.html">:not(<em>selector</em>)</a></td>
+<td align="left">:not(p)</td>
+<td align="left">选择每个并非p元素的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-selection.html">::selection</a></td>
+<td align="left">::selection</td>
+<td align="left">匹配元素中被用户选中或处于高亮状态的部分</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-out-of-range.html">:out-of-range</a></td>
+<td align="left">:out-of-range</td>
+<td align="left">匹配值在指定区间之外的input元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-in-range.html">:in-range</a></td>
+<td align="left">:in-range</td>
+<td align="left">匹配值在指定区间之内的input元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-read-write.html">:read-write</a></td>
+<td align="left">:read-write</td>
+<td align="left">用于匹配可读及可写的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-read-only.html">:read-only</a></td>
+<td align="left">:read-only</td>
+<td align="left">用于匹配设置 “readonly”（只读） 属性的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-optional.html">:optional</a></td>
+<td align="left">:optional</td>
+<td align="left">用于匹配可选的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-required.html">:required</a></td>
+<td align="left">:required</td>
+<td align="left">用于匹配设置了 “required” 属性的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-valid.html">:valid</a></td>
+<td align="left">:valid</td>
+<td align="left">用于匹配输入值为合法的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-invalid.html">:invalid</a></td>
+<td align="left">:invalid</td>
+<td align="left">用于匹配输入值为非法的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css-sel-has.html">:has</a></td>
+<td align="left">:has</td>
+<td align="left">允许根据其后代元素来选择一个元素。</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css-sel-is.html">:is</a></td>
+<td align="left">:is</td>
+<td align="left">接收任何数量的选择器作为参数，并且返回这些选择器匹配的元素的并集。</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
  
       <!-- reward -->
       
@@ -650,117 +1298,6 @@
     
     <footer class="article-footer">
        
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-sass全局样式"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/07/07/sass%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F/"
-    >sass全局样式</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/07/07/sass%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F/" class="article-date">
-  <time datetime="2024-07-07T14:45:53.000Z" itemprop="datePublished">2024-07-07</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <ol>
-<li>在src文件夹下创建styles文件夹</li>
-<li>创建common.scss文件，创建全局样式</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//common.scss</span></span><br><span class="line"><span class="comment">// 重置样式</span></span><br><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">1240px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">1em</span>/<span class="number">1.4</span> <span class="string">&#x27;Microsoft Yahei&#x27;</span>, <span class="string">&#x27;PingFang SC&#x27;</span>, <span class="string">&#x27;Avenir&#x27;</span>, <span class="string">&#x27;Segoe UI&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Hiragino Sans GB&#x27;</span>, <span class="string">&#x27;STHeiti&#x27;</span>, <span class="string">&#x27;Microsoft Sans Serif&#x27;</span>, <span class="string">&#x27;WenQuanYi Micro Hei&#x27;</span>,</span><br><span class="line">    sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">h3</span>,</span><br><span class="line"><span class="selector-tag">h4</span>,</span><br><span class="line"><span class="selector-tag">p</span>,</span><br><span class="line"><span class="selector-tag">dl</span>,</span><br><span class="line"><span class="selector-tag">dd</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">outline</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">i</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span>,</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;search&#x27;</span>]</span>,</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;password&#x27;</span>]</span>,</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;checkbox&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">outline</span>: none;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  -webkit-appearance: none;</span><br><span class="line">  &amp;<span class="selector-pseudo">::placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ebebeb</span> <span class="built_in">url</span>(<span class="string">&#x27;@/assets/images/200.png&#x27;</span>) no-repeat center / contain;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#app</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  user-select: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1240px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.ellipsis</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ellipsis-2</span> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  -webkit-line-clamp: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fl</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fr</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// reset element</span></span><br><span class="line"><span class="selector-class">.el-breadcrumb__inner</span><span class="selector-class">.is-link</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">400</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>在main.js中引入</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引入初始化的样式文件</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@/styles/common.scss&#x27;</span></span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/" rel="tag">sass</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-接口封装"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/"
-    >接口封装</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/07/07/%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85/" class="article-date">
-  <time datetime="2024-07-07T08:13:38.000Z" itemprop="datePublished">2024-07-07</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//http.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//axios基础的封装</span></span><br><span class="line"><span class="comment">//导出的httpInstance实例为apis服务</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;@/router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//只使用组件 API</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/theme-chalk/el-message.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElMessage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引入pinia(user)</span></span><br><span class="line"><span class="keyword">import</span> &#123; useUserStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@/stores/userStore&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建axios实例</span></span><br><span class="line"><span class="keyword">const</span> httpInstance = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">baseURL</span>: <span class="string">&#x27;http://pcapi-xiaotuxian-front-devtest.itheima.net&#x27;</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">6000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//拦截器，e代表error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// axios请求拦截器</span></span><br><span class="line">httpInstance.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//1.获取pinia中user数据</span></span><br><span class="line">  <span class="keyword">const</span> userStore = <span class="title function_">useUserStore</span>()</span><br><span class="line">  <span class="comment">//2.按照后端的要求拼接token数据</span></span><br><span class="line">  <span class="keyword">const</span> token = userStore.<span class="property">userInfo</span>.<span class="property">token</span></span><br><span class="line">  <span class="keyword">if</span> (token) &#123;</span><br><span class="line">    config.<span class="property">headers</span>.<span class="property">Authorization</span> = <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span> <span class="comment">//请求的config拼接token到header上</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;, <span class="function"><span class="params">e</span> =&gt;</span> &#123; <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(e) &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// axios响应式拦截器</span></span><br><span class="line">httpInstance.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="property">data</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> userStore = <span class="title function_">useUserStore</span>()</span><br><span class="line">  <span class="comment">//统一错误提示  </span></span><br><span class="line">  <span class="title class_">ElMessage</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span>,</span><br><span class="line">    <span class="attr">message</span>: e.<span class="property">response</span>.<span class="property">data</span>.<span class="property">message</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">//401token失效处理</span></span><br><span class="line">  <span class="comment">//1.清除本地用户数据</span></span><br><span class="line">  <span class="comment">//2.跳转到登录页</span></span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">response</span>.<span class="property">status</span> === <span class="number">401</span>) &#123;</span><br><span class="line">    userStore.<span class="title function_">clearUserInfo</span>()</span><br><span class="line">    router.<span class="title function_">push</span>(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(e)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> httpInstance</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
-
     </footer>
   </div>
 

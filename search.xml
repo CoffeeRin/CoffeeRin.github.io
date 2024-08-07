@@ -1717,7 +1717,7 @@
 <li>clip-path</li>
 </ol>
 <h4 id="4-px和rem的区别是什么？"><a href="#4-px和rem的区别是什么？" class="headerlink" title="4.px和rem的区别是什么？"></a>4.px和rem的区别是什么？</h4><p>​        px是像素，显示器上给我们呈现画面的像素，每个像素的大小是一样，绝对单位长度<br>​        rem，相对单位，相对于html根节点的font-size的值，直接给html节点的font-size:62.5%;<br>​            1rem &#x3D; 10px; （16px*62.5%&#x3D;10px）</p>
-<h4 id="5-重绘重排有什么区别？"><a href="#5-重绘重排有什么区别？" class="headerlink" title="5.重绘重排有什么区别？"></a>5.重绘重排有什么区别？</h4><p>​        重排（回流）：布局引擎会根据所有的样式计算出盒模型在页面上的位置和大小<br>​        重绘：计算好盒模型的位置、大小和其他一些属性之后，浏览器就会根据每个盒模型的特性进行绘制<br>​        浏览器的渲染机制<br>​        对DOM的大小、位置进行修改后，浏览器需要重新计算元素的这些几何属性，就叫重排<br>​        对DOM的样式进行修改，比如color和background-color，浏览器不需要重新计算几何属性的时候，直接绘制了该元素的新样式，那么这里就只触发了重绘</p>
+<h4 id="5-重绘重排有什么区别？"><a href="#5-重绘重排有什么区别？" class="headerlink" title="5.重绘重排有什么区别？"></a>5.重绘重排有什么区别？</h4><p>​        重排（回流）：布局引擎会根据所有的样式计算出盒模型在页面上的位置和大小<br>​        重绘：计算好盒模型的位置、大小和其他一些属性之后，浏览器就会根据每个盒模型的特性进行绘制<br>​        <strong>浏览器的渲染机制</strong><br>​        对DOM的大小、位置进行修改后，浏览器需要重新计算元素的这些几何属性，就叫重排<br>​        对DOM的样式进行修改，比如color和background-color，浏览器不需要重新计算几何属性的时候，直接绘制了该元素的新样式，那么这里就只触发了重绘</p>
 <h4 id="6-让一个元素水平垂直居中的方式有哪些？"><a href="#6-让一个元素水平垂直居中的方式有哪些？" class="headerlink" title="6.让一个元素水平垂直居中的方式有哪些？"></a>6.让一个元素水平垂直居中的方式有哪些？</h4><p>​        1.定位+margin<br>​        2.定位+transform<br>​        3.flex布局<br>​        4.grid布局<br>​        5.table布局</p>
 <h4 id="7-CSS的哪些属性哪些可以继承？哪些不可以继承？"><a href="#7-CSS的哪些属性哪些可以继承？哪些不可以继承？" class="headerlink" title="7.CSS的哪些属性哪些可以继承？哪些不可以继承？"></a>7.CSS的哪些属性哪些可以继承？哪些不可以继承？</h4><p>​        CSS的三大特性：继承、层叠、优先级<br>​        子元素可以继承父类元素的样式<br>​        1.字体的一些属性：font<br>​        2.文本的一些属性：line-height<br>​        3.元素的可见性：visibility:hidden<br>​        4.表格布局的属性：border-spacing<br>​        5.列表的属性：list-style<br>​        6.页面样式属性：page<br>​        7.声音的样式属性</p>
 <h4 id="8-有没有用过预处理器？"><a href="#8-有没有用过预处理器？" class="headerlink" title="8.有没有用过预处理器？"></a>8.有没有用过预处理器？</h4><p>​        预处理语言增加了变量、函数、混入等强大的功能<br>​        SASS  LESS</p>
@@ -1730,11 +1730,11 @@
 </li>
 <li><p>固定定位，参考它的视口，脱离文档流。</p>
 </li>
-<li><p>粘性定位，参考离它最近的一个拥有“滚动机制”的祖先元素，不会脱离文档流。</p>
+<li><p>粘性定位，参考离它最近的一个拥有“滚动机制”的祖先元素，<strong>不会脱离文档流</strong>。</p>
 </li>
 </ol>
 <h4 id="11-消除浮动"><a href="#11-消除浮动" class="headerlink" title="11.消除浮动"></a>11.消除浮动</h4><ol>
-<li><p><code>clear:both</code> clear属性指定元素两侧不能出现浮动元素,添加一个空的块级元素，给其<code>clear:both</code>属性。</p>
+<li><p><code>clear:both</code> clear属性指定元素两侧不能出现浮动元素,添加一个空的块级元素，给其<code>clear:both</code>属性。<strong>在浮动元素下加<br clear="all"></strong></p>
 </li>
 <li><p>将父元素设置为flex布局。</p>
 </li>
@@ -1750,7 +1750,15 @@
 <blockquote>
 <p>display:inline&#x2F;block&#x2F;inline-block:设置为行内&#x2F;内联，块级，行内块级元素</p>
 </blockquote>
-<h3 id="二、JavaScript"><a href="#二、JavaScript" class="headerlink" title="二、JavaScript"></a>二、JavaScript</h3><h4 id="1-JS由哪三部分组成？"><a href="#1-JS由哪三部分组成？" class="headerlink" title="1.JS由哪三部分组成？"></a>1.JS由哪三部分组成？</h4><ol>
+<h4 id="12-自适应布局"><a href="#12-自适应布局" class="headerlink" title="12.自适应布局"></a>12.自适应布局</h4><p>界面布局的类型<br>界面的布局都是使用css写的，布局分为5种：固定布局，流式布局，弹性布局，自适应布局，响应式布局。</p>
+<p>固定布局：就是静态布局，换句话说，就是界面是死的，一般是px单位。</p>
+<p>流式布局：顾名思义，流动，像水一样，会根据界面的变化而变化，但是字体不会变化，一般是百分比的单位。</p>
+<p>弹性布局：具有弹性，像橡皮筋一样，弹来弹去，可大可小，一般是rem，em单位</p>
+<p><strong>自适应布局：自适应，就是根据不同的设备，进行布局，一种屏幕一个布局，主要是使用媒体查询，主要用到尺寸值有百分比、auto等</strong></p>
+<p>响应式布局：最强大，一套代码，可以实现所有设备的大小的变化，包括手机端和电脑端，一般都是综合使用上面的。</p>
+<h4 id="13-网格布局"><a href="#13-网格布局" class="headerlink" title="13.网格布局"></a>13.网格布局</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display:grid;</span><br><span class="line">grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); //repeat(3,1fr);3列</span><br><span class="line">gap: 30px;</span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="二、JavaScript"><a href="#二、JavaScript" class="headerlink" title="二、JavaScript"></a>二、JavaScript</h3><h4 id="1-JS由哪三部分组成？"><a href="#1-JS由哪三部分组成？" class="headerlink" title="1.JS由哪三部分组成？"></a>1.JS由哪三部分组成？</h4><ol>
 <li>ECMAScript：JS的核心内容，描述了语言的基础语法，比如var,for，数据类型（数组、字符串），</li>
 <li>文档对象模型（DOM）：DOM把整个HTML页面规划为元素构成的文档</li>
 <li>浏览器对象模型（BOM）：对浏览器窗口进行访问和操作</li>
@@ -1758,18 +1766,18 @@
 <h4 id="2-JS有哪些内置对象？"><a href="#2-JS有哪些内置对象？" class="headerlink" title="2.JS有哪些内置对象？"></a>2.JS有哪些内置对象？</h4><pre><code>String Boolean Number Array Object Function Math Date RegExp...
 Math
     abs() sqrt() max() min()
-Data
-    new Data() getYear() 
+Date
+    new Date() getYear() 
 Array
 String
     concat() length  slice() split()
 </code></pre>
-<h4 id="3-操作数组的方法有哪些？"><a href="#3-操作数组的方法有哪些？" class="headerlink" title="3.操作数组的方法有哪些？"></a>3.操作数组的方法有哪些？</h4><pre><code>push() pop() sort() splice() unshift() shift() reverse() concat() join() map() filter()
-ervery() some() reduce() isArray() findIndex()
+<h4 id="3-操作数组的方法有哪些？"><a href="#3-操作数组的方法有哪些？" class="headerlink" title="3.操作数组的方法有哪些？"></a>3.操作数组的方法有哪些？</h4><pre><code>push() pop() sort() splice() unshift() shift() reverse() concat() join() 
+map() filter() every() some() reduce() isArray() findIndex()
 哪些方法会改变原数组？
     push() pop() unshift() shift() sort() reverse() splice()
 </code></pre>
-<h4 id="4-JS对数据类的检测方式有哪些？"><a href="#4-JS对数据类的检测方式有哪些？" class="headerlink" title="4.JS对数据类的检测方式有哪些？"></a>4.JS对数据类的检测方式有哪些？</h4><pre><code>typeof       --基本数据类型	typeof 5 -&gt; &quot;number&quot;
+<h4 id="4-JS对数据类的检测方式有哪些？"><a href="#4-JS对数据类的检测方式有哪些？" class="headerlink" title="4.JS对数据类的检测方式有哪些？"></a>4.JS对数据类的检测方式有哪些？</h4><pre><code>typeof       --基本数据类型	typeof 5 -&gt; &quot;number&quot; , typeof null -&gt; &quot;object&quot;
 instanceof   --引用数据类型	p instanceof Person -&gt; true
 .constructor --均可	      (5).constructor === Number -&gt; true,&quot;text&quot;.constructor === String,p.constructor === Person-&gt;true
 Object.prototype.toString.call() -&gt; &quot;[object Object/Array/Function/String/Number/Date...]&quot;
@@ -1783,9 +1791,8 @@ Object.prototype.toString.call() -&gt; &quot;[object Object/Array/Function/Strin
 垃圾回收机制
 因素：一些为生命直接赋值的变量；一些未清空的定时器；过度的闭包；一些引用元素没有被清除。
 </code></pre>
-<h4 id="7-事件委托是什么？"><a href="#7-事件委托是什么？" class="headerlink" title="7.事件委托是什么？"></a>7.事件委托是什么？</h4><pre><code>又叫事件代理，原理就是利用了事件冒泡的机制来实现，也就是说把子元素的事件绑定到了父元素的身上
-如果子元素阻止了事件冒泡，那么委托也就不成立
-组织事件冒泡：event.stopPropagation()
+<h4 id="7-事件委托是什么？"><a href="#7-事件委托是什么？" class="headerlink" title="7.事件委托是什么？"></a>7.事件委托是什么？</h4><pre><code>又叫事件代理，原理就是利用了事件冒泡的机制来实现，也就是说把子元素的事件绑定到了父元素的身上。
+如果子元素阻止了事件冒泡，那么委托也就不成立。阻止事件冒泡：event.stopPropagation()。
 addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件冒泡），true（事件捕获）
 好处：提高性能，减少事件的绑定，也就减少了内存的占用。
 </code></pre>
@@ -1795,14 +1802,21 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
     保存在堆内存当中，声明一个引用类型的变量，它保存的是引用类型数据的地址
     假如声明两个引用类型同时指向了一个地址的时候，修改其中一个那么另外一个也会改变
 </code></pre>
-<h4 id="9-说一下原型链。"><a href="#9-说一下原型链。" class="headerlink" title="9.说一下原型链。"></a>9.说一下原型链。</h4><pre><code>原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象
-使用prototype可以把方法挂在原型上，内存值保存一份
-__proto__可以理解为指针，实例对象中的属性，指向了构造函数的原型（prototype）
+<h4 id="9-说一下原型链。"><a href="#9-说一下原型链。" class="headerlink" title="9.说一下原型链。"></a>9.说一下原型链。</h4><pre><code>搜索机制。
+原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象。
+使用prototype可以把方法挂在原型上，内存值保存一份。
+__proto__可以理解为指针，实例对象中的属性，指向了构造函数的原型（prototype）。
 </code></pre>
 <h4 id="10-new操作符具体做了什么？"><a href="#10-new操作符具体做了什么？" class="headerlink" title="10.new操作符具体做了什么？"></a>10.new操作符具体做了什么？</h4><pre><code>1.先创建一个空对象
 2.把空对象和构造函数通过原型链进行链接
 3.把构造函数的this绑定到新的空对象身上
 4.根据构建函数返回的类型判断，如果是值类型，则返回对象，如果是引用类型，就要返回这个引用类型
+
+1. 创建一个空对象。
+2. 将空对象的原型链接（__proto__）到构造函数的原型对象。这样新对象就可以访问构造函数原型对象中定义的属性和方法。
+3. 将构造函数的作用域赋给空对象。这样新对象就可以通过this关键字来引用构造函数中的属性和方法。
+4. 执行构造函数中的代码。构造函数中的代码将用于初始化新对象的属性。
+5. 如果构造函数中没有返回其他对象，那么new操作符将返回新创建的对象实例。否则，返回构造函数中返回的对象。
 </code></pre>
 <h4 id="11-JS是如何实现继承的？"><a href="#11-JS是如何实现继承的？" class="headerlink" title="11.JS是如何实现继承的？"></a>11.JS是如何实现继承的？</h4><pre><code>1.原型链继承
 2.借用构造函数继承
@@ -1843,17 +1857,25 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <ol>
 <li>lodash的_.deepClone实现</li>
 <li>JSON.parse(JSON.stringify())</li>
+<li>Object.assign(obj1,obj2)，将obj2拷贝到obj1</li>
 <li>利用递归函数实现</li>
 </ol>
 <h4 id="21-说一下事件循环。"><a href="#21-说一下事件循环。" class="headerlink" title="21.说一下事件循环。"></a>21.说一下事件循环。</h4><p>JS是一个单线程的脚本语言<br>主线程 执行栈 任务队列  宏任务 微任务<br>主线程先执行同步任务，然后才去执行任务队列里的任务，如果在执行宏任务之前有微任务，那么要先执行微任务<br>全部执行完之后等待主线程的调用，调用完之后再去任务队列中查看是否有异步任务，这样一个循环往复的过程就是事件循环！</p>
 <p>主线程同步任务&gt;任务队列(异步)&gt;微任务&gt;宏任务</p>
-<h4 id="22-ajax是什么？怎么实现的？"><a href="#22-ajax是什么？怎么实现的？" class="headerlink" title="22.ajax是什么？怎么实现的？"></a>22.ajax是什么？怎么实现的？</h4><p>创建<strong>交互式网页应用的网页开发技术</strong><br>    在不重新加载整个网页的前提下，与服务器交换数据并更新部分内容<br>通过XmlHttpRequest对象向服务器发送异步请求，然后从服务器拿到数据，最后通过JS操作DOM更新页面<br>1.创建XmlHttpRequest对象 xhr<br>2.通过xhr对象里的open()方法和服务器建立连接<br>3.构建请求所需的数据，并通过xhr对象的send()发送给服务器<br>4.通过xhr对象的onreadystate changes事件监听服务器和你的通信状态<br>5.接收并处理服务器响应的数据结果<br>6.把处理的数据更新到HTML页面上</p>
-<h4 id="23-get和post有什么区别？"><a href="#23-get和post有什么区别？" class="headerlink" title="23.get和post有什么区别？***"></a>23.get和post有什么区别？***</h4><p>1.get一般是获取数据，post一般是提交数据<br>2.get参数会放在url&#x2F;query上，post是放在body中<br>3.get请求刷新服务器或退回是没有影响的，post请求退回时会重新提交数据<br>4.<strong>get请求时会被缓存,post请求不会被缓存</strong><br>5.get请求会被保存在浏览器历史记录中,post不会<br>6.get请求只能进行url编码，post请求支持多种编码方式（json，xml，form-data表单数据）</p>
+<h4 id="22-ajax是什么？怎么实现的？"><a href="#22-ajax是什么？怎么实现的？" class="headerlink" title="22.ajax是什么？怎么实现的？"></a>22.ajax是什么？怎么实现的？</h4><p>创建<strong>交互式网页应用的网页开发技术</strong><br>    在不重新加载整个网页的前提下，与服务器交换数据并更新部分内容<br>通过XmlHttpRequest对象向服务器发送异步请求，然后从服务器拿到数据，最后通过JS操作DOM更新页面<br>1.创建XmlHttpRequest对象 xhr<br>2.通过xhr对象里的open()方法和服务器建立连接<br>3.构建请求所需的数据，并通过xhr对象的send()发送给服务器<br>4.通过xhr对象的onreadystatechanges事件监听服务器和你的通信状态<br>5.接收并处理服务器响应的数据结果<br>6.把处理的数据更新到HTML页面上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function loadData() &#123;</span><br><span class="line">  // 创建 XMLHttpRequest 对象</span><br><span class="line">  var xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">  // 配置请求，指定请求方法和URL</span><br><span class="line">  xhr.open(&quot;GET&quot;, &quot;https://jsonplaceholder.typicode.com/posts/1&quot;, true);</span><br><span class="line"></span><br><span class="line">  // 定义请求完成后的回调函数</span><br><span class="line">  xhr.onreadystatechange = function() &#123;</span><br><span class="line">    // 请求完成且响应状态为 200 表示成功</span><br><span class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line">      // 解析服务器响应的 JSON 数据</span><br><span class="line">      var data = JSON.parse(xhr.responseText);</span><br><span class="line"></span><br><span class="line">      // 更新页面上的内容</span><br><span class="line">      document.getElementById(&quot;result&quot;).innerHTML = &quot;Title: &quot; + data.title;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  // 发送请求</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>readyState:</strong></p>
+<p>0：请求未初始化<br>1：服务器连接已建立<br>2：请求已接收<br>3：请求处理中<br>4:请求已完成，且响应已就绪</p>
+<p><strong>status:</strong></p>
+<p>200:”OK”<br>404:未找到页面</p>
+<h4 id="23-get和post有什么区别？"><a href="#23-get和post有什么区别？" class="headerlink" title="23.get和post有什么区别？"></a>23.get和post有什么区别？</h4><p>1.get一般是获取数据，post一般是提交数据<br>2.get参数会放在url&#x2F;query上，post是放在body中<br>3.get请求刷新服务器或退回是没有影响的，post请求退回时会重新提交数据<br>4.<strong>get请求时会被缓存,post请求不会被缓存</strong><br>5.get请求会被保存在浏览器历史记录中,post不会<br>6.get请求只能进行url编码，post请求支持多种编码方式（json，xml，form-data表单数据）</p>
+<p>post请求为什么有2次？</p>
 <blockquote>
 <p>第一次发送请求头响应100，再次响应返回200，成功</p>
 <p>先发起一个OPTIONS请求，然后再发送实际的 POST 请求。</p>
 </blockquote>
-<h4 id="24-promise的内部原理是什么？它的优缺点是什么？"><a href="#24-promise的内部原理是什么？它的优缺点是什么？" class="headerlink" title="24. promise的内部原理是什么？它的优缺点是什么？"></a>24. promise的内部原理是什么？它的优缺点是什么？</h4><p>Promise对象，封装了一个异步操作并且还可以获取成功或失败的结果<br>Promise主要就是解决<strong>回调地狱</strong>的问题，之前如果异步任务比较多，同时他们之间有相互依赖的关系，就只能使用回调函数处理，这样就容易形成回调地狱，代码的可读性差，可维护性也很差<br>有三种状态：pending初始状态  fulfilled成功状态  rejected失败状态<br>状态改变只会有两种情况，<br>    pending -&gt; fulfilled; pending -&gt; rejected 一旦发生，状态就会凝固，不会再变<br>首先就是我们无法取消promise，一旦创建它就会立即执行，不能中途取消<br>如果不设置回调，promise内部抛出的测u哦呜就无法反馈到外面<br>若当前处于pending状态时，无法得知目前在哪个阶段。<br>原理：<br>    构造一个Promise实例，实例需要传递函数的参数，这个函数有两个形参，分别都是函数类型，一个是<strong>resolve</strong>一个是<strong>reject</strong><br>    promise上还有then方法，这个方法就是来指定状态改变时的确定操作，resolve是执行第一个函数，reject是执行第二个函数</p>
+<h4 id="24-promise的内部原理是什么？它的优缺点是什么？"><a href="#24-promise的内部原理是什么？它的优缺点是什么？" class="headerlink" title="24. promise的内部原理是什么？它的优缺点是什么？"></a>24. promise的内部原理是什么？它的优缺点是什么？</h4><p><strong>Promise对象，封装了一个异步操作并且还可以获取成功或失败的结果</strong><br>Promise主要就是解决<strong>回调地狱</strong>的问题，之前如果异步任务比较多，同时他们之间有相互依赖的关系，就只能使用回调函数处理，这样就容易形成回调地狱，代码的可读性差，可维护性也很差<br>有三种状态：pending初始状态  fulfilled成功状态  rejected失败状态<br>状态改变只会有两种情况，<br>    pending -&gt; fulfilled; pending -&gt; rejected 一旦发生，状态就会凝固，不会再变<br>首先就是我们无法取消promise，一旦创建它就会立即执行，不能中途取消<br>如果不设置回调，promise内部抛出的测u哦呜就无法反馈到外面<br>若当前处于pending状态时，无法得知目前在哪个阶段。<br>原理：<br>    构造一个Promise实例，实例需要传递函数的参数，这个函数有两个形参，分别都是函数类型，一个是<strong>resolve</strong>一个是<strong>reject</strong><br>    promise上还有then方法，这个方法就是来指定状态改变时的确定操作，resolve是执行第一个函数，reject是执行第二个函数</p>
 <h4 id="25-promise和async-await的区别是什么？"><a href="#25-promise和async-await的区别是什么？" class="headerlink" title="25.promise和async await的区别是什么？"></a>25.promise和async await的区别是什么？</h4><p>1.都是处理异步请求的方式<br>2.promise是ES6，async await 是ES7的语法<br>3.async await是基于promise实现的，他和promise都是<strong>非阻塞性</strong>的<br>优缺点：<br>1.promise是返回对象我们要用then，catch方法去处理和捕获异常，并且书写方式是链式，容易造成代码重叠，不好维护，async await 是通过try catch进行捕获异常<br>2.async await最大的优点就是能让代码看起来像同步一样，只要遇到await就会立刻返回结果，然后再执行后面的操作<br>promise.then()的方式返回，会出现请求还没返回，就执行了后面的操作</p>
 <h4 id="26-浏览器的存储方式有哪些？"><a href="#26-浏览器的存储方式有哪些？" class="headerlink" title="26.浏览器的存储方式有哪些？"></a>26.浏览器的存储方式有哪些？</h4><p>1.cookies<br>    H5标准前的本地存储方式<br>    兼容性好，请求头自带cookie<br>    存储量小，资源浪费，使用麻烦（封装）<br>2.localstorage<br>    H5加入的以键值对为标准的方式<br>    操作方便，永久存储，兼容性较好<br>    保存值的类型被限定，浏览器在隐私模式下不可读取，不能被爬虫<br>3.sessionstorage<br>    当前页面关闭后就会立刻清理，会话级别的存储方式<br>4.indexedDB<br>    H5标准的存储方式，他是以键值对进行存储，可以快速读取，适合WEB场景</p>
 <h4 id="27-token存在sessionstorage还是loaclstorage？"><a href="#27-token存在sessionstorage还是loaclstorage？" class="headerlink" title="27.token存在sessionstorage还是loaclstorage？"></a>27.token存在sessionstorage还是loaclstorage？</h4><p>token：验证身份的令牌，一般就是用户通过账号密码登录后，服务端把这些凭证通过加密等一系列操作后得到的字符串<br>1.存loaclstorage里，后期每次请求接口都需要把它当作一个字段传给后台<br>2.存cookie中，会自动发送，缺点就是不能跨域<br>如果存在localstorage中，容易被XSS攻击，但是如果做好了对应的措施，那么是利大于弊<br>如果存在cookie中会有CSRF攻击</p>
@@ -1869,7 +1891,9 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </li>
 <li><p>渲染页面</p>
 <ul>
-<li><p>浏览器会获取HTML和CSS的资源，然后把HTML解析成DOM树</p>
+<li><p>浏览器会获取HTML和CSS的资源</p>
+</li>
+<li><p>然后把HTML解析成DOM树</p>
 </li>
 <li><p>再把CSS解析成CSSOM</p>
 </li>
@@ -1893,9 +1917,13 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h4 id="33-了解过JWT吗？"><a href="#33-了解过JWT吗？" class="headerlink" title="33.了解过JWT吗？"></a>33.了解过JWT吗？</h4><p>​    JSON Web Token 通过JSON形式作为在web应用中的令牌，可以在各方之间安全的把信息作为JSON对象传输<br>​    信息传输、授权<br>​    JWT的认证流程<br>​    1.前端把账号密码发送给后端的接口<br>​    2.后端核对账号密码成功后，把用户id等其他信息作为JWT 负载，把它和头部分别进行base64编码拼接后签名，形成一个JWT（token）。<br>​    3.前端每日请求时都会把JWT放在HTTP请求头的Authorization字段内<br>​    4.后端检查是否存在，如果存在就验证JWT的有效性（签名是否正确，token是否过期）<br>​    5.验证通过后后端使用JWT中包含的用户信息进行其他的操作，并返回对应结果<br>​    简洁、包含性、因为Token是JSON加密的形式保存在客户端，所以JWT是跨语言的，原则上是任何web形式都支持。</p>
 <h4 id="34-npm的底层环境是什么？"><a href="#34-npm的底层环境是什么？" class="headerlink" title="34.npm的底层环境是什么？"></a>34.npm的底层环境是什么？</h4><p>​    node package manager,node的包管理和分发工具，已经成为分发node模块的标准，是JS的运行环境<br>​    npm的组成：网站、注册表、命令行工具</p>
 <h4 id="35-HTTP协议规定的协议头和请求头有什么？"><a href="#35-HTTP协议规定的协议头和请求头有什么？" class="headerlink" title="35.HTTP协议规定的协议头和请求头有什么？"></a>35.HTTP协议规定的协议头和请求头有什么？</h4><p>​    1.请求头信息：<br>​        Accept:浏览器告诉服务器所支持的数据类型<br>​        Host:浏览器告诉服务器我想访问服务器的哪台主机<br>​        Referer:浏览器告诉服务器我是从哪里来的（防盗链）<br>​        User-Agent:浏览器类型、版本信息<br>​        Date:浏览器告诉服务器我是什么时候访问的<br>​        Connection:连接方式<br>​        Cookie<br>​        X-Request-With:请求方式<br>​    2.响应头信息：<br>​        Location:这个就是告诉浏览器你要去找谁<br>​        Server:告诉浏览器服务器的类型<br>​        Content-Type:告诉浏览器返回的数据类型<br>​        Refresh:控制了的定时刷新</p>
-<h4 id="36-说一下浏览器的缓存策略。"><a href="#36-说一下浏览器的缓存策略。" class="headerlink" title="36.说一下浏览器的缓存策略。"></a>36.说一下浏览器的缓存策略。</h4><p>​    强缓存（本地缓存）、协商缓存（弱缓存）<br>​    强缓：不发起请求，直接使用缓存里的内容，浏览器把JS，CSS，image等存到内存中，下次用户访问直接从内存中取，提高性能<br>​    协缓：需要向后台发请求，通过判断来决定是否使用协商缓存，如果请求内容没有变化，则返回304，浏览器就用缓存里的内容<br>​    强缓存的触发：<br>​        HTTP1.0:时间戳响应标头<br>​        HTTP1.1:Cache-Control响应标头<br>​    协商缓存触发：<br>​        HTTP1.0:请求头：if-modified-since 响应头：last-modified<br>​        HTTP1.1:请求头：if-none-match 响应头：Etag</p>
+<h4 id="36-说一下浏览器的缓存策略。"><a href="#36-说一下浏览器的缓存策略。" class="headerlink" title="36.说一下浏览器的缓存策略。"></a>36.说一下浏览器的缓存策略。</h4><p>​    强缓存（本地缓存）、协商缓存（弱缓存）<br>​    强缓：不发起请求，直接使用缓存里的内容，浏览器把JS，CSS，image等存到内存中，下次用户访问直接从内存中取，提高性能<br>​    协缓：需要向后台发请求，通过判断来决定是否使用协商缓存，如果<strong>请求内容没有变化</strong>，则返回304，浏览器就用缓存里的内容<br>​    强缓存的触发：<br>​        HTTP1.0:时间戳响应标头<br>​        HTTP1.1:Cache-Control响应标头<br>​    协商缓存触发：<br>​        HTTP1.0:请求头：if-modified-since 响应头：last-modified<br>​        HTTP1.1:请求头：if-none-match 响应头：Etag</p>
 <h4 id="37-说一下什么是“同源策略”？"><a href="#37-说一下什么是“同源策略”？" class="headerlink" title="37.说一下什么是“同源策略”？"></a>37.说一下什么是“同源策略”？</h4><p>​    http:&#x2F;&#x2F; www.  aaa.com:8080&#x2F;index&#x2F;vue.js<br>​    协议    子域名 主域名  端口号     资源<br>​    同源策略是浏览器的核心，如果没有这个策略就会遭受网络攻击<br>​    主要指的就是协议+域名+端口号三者一致，若其中一个不一样则不是同源，会产生跨域<br>​    三个允许跨域加载资源的标签：img  link  script<br>​    跨域是可以发送请求，后端也会正常返回结果，只不过这个结果被浏览器拦截了！<br>​    JSONP<br>​    CORS<br>​    websocket<br>​    反向代理</p>
-<h4 id="38-防抖和节流是什么？"><a href="#38-防抖和节流是什么？" class="headerlink" title="38.防抖和节流是什么？"></a>38.防抖和节流是什么？</h4><p>​    都是应对页面中频繁触发事件的优化方案<br>​    防抖:避免事件重复触发<br>​    使用场景:1.频繁和服务端交互 2.输入框的自动保存事件<br>​    节流:把频繁触发的事件减少,每隔一段时间执行<br>​    使用场景:scroll事件</p>
+<h4 id="38-防抖和节流是什么？"><a href="#38-防抖和节流是什么？" class="headerlink" title="38.防抖和节流是什么？"></a>38.防抖和节流是什么？</h4><p>​    都是应对页面中频繁触发事件的优化方案</p>
+<ul>
+<li>防抖:触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。应用场景：手机号、邮箱验证、搜索框输入。</li>
+<li>节流:单位事件内（周期），频繁触发事件，只执行一次。应用场景:scroll事件</li>
+</ul>
 <h4 id="39-解释一下什么是json？"><a href="#39-解释一下什么是json？" class="headerlink" title="39.解释一下什么是json？"></a>39.解释一下什么是json？</h4><p>​    JSON是一种纯字符串形式的数据，它本身不提供任何方法，适合在网络中进行传输<br>​    JSON数据存储在.json文件中，也可以把JSON数据以字符串的形式保存在数据库、Cookise中<br>​    JS提供了JSON.parse() JSON.stringify()<br>​    什么时候使用json：定义接口；序列化；生成token；配置文件package.json</p>
 <h4 id="40-当数据没有请求过来的时候，该怎么做？"><a href="#40-当数据没有请求过来的时候，该怎么做？" class="headerlink" title="40.当数据没有请求过来的时候，该怎么做？"></a>40.当数据没有请求过来的时候，该怎么做？</h4><p>​    可以在渲染数据的地方给一些默认的值<br>​    if判断语句</p>
 <h4 id="41-有没有做过无感登录？"><a href="#41-有没有做过无感登录？" class="headerlink" title="41.有没有做过无感登录？***"></a>41.有没有做过无感登录？***</h4><p>1.解决方案<br>        无感登录实际上就是无感刷新 token。</p>
@@ -1971,7 +1999,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <ol start="2">
 <li>splice 去重</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function unique(arr)&#123;            </span><br><span class="line">        for(var i=0; i&lt;arr.length; i++)&#123;</span><br><span class="line">            for(var j=i+1; j&lt;arr.length; j++)&#123;</span><br><span class="line">                if(arr[i]==arr[j])&#123;         //第一个等同于第二个，splice方法删除第二个</span><br><span class="line">                    arr.splice(j,1);</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,&#x27;true&#x27;,&#x27;true&#x27;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#x27;NaN&#x27;, 0, 0, &#x27;a&#x27;, &#x27;a&#x27;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    console.log(unique(arr))</span><br><span class="line">    //[1, &quot;true&quot;, 15, false, undefined, NaN, NaN, &quot;NaN&quot;, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]     //NaN和&#123;&#125;没有去重，两个null直接消失了</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function unique(arr)&#123;            </span><br><span class="line">        for(var i=0; i&lt;arr.length; i++)&#123;</span><br><span class="line">            for(var j=i+1; j&lt;arr.length; j++)&#123;</span><br><span class="line">                if(arr[i]===arr[j])&#123;         //第一个等同于第二个，splice方法删除第二个</span><br><span class="line">                    arr.splice(j,1);</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,&#x27;true&#x27;,&#x27;true&#x27;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#x27;NaN&#x27;, 0, 0, &#x27;a&#x27;, &#x27;a&#x27;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">    console.log(unique(arr))</span><br><span class="line">    //[1, &quot;true&quot;, 15, false, undefined, NaN, NaN, &quot;NaN&quot;, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]     //NaN和&#123;&#125;没有去重，两个null直接消失了</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>sort()</li>
@@ -1983,11 +2011,18 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function unique(arr) &#123;</span><br><span class="line">  return arr.filter(function(item, index, arr) &#123;</span><br><span class="line">    //当前元素，在原始数组中的第一个索引==当前索引值，否则返回当前元素</span><br><span class="line">    return arr.indexOf(item, 0) === index;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,&#x27;true&#x27;,&#x27;true&#x27;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#x27;NaN&#x27;, 0, 0, &#x27;a&#x27;, &#x27;a&#x27;,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line">//[1, &quot;true&quot;, true, 15, false, undefined, null, &quot;NaN&quot;, 0, &quot;a&quot;, &#123;…&#125;, &#123;…&#125;]</span><br></pre></td></tr></table></figure>
 
+<h4 id="47-怎么判断对象是否为空"><a href="#47-怎么判断对象是否为空" class="headerlink" title="47.怎么判断对象是否为空"></a>47.怎么判断对象是否为空</h4><ol>
+<li><strong>使用<code>Object.keys()</code>方法</strong>：这个方法返回一个数组，包含对象自身的所有可枚举属性。通过判断返回的数组长度是否为0，可以确定对象是否为空。例如，<code>Object.keys(obj).length === 0</code> 如果为真，则对象为空。</li>
+<li><strong>使用<code>JSON.stringify()</code>方法</strong>：将对象转换为JSON字符串，然后比较转换后的字符串是否等于<code>&#39;&#123;&#125;&#39;</code>。这种方法简单易行，但需要注意的是，<code>JSON.stringify()</code>只能序列化对象的可枚举自有属性，如果有不可枚举或继承属性，结果可能不准确。</li>
+<li><strong>使用<code>Object.hasOwnPrototype()</code>方法</strong>：该方法用来判断指定对象自身是否含有某个属性（非继承）。通过检查对象是否具有特定的属性来判断其是否为空。</li>
+<li><strong>使用<code>Object.getOwnPropertyNames()</code>方法</strong>：获取对象中的属性名并存到一个数组中，通过判断数组的长度来判断对象是否为空。这个方法可以检测到不可枚举的属性。</li>
+<li><strong>使用<code>for..in</code>循环</strong>：通过遍历对象的属性，如果在循环体内没有找到任何属性，则可以认为对象为空。这种方法可以通过定义一个函数来实现，如果在循环中找到属性则返回<code>false</code>，否则返回<code>true</code>表示对象为空。</li>
+</ol>
 <h3 id="三、HTML5CSS3"><a href="#三、HTML5CSS3" class="headerlink" title="三、HTML5CSS3"></a>三、HTML5CSS3</h3><h4 id="1-语义化的理解。"><a href="#1-语义化的理解。" class="headerlink" title="1.语义化的理解。"></a>1.语义化的理解。</h4><p>​        在写HTML页面结构时所用的标签有意义<br>​        头部用head  主体用main  底部用foot…<br>​        怎么判断页面是否语义化了？<br>​            把CSS去掉，如果能够清晰的看出来页面结构，显示内容较为正常<br>​        为什么要选择语义化？<br>​            1.让HTML结构更加清晰明了<br>​            2.方便团队协作，利于开发<br>​            3.有利于爬虫和SEO<br>​            4.能够让浏览器更好的去解析代码<br>​            5.给用户带来良好的体验</p>
 <h4 id="2-H5C3有哪些新特性？"><a href="#2-H5C3有哪些新特性？" class="headerlink" title="2.H5C3有哪些新特性？"></a>2.H5C3有哪些新特性？</h4><p>​        H5的新特性：<br>​            1.语义化的标签<br>​            2.新增音频视频<br>​            3.画布canvas<br>​            4.数据存储localstorage sessionstorage<br>​            5.增加了表单控件 email url search…<br>​            6.拖拽释放API<br>​        CSS3的新特性：<br>​            1.新增选择器：属性选择器、伪类选择器、伪元素选择器<br>​            2.增加了媒体查询<br>​            3.文字阴影<br>​            4.边框<br>​            5.盒子模型box-sizing<br>​            6.渐变<br>​            7.过度<br>​            8.自定义动画<br>​            9.背景的属性<br>​            10.2D和3D</p>
 <h4 id="3-rem是如何做适配的？"><a href="#3-rem是如何做适配的？" class="headerlink" title="3.rem是如何做适配的？"></a>3.rem是如何做适配的？</h4><p>​        rem是相对长度，相对于根元素（html）的font-size属性来计算大小，通常来做移动端的适配<br>​        rem是根据根元素font-size计算值的倍数<br>​        比如html上的font-size:16px，给div设置宽为1.5rem,1.2rem &#x3D; 16px*1.2 &#x3D; 19.2px.</p>
 <h4 id="4-解决了哪些移动端的兼容问题？"><a href="#4-解决了哪些移动端的兼容问题？" class="headerlink" title="4.解决了哪些移动端的兼容问题？"></a>4.解决了哪些移动端的兼容问题？</h4><p>​        1.当设置样式overflow:scroll&#x2F;auto时，IOS上的滑动会卡顿<br>​            -webkit-overflow-scrolling:touch;<br>​        2.在安卓环境下placeholder文字设置行高时会偏上<br>​            input有placeholder属性的时候不要设置行高<br>​        3.移动端字体小于12px时异常显示<br>​            应该先把在整体放大一倍，然后再用transform进行缩小<br>​        4.ios下input按钮设置了disabled属性为true显示异常<br>​            input[typy&#x3D;button]{<br>​                opcity:1<br>​            }<br>​        5.安卓手机下取消语音输入按钮<br>​            input::-webkit-input-speech-button{<br>​                display:none<br>​            }<br>​        6.IOS下取消input输入框在输入引文首字母默认大写<br>​            <input autocapitalize='off' autocorrect='off'/><br>​        7.禁用IOS和安卓用户选中文字<br>​            添加全局CSS样式：-webkit-user-select:none<br>​        8.禁止IOS弹出各种窗口<br>​            -webkit-touch-callout:none<br>​        9.禁止IOS识别长串数字为电话<br>​            添加meta属性 <meta conten='telephone=no' name='format-detection'></p>
-<h3 id="四、Vue"><a href="#四、Vue" class="headerlink" title="四、Vue"></a>四、Vue</h3><h4 id="1-v-if和v-show的区别？"><a href="#1-v-if和v-show的区别？" class="headerlink" title="1.v-if和v-show的区别？"></a>1.v-if和v-show的区别？</h4><p>​        都可以控制元素的显示和隐藏<br>​        1.控制手段：v-show时控制元素的display值来让元素显示和隐藏，DOM元素依旧还在；v-if显示隐藏时把DOM元素整个添加和删除；<br>​        2.编译过程：v-if有一个局部编译&#x2F;卸载的过程，切换这个过程中会适当的销毁和重建内部的事件监听和子组件；v-show只是简单的css切换；<br>​        3.编译条件：v-if才是真正的条件渲染，它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；v-show从false变成true的时候不会触发组件的生命周期，v-if会触发生命周期；<br>​        4.<code>v-if</code>有更高的切换消耗；<code>v-show</code>有更高的初始渲染消耗；</p>
+<h3 id="四、Vue"><a href="#四、Vue" class="headerlink" title="四、Vue"></a>四、Vue</h3><h4 id="1-v-if和v-show的区别？"><a href="#1-v-if和v-show的区别？" class="headerlink" title="1.v-if和v-show的区别？"></a>1.v-if和v-show的区别？</h4><p>​        都可以控制元素的显示和隐藏<br>​        1.控制手段：v-show时控制元素的display值来让元素显示和隐藏，DOM元素依旧还在；v-if显示隐藏时把DOM元素整个添加和删除；<br>​        2.编译过程：v-if有一个局部编译&#x2F;卸载的过程，切换这个过程中会适当的销毁和重建内部的<strong>事件监听和子组件</strong>；v-show只是简单的css切换；<br>​        3.编译条件：v-if才是真正的条件渲染，它会确保在切换过程中条件块内的<strong>事件监听器和子组件</strong>适当地被销毁和重建；v-show从false变成true的时候不会触发组件的生命周期，v-if会触发生命周期；<br>​        4.<code>v-if</code>有更高的切换消耗；<code>v-show</code>有更高的初始渲染消耗；</p>
 <blockquote>
 <p>如果需要在条件切换频繁的情况下，可以使用v-show来避免频繁的创建和销毁组件或元素，提高性能。</p>
 <p>如果需要在条件切换较少的情况下，可以使用v-if来在条件为假时减少不必要的渲染，节省内存。</p>
@@ -1995,14 +2030,44 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h4 id="2-如何理解MVVM的？"><a href="#2-如何理解MVVM的？" class="headerlink" title="2.如何理解MVVM的？"></a>2.如何理解MVVM的？</h4><p>​        是Model-View-ViewModel的缩写。前端开发的架构模式<br>​        M：模型，对应的就是data的数据<br>​        V：视图，用户界面，DOM<br>​        VM：视图模型：Vue的实例对象，连接View和Model的桥梁<br>​        核心是提供对View和ViewModel的双向数据绑定，当数据改变的时候，ViewModel能监听到数据的变化，自动更新视图，当用户操作视图的时候，ViewModel也可以监听到视图的变化，然后通知数据进行改动，这就实现了双向数据绑定<br>​        ViewModel通过双向绑定把View和Model连接起来，他们之间的同步是自动的，不需要认为干涉，所以我们只需要关注业务逻辑即可，不需要操作DOM，同时也不需要关注数据的状态问题，因为她是由MVVM统一管理</p>
 <h4 id="3-v-for中的key值的作用是什么？"><a href="#3-v-for中的key值的作用是什么？" class="headerlink" title="3.v-for中的key值的作用是什么？"></a>3.v-for中的key值的作用是什么？</h4><p>​        key属性是DOM元素的唯一标识<br>​        作用：<br>​            1.提高虚拟DOM的更新<br>​            2.若不设置key，可能会触发一些bug。key属性可以避免数据混乱的情况出现 （如果元素中包含了有临时数据的元素，如果不用key就会产生数据混乱）<br>​            3.为了触发过渡效果</p>
 <h4 id="4-说一下你对vue生命周期的理解。"><a href="#4-说一下你对vue生命周期的理解。" class="headerlink" title="4.说一下你对vue生命周期的理解。"></a>4.说一下你对vue生命周期的理解。</h4><p>​        组件从创建到销毁的过程就是它的生命周期<br>​        <strong>创建</strong><br>​            beforeCreat<br>​                在这个阶段<strong>属性和方法</strong>都不能使用<br>​            created<br>​                这里时实例创建完成之后，在这里完成了数据监测，可以使用数据，修改数据，不会触发updated，也不会更新视图<br><strong>​        挂载</strong><br>​            beforeMount<br>​                完成了模板的编译，虚拟DOM也完成创建，即将渲染，修改数据，不会触发updated<br>​            Mounted<br>​                把编译好的模板挂载到页面，这里可以发送异步请求也可以访问DOM节点<br><strong>​        更新</strong><br>​            beforeUpdate<br>​                组件数据更新之前使用，数据是新的，页面上的数据时旧的，组件即将更新，准备渲染，可以改数据<br>​            updated<br>​                render重新做了渲染，这时数据和页面都是新的，避免在此更新数据<br>​        <strong>销毁</strong><br>​            beforeDestroy<br>​                实例销毁前，在这里实例还可以用，可以清楚定时器等等<br>​            destroyed<br>​                组件已经被销毁了，全部都销毁<br>​        使用了keep-alive时多出两个周期：<br>​            activited<br>​                组件激活时<br>​            deactivited<br>​                组件被销毁时</p>
-<h4 id="5-在created和mounted去请求数据，有什么区别？"><a href="#5-在created和mounted去请求数据，有什么区别？" class="headerlink" title="5.在created和mounted去请求数据，有什么区别？"></a>5.在created和mounted去请求数据，有什么区别？</h4><p>​        created：在渲染前调用，通常先初始化属性，然后做渲染<br>​        mounted：在模板渲染完成后，一般都是初始化页面后，在对元素节点进行操作<br>​                在这里请求数据可能会出现闪屏的问题，created里不会<br>​        一般用created比较多<br>​        请求的数据对DOM有影响，那么使用created<br>​        如果请求的数据对DOM无关，可以放在mounted</p>
-<h4 id="6-vue中的修饰符有哪些？"><a href="#6-vue中的修饰符有哪些？" class="headerlink" title="6.vue中的修饰符有哪些？"></a>6.vue中的修饰符有哪些？</h4><p>​        1.事件修饰符<br>​            .stop       组织冒泡<br>​            .prevent    组织默认行为<br>​            .capture    内部元素触发的事件先在次处理<br>​            .self       只有在event.target是当前元素时触发<br>​            .once       事件只会触发一次<br>​            .passive    立即触发默认行为<br>​            .native     把当前元素作为原生标签看待<br>​        2.按键修饰符<br>​            .keyup      键盘抬起<br>​            .keydown    键盘按下<br>​        3.系统修饰符<br>​            .ctrl<br>​            .alt<br>​            .meta<br>​        4.鼠标修饰符<br>​            .left       鼠标左键<br>​            .right      鼠标右键<br>​            .middle     鼠标中键<br>​        5.表单修饰符<br>​            .lazy       等输入完之后再显示<br>​            .trim       删除内容前后的空格<br>​            .number     输入是数字或转为数字</p>
+<p>​	errorCaptured</p>
+<h4 id="5-在created和mounted去请求数据，有什么区别？"><a href="#5-在created和mounted去请求数据，有什么区别？" class="headerlink" title="5.在created和mounted去请求数据，有什么区别？"></a>5.在created和mounted去请求数据，有什么区别？</h4><p>​        created：<strong>在渲染前调用</strong>，通常先初始化属性，然后做渲染<br>​        mounted：<strong>在模板渲染完成后</strong>，一般都是初始化页面后，在对元素节点进行操作<br>​                在这里请求数据可能会出现闪屏的问题，created里不会<br>​        一般用created比较多<br>​        请求的数据对DOM有影响，那么使用created<br>​        如果请求的数据对DOM无关，可以放在mounted</p>
+<h4 id="6-vue中的修饰符有哪些？"><a href="#6-vue中的修饰符有哪些？" class="headerlink" title="6.vue中的修饰符有哪些？"></a>6.vue中的修饰符有哪些？</h4><p>​        1.事件修饰符<br>​            .stop       阻止冒泡<br>​            .prevent    阻止默认行为<br>​            .capture    内部元素触发的事件先在次处理<br>​            .self       只有在event.target是当前元素时触发<br>​            .once       事件只会触发一次<br>​            .passive    立即触发默认行为<br>​            .native     把当前元素作为原生标签看待<br>​        2.按键修饰符<br>​            .keyup      键盘抬起<br>​            .keydown    键盘按下<br>​        3.系统修饰符<br>​            .ctrl<br>​            .alt<br>​            .meta<br>​        4.鼠标修饰符<br>​            .left       鼠标左键<br>​            .right      鼠标右键<br>​            .middle     鼠标中键<br>​        5.表单修饰符<br>​            .lazy       等输入完之后再显示<br>​            .trim       删除内容前后的空格<br>​            .number     输入是数字或转为数字</p>
 <h4 id="7-elementui是怎么做表单验证的？"><a href="#7-elementui是怎么做表单验证的？" class="headerlink" title="7.elementui是怎么做表单验证的？"></a>7.elementui是怎么做表单验证的？</h4><p>​        1.在表单中加rules属性，然后再data里写校验规则<br>​        2.内部添加规则<br>​        3.自定义函数校验</p>
 <h4 id="8-vue如何进行组件通信-组件传参？"><a href="#8-vue如何进行组件通信-组件传参？" class="headerlink" title="8.vue如何进行组件通信,组件传参？"></a>8.vue如何进行组件通信,组件传参？</h4><p>​        1.父传子<br>​            props<br>​                父组件使用自定义属性，然后子组件使用props<br>​            $ref<br>​                引用信息会注册在父组件的$refs对象上<br>​        2.子传父<br>​            $emit<br>​                子组件绑定自定义事件，触发执行后，传给父组件，父组件需要用事件监听来接收参数<br>​        3.兄弟传<br>​            new一个新的vue实例，用on和emit来对数据进行传输<br>​        4.vuex传值</p>
-<h4 id="9-keep-alive是什么？怎么使用？"><a href="#9-keep-alive是什么？怎么使用？" class="headerlink" title="9.keep-alive是什么？怎么使用？"></a>9.keep-alive是什么？怎么使用？</h4><p>​        Vue的一个内置组件，包裹组件的时候，会缓存不活跃的组件实例，并不是销毁他们<br>​        作用：把组件切换的状态保存在内存里，防止重复渲染DOM节点，减少加载时间和性能消耗，提高用户体验</p>
-<h4 id="10-axios是怎么做封装的？"><a href="#10-axios是怎么做封装的？" class="headerlink" title="10.axios是怎么做封装的？"></a>10.axios是怎么做封装的？</h4><p>​        下载 创建实例 接着封装请求响应拦截器  抛出 最后封装接口</p>
-<h4 id="11-vue路由时怎么传参的？"><a href="#11-vue路由时怎么传参的？" class="headerlink" title="11.vue路由时怎么传参的？"></a>11.vue路由时怎么传参的？</h4><p>​        params传参<br>​            this.$router.push({name:’index’,params:{id:item.id}})<br>​            this.$route.params.id<br>​        路由属性传参<br>​            this.$router.push({name:’&#x2F;index&#x2F;${item.id}’})<br>​            路由配置 { path:’&#x2F;index:id’ }<br>​        query传参（可以解决页面刷新参数丢失的问题）<br>​            this.$router.push({<br>​                name:’index’,<br>​                query:{id:item.id}<br>​            })</p>
-<h4 id="12-vue路由的hash模式和history模式有什么区别？"><a href="#12-vue路由的hash模式和history模式有什么区别？" class="headerlink" title="12.vue路由的hash模式和history模式有什么区别？***"></a>12.vue路由的hash模式和history模式有什么区别？***</h4><p>​        1.hash的路由地址上有#号，history模式没有<br>​        2.在做回车刷新的时候，hash模式会加载对应页面，history会报错404<br>​        3.hash模式支持低版本浏览器，history不支持，因为是H5新增的API<br>​        4.hash不会重新加载页面，单页面应用必备<br>​        5.history有历史记录，H5新增了pushState和replaceState()去修改历史记录，并不会立刻发送请求<br>​        6.history需要后台配置</p>
+<p>​	5.任意组件间：provide&#x2F;inject</p>
+<h4 id="9-keep-alive是什么？怎么使用？"><a href="#9-keep-alive是什么？怎么使用？" class="headerlink" title="9.keep-alive是什么？怎么使用？"></a>9.keep-alive是什么？怎么使用？</h4><p>​        Vue的一个内置组件，包裹组件的时候，会缓存不活跃的组件实例，并不是销毁他们<br>​        作用：把组件切换的状态保存在内存里，防止重复渲染DOM节点，减少<strong>加载时间和性能消耗</strong>，提高用户体验</p>
+<blockquote>
+<p>使用了keep-alive时多出两个周期：<br>activited：组件激活时<br>deactivited：组件被销毁时</p>
+</blockquote>
+<h4 id="10-axios是怎么做封装的？"><a href="#10-axios是怎么做封装的？" class="headerlink" title="10.axios是怎么做封装的？"></a>10.axios是怎么做封装的？</h4><p>​        下载 创建实例 接着封装请求，响应拦截器  抛出 最后封装接口</p>
+<h4 id="11-vue路由时怎么传参的？"><a href="#11-vue路由时怎么传参的？" class="headerlink" title="11.vue路由时怎么传参的？"></a>11.vue路由时怎么传参的？</h4><p>​	1.params传参<br>​            this.$router.push({name:’index’,params:{id:item.id}})<br>​            this.$route.params.id<br>​        2.路由属性传参<br>​            this.$router.push({name:’&#x2F;index&#x2F;${item.id}’})<br>​            路由配置 { path:’&#x2F;index:id’ }<br>​        3.query传参（可以解决页面刷新参数丢失的问题）<br>​            this.$router.push({<br>​                name:’index’,<br>​                query:{id:item.id}<br>​            })</p>
+<h4 id="12-vue路由的hash模式和history模式有什么区别？"><a href="#12-vue路由的hash模式和history模式有什么区别？" class="headerlink" title="12.vue路由的hash模式和history模式有什么区别？***"></a>12.vue路由的hash模式和history模式有什么区别？***</h4><p><strong>1. URL 结构</strong></p>
+<ul>
+<li><strong>history：</strong> 使用实际的 URL 路径，例如 “&#x2F;about”。</li>
+<li><strong>hash：</strong> 在 URL 的末尾使用哈希 (#) 符号，例如 “&#x2F;#about”。</li>
+</ul>
+<p><strong>2. 浏览器历史</strong></p>
+<ul>
+<li><strong>history：</strong> 会修改浏览器历史记录，允许用户使用后退和前进按钮在页面之间导航。</li>
+<li><strong>hash：</strong> 不会修改浏览器历史记录，用户使用后退和前进按钮时会停留在同一页面。</li>
+</ul>
+<p><strong>3. 刷新行为</strong></p>
+<ul>
+<li><strong>history：</strong> 刷新页面会导致一个新的请求，服务器将渲染整个页面。</li>
+<li><strong>hash：</strong> 刷新页面不会触发服务器请求，浏览器只重新加载当前页面。</li>
+</ul>
+<p><strong>4. 搜索引擎友好性</strong></p>
+<ul>
+<li><strong>history：</strong> 对搜索引擎友好，因为 URL 中包含有意义的信息。</li>
+<li><strong>hash：</strong> 对搜索引擎不友好，因为哈希部分不会被搜索引擎识别。</li>
+</ul>
+<p><strong>5. 兼容性</strong></p>
+<ul>
+<li><strong>history：</strong> 需要 HTML5 History API 支持，在大多数现代浏览器中都有。</li>
+<li><strong>hash：</strong> 兼容性好，可以在所有支持 JavaScript 的浏览器中使用。</li>
+</ul>
+<p>​	1.hash的路由地址上有#号，history模式没有<br>​        2.在做回车刷新的时候，hash模式会加载对应页面，history会报错404<br>​        3.hash模式支持低版本浏览器，history不支持，因为是H5新增的API<br>​        4.hash不会重新加载页面，单页面应用必备<br>​        5.history有历史记录，H5新增了pushState和replaceState()去修改历史记录，并不会立刻发送请求<br>​        6.history需要后台配置</p>
 <h4 id="13-路由拦截是怎么实现的？"><a href="#13-路由拦截是怎么实现的？" class="headerlink" title="13.路由拦截是怎么实现的？"></a>13.路由拦截是怎么实现的？</h4><p>​        路由拦截 axios拦截<br>​        需要在路由配置中添加一个字段，它是用于判断路由是否需要拦截</p>
 <pre><code>&#123;
             name:&#39;index&#39;,
@@ -2021,12 +2086,42 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
     &#125;
 &#125;)
 </code></pre>
-<h4 id="14-说一下vue的动态路由。"><a href="#14-说一下vue的动态路由。" class="headerlink" title="14.说一下vue的动态路由。"></a>14.说一下vue的动态路由。</h4><p>​    要在路由配置里设置meat属性，扩展权限相关的字段，在路由导航守卫里通过判断这个权限标识，实现路由的动态增加和跳转<br>​    根据用户登录的账号，返回用户角色<br>​    前端再根据角色，跟路由表的meta.role进行匹配<br>​    把匹配搭配的路由形成可访问的路由</p>
+<h4 id="14-说一下vue的动态路由。"><a href="#14-说一下vue的动态路由。" class="headerlink" title="14.说一下vue的动态路由。"></a>14.说一下vue的动态路由。</h4><p>​    要在路由配置里设置<code>meat</code>属性，扩展权限相关的字段，在路由导航守卫<code>router.beforeEach</code>里通过判断这个权限标识，实现路由的动态增加和跳转。<br>​    根据用户登录的账号，返回用户角色<br>​    前端再根据角色，跟路由表的meta.role进行匹配<br>​    把匹配搭配的路由形成可访问的路由</p>
 <h4 id="15-如何解决刷新后二次加载路由？"><a href="#15-如何解决刷新后二次加载路由？" class="headerlink" title="15.如何解决刷新后二次加载路由？"></a>15.如何解决刷新后二次加载路由？</h4><p>​    1.window.location.reload()<br>​    2.matcher<br>​        const router &#x3D; createRouter()<br>​        export function resetRouter(){<br>​            const newRouter &#x3D; creatRouter()<br>​            router.matcher &#x3D; newRouter.matcher<br>​        }</p>
 <h4 id="16-vuex刷新数据会丢失吗？怎么解决？"><a href="#16-vuex刷新数据会丢失吗？怎么解决？" class="headerlink" title="16.vuex刷新数据会丢失吗？怎么解决？"></a>16.vuex刷新数据会丢失吗？怎么解决？</h4><p>​    vuex肯定会重新获取数据，页面也会丢失数据<br>​    1.把数据直接保存在浏览器缓存里（cookie  localstorage  sessionstorage）<br>​    2.页面刷新的时候，再次请求数据，达到可以动态更新的方法<br>​        监听浏览器的刷新书简，在刷新前把数据保存到sessionstorage里，刷新后请求数据，请求到了用vuex，如果没有那就用sessionstorage里的数据</p>
-<h4 id="17-computed和watch的区别？"><a href="#17-computed和watch的区别？" class="headerlink" title="17.computed和watch的区别？"></a>17.computed和watch的区别？</h4><p>​    1.computed是计算属性，watch是监听，监听的是data中数据的变化<br>​    2.computed是支持缓存，依赖的属性值发生变化，计算属性才会重新计算，否则用缓存；watch不支持缓存<br>​    3.computed不支持异步，watch是可以异步操作<br>​    4.computed是第一次加载就监听，watch是不监听<br>​    5.computed函数中必须有return  watch不用</p>
+<h4 id="17-computed和watch的区别？"><a href="#17-computed和watch的区别？" class="headerlink" title="17.computed和watch的区别？"></a>17.computed和watch的区别？</h4><ol>
+<li><p>computed是计算属性，其依赖data的数据；watch是监听，监听data中的数据变化。</p>
+</li>
+<li><p>原理不同</p>
+<p>computed第一次加载时就监听；watch默认第一次加载时不监听。immediate设置成true时，第一次加载才会监听</p>
+</li>
+<li><p>是否支持缓存<br>computed支持缓存，当其依赖的属性的值发生变化时，计算属性会重新计算，反之，则使用缓存中的属性值；</p>
+<p>watch不支持缓存，当对应属性发生变化的时候，响应执行。</p>
+</li>
+<li><p>是否支持异步<br>computed不支持异步，当computed内有异步操作时是无法监听数据变化的；<br>watch支持异步操作</p>
+</li>
+<li><p>使用场景不同<br>computed擅长处理的场景是：多个数据影响一个数据 —-购物车商品结算。<br>watch擅长处理的场景是：一个数据变化影响多个数据。—-搜索框。</p>
+</li>
+</ol>
 <h4 id="18-vuex在什么场景会去使用？属性有哪些？"><a href="#18-vuex在什么场景会去使用？属性有哪些？" class="headerlink" title="18.vuex在什么场景会去使用？属性有哪些？"></a>18.vuex在什么场景会去使用？属性有哪些？</h4><p>​    state       存储变量<br>​    getters     state的计算属性<br>​    mutations   提交更新数据的方法<br>​    actions     和mutations差不多，他是提交mutations来修改数据，可以包括异步操作<br>​    modules     模块化vuex<br>​    使用场景：<br>​        用户的个人信息、购物车模块、订单模块</p>
-<h4 id="19-vue的双向数据绑定原理是什么？"><a href="#19-vue的双向数据绑定原理是什么？" class="headerlink" title="19.vue的双向数据绑定原理是什么？"></a>19.vue的双向数据绑定原理是什么？</h4><p>​    通过数据劫持和发布订阅者模式来实现，同时利用Object.defineProperty()劫持各个属性的setter和getter，<br>​    在数据发生改变的时候发布消息给订阅者，触发对应的监听回调渲染视图，也就是说数据和视图时同步的，数据发生改变，视图跟着发生改变，视图改变，数据也会发生改变。<br>​    第一步：需要observer的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter<br>​    第二步：compile模板解析指令，把模板中的变量替换成数据，然后初始化渲染视图，同时把每个指令对应的节点绑定上更新函数，添加订阅者，如果数据变化，收到通知，更新视图<br>​    第三步：Watcher订阅者是Observer和Compile之间的通信桥梁，作用：<br>​            1.在自身实例化的时候忘订阅器内添加自己<br>​            2.自身要有一个update()方法<br>​            3.等待属性变动时，调用自身的update方法，触发compile这种的回调<br>​    第四步：MVVM作为数据绑定的入口，整合了observer、compile和watcher三者，通过observer来监听自己的数据变化，通过compile解析模板指令，最后利用watcher把observer和compile联系起来，最终达到数据更新视图更新，视图更新数据更新的效果</p>
+<p><strong>mutaion和action的区别：</strong></p>
+<p>action的功能和mutation是类似的，都是去变更store里的state，不过action和mutation有两点不同：</p>
+<ol>
+<li><p>action主要处理的是异步的操作，mutation必须同步执行，而action就不受这样的限制，也就是说action中我们既可以处理同步，也可以处理异步的操作</p>
+</li>
+<li><p>action改变状态，最后是通过提交mutation</p>
+</li>
+</ol>
+<h4 id="19-vue的双向数据绑定原理是什么？"><a href="#19-vue的双向数据绑定原理是什么？" class="headerlink" title="19.vue的双向数据绑定原理是什么？***"></a>19.vue的双向数据绑定原理是什么？***</h4><blockquote>
+<p>Vue2的双向数据绑定原理：‌通过<code>Object.defineProperty()</code>方法实现数据劫持，‌为每个属性定义<code>getter</code>和<code>setter</code>方法，‌从而监听数据的变化。‌当数据变化时，‌<code>setter</code>方法会被触发，‌进而通知视图更新。‌同时，‌Vue2使用发布-订阅模式来管理组件之间的通信，‌确保所有组件都能接收到更新的通知并及时响应变化。‌</p>
+</blockquote>
+<blockquote>
+<p>Vue3则采用<strong>Proxy</strong>对象来实现响应式系统，‌Proxy允许拦截并定义JavaScript对象的默认行为，‌从而对数据的读取和更新进行拦截，‌并在数据变化时自动触发依赖关系的更新操作，‌实现双向数据绑定。‌这种方式比Vue2的数据劫持更加灵活和强大。‌</p>
+</blockquote>
+<p>​    通过<strong>数据劫持和发布订阅者模式</strong>来实现，同时利用Object.defineProperty()劫持各个属性的setter和getter，<br>​    在数据发生改变的时候发布消息给订阅者，触发对应的监听回调渲染视图，也就是说数据和视图时同步的，数据发生改变，视图跟着发生改变，视图改变，数据也会发生改变。<br>​    第一步：需要observer的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter<br>​    第二步：compile模板解析指令，把模板中的变量替换成数据，然后初始化渲染视图，同时把每个指令对应的节点绑定上更新函数，添加订阅者，如果数据变化，收到通知，更新视图<br>​    第三步：Watcher订阅者是Observer和Compile之间的通信桥梁，作用：<br>​            1.在自身实例化的时候忘订阅器内添加自己<br>​            2.自身要有一个update()方法<br>​            3.等待属性变动时，调用自身的update方法，触发compile这种的回调<br>​    第四步：MVVM作为数据绑定的入口，整合了observer、compile和watcher三者，通过observer来监听自己的数据变化，通过compile解析模板指令，最后利用watcher把observer和compile联系起来，最终达到数据更新视图更新，视图更新数据更新的效果</p>
+<p>v-model:</p>
+<p><code>&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;</code>等价于<code>&lt;input :value=&quot;message&quot; @input=&quot;message = $event.target.value&quot;&gt;</code></p>
+<p><code>&lt;check v-model=&quot;message&quot;&gt;</code>:value @change</p>
 <h4 id="20-了解diff算法和虚拟DOM吗？"><a href="#20-了解diff算法和虚拟DOM吗？" class="headerlink" title="20.了解diff算法和虚拟DOM吗？"></a>20.了解diff算法和虚拟DOM吗？</h4><p>​    虚拟DOM，描述元素和元素之间的关系，创建一个JS对象<br>​    如果组件内有响应的数据，数据发生改变的时候，render函数会生成一个新的虚拟DOM，这个新的虚拟DOM会和旧的虚拟DOM进行比对，找到需要修改的虚拟DOM内容，然后去对应的真实DOM中修改<br>​    diff算法就是虚拟DOM的比对时用的，返回一个patch对象，这个对象的作用就是存储两个节点不同的地方，最后用patch里记录的信息进行更新真实DOM<br>​    步骤：<br>​        1.JS对象表示真实的DOM结构，要生成一个虚拟DOM，再用虚拟DOM构建一个真实DOM树，渲染到页面<br>​        2.状态改变生成新的虚拟DOM，跟就得虚拟DOM进行比对，这个比对的过程就是DIFF算法，利用patch记录差异<br>​        3.把记录的差异用在第一个虚拟DOM生成的真实DOM上，视图就更新了。</p>
 <h4 id="21-vue和jquery的区别是什么？"><a href="#21-vue和jquery的区别是什么？" class="headerlink" title="21.vue和jquery的区别是什么？"></a>21.vue和jquery的区别是什么？</h4><p>​    1.原理不同<br>​        vue就是数据绑定；jq是先获取dom再处理<br>​    2.着重点不同<br>​        vue是数据驱动，jq是着重于页面<br>​    3.操作不同<br>​    4.未来发展不同</p>
 <h4 id="22-vuex的响应式处理。"><a href="#22-vuex的响应式处理。" class="headerlink" title="22.vuex的响应式处理。"></a>22.vuex的响应式处理。</h4><p>​    vuex是vue的状态管理工具<br>​    vue中可以直接触发methods中的方法，vuex是不可以的。未来处理异步，当触发事件的时候，会通过dispatch来访问actions中的方法，actions中的commit会触发mutations中的方法从而修改state里的值，通过getter把数据更新到视图<br>​    Vue.use(vuex)，调用install方法，通过applyMixin(vue)在任意组件内执行this.$store就可以访问到store对象。<br>​    vuex的state是响应式的，借助的就是vue的data，把state存到vue实例组件的data中</p>
@@ -2039,7 +2134,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </code></pre>
 <p>​        2.本地过滤器<br>​            和methods同级<br>​            filter:{<br>​                add:function(v){<br>​                    return v &lt; 10 ? ‘0’ + v : v<br>​                }<br>​            }</p>
 <h4 id="28-vue中如何做强制刷新？"><a href="#28-vue中如何做强制刷新？" class="headerlink" title="28.vue中如何做强制刷新？"></a>28.vue中如何做强制刷新？</h4><p>​    1.localtion.reload()<br>​    2.this.$router.go(0)<br>​    3.provide和inject</p>
-<h4 id="29-vue3和vue2有哪些区别？"><a href="#29-vue3和vue2有哪些区别？" class="headerlink" title="29.vue3和vue2有哪些区别？"></a>29.vue3和vue2有哪些区别？</h4><p>​    1.双向数据绑定的原理不同<br>​    2.是否支持碎片<br>​    3.API不同<br>​    4.定义数据变量方法不同<br>​    5.生命周期的不同<br>​    6.传值不同<br>​    7.指令和插槽不同<br>​    8.main.js不同</p>
+<h4 id="29-vue3和vue2有哪些区别？"><a href="#29-vue3和vue2有哪些区别？" class="headerlink" title="29.vue3和vue2有哪些区别？"></a>29.vue3和vue2有哪些区别？</h4><p>​    <strong>1.双向数据绑定的原理不同</strong>,vue2:defineProperty,vue3:proxy<br>​    2.是否支持碎片<br>​    3.API不同<br>​    <strong>4.定义数据变量方法不同</strong><br>​    <strong>5.生命周期的不同</strong><br>​    6.传值不同<br>​    7.指令和插槽不同<br>​    <strong>8.main.js不同</strong></p>
 <h4 id="30-vue的性能优化怎么做？"><a href="#30-vue的性能优化怎么做？" class="headerlink" title="30.vue的性能优化怎么做？"></a>30.vue的性能优化怎么做？</h4><p>​    1.编码优化</p>
 <ul>
 <li>不要把所有数据都放在data中</li>
@@ -2053,7 +2148,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <p>​    2.加载优化<br>​        按需加载<br>​        内容懒加载<br>​        图片懒加载<br>​    3.用户体验<br>​        骨架屏<br>​    4.SEO优化<br>​        预渲染<br>​        服务端渲染ssr<br>​    5.打包优化<br>​        CDN形式加载第三方模块<br>​        多线程打包<br>​        抽离公共文件<br>​    6.缓存和压缩<br>​        客户端缓存、服务端缓存<br>​        服务端Gzip压缩</p>
 <h4 id="31-首屏优化该如何去做？"><a href="#31-首屏优化该如何去做？" class="headerlink" title="31.首屏优化该如何去做？"></a>31.首屏优化该如何去做？</h4><p>​    1.使用路由懒加载<br>​    2.非首屏组件使用异步组件<br>​    3.首屏不中要的组件延迟加载<br>​    4.静态资源放在CDN上<br>​    5.减少首屏上JS、CSS等资源文件的大小<br>​    6.使用服务端渲染<br>​    7.简历减少DOM的数量和层级<br>​    8.使用精灵图请求<br>​    9.做一些loading<br>​    10.开启Gzip压缩<br>​    11.图片懒加载</p>
 <h4 id="32-vue3的性能为什么比vue2好？"><a href="#32-vue3的性能为什么比vue2好？" class="headerlink" title="32.vue3的性能为什么比vue2好？"></a>32.vue3的性能为什么比vue2好？</h4><p>​    1.diff算法的优化<br>​    2.静态提升<br>​    3.事件侦听缓存</p>
-<h4 id="33-vue3为什么使用proxy？"><a href="#33-vue3为什么使用proxy？" class="headerlink" title="33.vue3为什么使用proxy？***"></a>33.vue3为什么使用proxy？***</h4><p>​    1.proxy可以代理整个对象，defineproperty(vue2)只代理对象上的某个属性，不需要遍历了，效率更高。<br>​    2.proxy对代理对象的监听更加丰富<br>​    3.proxy代理对象会生成新的对象，不会修改被代理对象本身<br>​    4.proxy补兼容ie浏览器</p>
+<h4 id="33-vue3为什么使用proxy？"><a href="#33-vue3为什么使用proxy？" class="headerlink" title="33.vue3为什么使用proxy？***"></a>33.vue3为什么使用proxy？***</h4><p>​    1.proxy可以代理整个对象，defineproperty(vue2)只代理对象上的某个属性，不需要遍历了，效率更高。<br>​    2.proxy对代理对象的监听更加丰富<br>​    3.proxy代理对象会生成新的对象，不会修改被代理对象本身<br>​    4.proxy不兼容ie浏览器</p>
 <h4 id="34-说一下你对组件的理解。"><a href="#34-说一下你对组件的理解。" class="headerlink" title="34.说一下你对组件的理解。"></a>34.说一下你对组件的理解。</h4><p>​    可以重复使用的vue实例，独一无二的组件名称<br>​    可以抽离单独的公共模块<br>​    提高代码的复用率</p>
 <h4 id="35-你是如何规划项目文件的？"><a href="#35-你是如何规划项目文件的？" class="headerlink" title="35.你是如何规划项目文件的？"></a>35.你是如何规划项目文件的？</h4><p>​    public<br>​        图标、index.html、img<br>​    src<br>​        api<br>​        assets<br>​        components<br>​            按分类再次划分子目录<br>​        plugins<br>​        router<br>​        static<br>​        styles<br>​        utils<br>​        views<br>​    App.vue<br>​    main.js<br>​    package.json<br>​    vue.config.js</p>
 <h4 id="36-是否使用过nuxt-js？"><a href="#36-是否使用过nuxt-js？" class="headerlink" title="36.是否使用过nuxt.js？"></a>36.是否使用过nuxt.js？</h4><p>​    是基于vue的应用框架，关注的是渲染，可以开发服务端渲染应用的配置<br>​    SSR：服务端渲染<br>​        好处：<br>​            SSR生成的是有内容的HTML页面，有利于搜索引擎的搜索<br>​            优化了首屏加载时间<br>​    SEO：优化搜索引擎<br>​    SPA的应用不利于搜索引擎SEO的操作</p>
@@ -2070,7 +2165,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 
 <h4 id="39-nextTick"><a href="#39-nextTick" class="headerlink" title="39. nextTick()"></a>39. nextTick()</h4><p>作用：在下一次DOM节点更新完后执行其指定的回调</p>
 <p>什么时候用：当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">this.$dnextTick(function()&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">this.$nextTick(function()&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="40-vuex-pinia区别"><a href="#40-vuex-pinia区别" class="headerlink" title="40.vuex pinia区别"></a>40.vuex pinia区别</h4><ol>
 <li><p>Vuex选项式api，pinia组合式api，更灵活</p>
@@ -2086,11 +2181,42 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <li><p>Vuex对TypeScript的支持不完整，而Pinia做到了完整的TypeScript支持，这使其与TypeScript更加兼容和友好，提供了更清晰的类型定义。</p>
 </li>
 </ol>
-<h4 id="五、Echarts"><a href="#五、Echarts" class="headerlink" title="五、Echarts"></a>五、Echarts</h4><h4 id="1-echarts有用过吗？常用的组件有哪些？"><a href="#1-echarts有用过吗？常用的组件有哪些？" class="headerlink" title="1.echarts有用过吗？常用的组件有哪些？"></a>1.echarts有用过吗？常用的组件有哪些？</h4><p>​        title标题组件 show  text  link<br>​        toolbox工具栏 导出图片 数据视图 切换 缩放 show orient feature<br>​        tooltip tigger 触发类型<br>​        markPoint标注点<br>​        markLine图标的标线</p>
+<h4 id="41-数据（事件）改变之后发起请求，请求放在哪个监听属性比较合适，watch、computed，为什么"><a href="#41-数据（事件）改变之后发起请求，请求放在哪个监听属性比较合适，watch、computed，为什么" class="headerlink" title="41.数据（事件）改变之后发起请求，请求放在哪个监听属性比较合适，watch、computed，为什么"></a>41.数据（事件）改变之后发起请求，请求放在哪个监听属性比较合适，watch、computed，为什么</h4><p>为什么选择<code>watch</code>而不是<code>computed</code>：</p>
+<ol>
+<li><strong><code>watch</code>的用途</strong>：<br><code>watch</code>用于观察和响应Vue实例上数据的变动。当指定的数据变化时，你可以执行异步操作或开销较大的操作，比如发送网络请求。<code>watch</code>非常适合执行副作用或异步操作，这些操作不应该在<code>computed</code>属性中执行，因为<code>computed</code>属性应该是同步的，并且基于它们的依赖进行缓存。</li>
+<li><strong><code>computed</code>的用途</strong>：<br><code>computed</code>计算属性主要被用作声明式的描述一些依赖其它响应式属性的值。它们是基于它们的依赖进行缓存的，只有当依赖项发生改变时，<code>computed</code>属性才会重新计算。由于它们是基于响应式依赖进行缓存的，所以它们适合执行同步操作，并且不需要进行副作用（如网络请求）或执行开销较大的操作。</li>
+<li><strong>异步操作和副作用</strong>：<br>如前所述，当数据变化需要执行异步操作（如API请求）时，使用<code>watch</code>是更合适的选择。这是因为<code>watch</code>允许你定义当被观察的数据变化时应该执行的回调函数，这个回调函数可以是异步的，比如发送HTTP请求。而<code>computed</code>属性则不适合执行异步操作，因为它们的设计初衷是同步的，并且基于依赖的缓存机制。</li>
+</ol>
+<h4 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h4><h4 id="1-TCP三次握手，为什么要握手三次，两次不行"><a href="#1-TCP三次握手，为什么要握手三次，两次不行" class="headerlink" title="1.TCP三次握手，为什么要握手三次，两次不行"></a>1.TCP三次握手，为什么要握手三次，两次不行</h4><ol>
+<li><p>第一次握手：客户端向服务器发出连接请求报文</p>
+</li>
+<li><p>第二次握手：TCP服务器收到请求报文后，如果同意连接，则发出确认报文。</p>
+</li>
+<li><p>第三次握手：TCP客户进程收到确认后，还要向服务器给出确认。</p>
+</li>
+</ol>
+<p><strong>已失效的连接请求报文段。</strong></p>
+<ul>
+<li>client发送了第一个连接的请求报文，但是由于网络不好，这个请求没有立即到达服务端，而是在某个网络节点中滞留了，直到某个时间才到达server。</li>
+<li>本来这已经是一个失效的报文，但是server端接收到这个请求报文后，还是会想client发出确认的报文，表示同意连接。</li>
+<li>假如不采用三次握手，那么只要server发出确认，新的建立就连接了，但其实这个请求是失效的请求，client是不会理睬server的确认信息，也不会向服务端发送确认的请求</li>
+<li>但是server认为新的连接已经建立起来了，并一直等待client发来数据，这样，server的很多资源就没白白浪费掉了</li>
+</ul>
+<p>采用三次握手就是为了防止这种情况的发生，server会因为收不到确认的报文，就知道client并没有建立连接。这就是三次握手的作用。</p>
+<blockquote>
+<p>客户端发生请求报文，但是这个请求报文由于某些原因失效了。</p>
+<p>服务端接收到失效的请求报文，还会向客户端发生确认的报文。</p>
+<p>如果没有第三次握手，服务端端发送的确认报文不会被客户端理睬。</p>
+<p>这时服务端认为连接已经建立了，一直等待客户端发生请求数据，这样服务端的资源就会白白浪费了。</p>
+</blockquote>
+<h4 id="2-冒泡排序"><a href="#2-冒泡排序" class="headerlink" title="2.冒泡排序"></a>2.冒泡排序</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">45</span>, <span class="number">7</span>, -<span class="number">5</span>, <span class="number">78</span>, <span class="number">32</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= arr.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;<span class="comment">//外层循环是从0开始</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j&lt; arr.<span class="property">length</span>-i-<span class="number">1</span>; j++) &#123;<span class="comment">//内层循环是从arr.length-1开始</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;<span class="comment">//如果逆序，则交换</span></span><br><span class="line">            [arr[j], arr[j + <span class="number">1</span>]] = [arr[j + <span class="number">1</span>], arr[j]];<span class="comment">//交换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);<span class="comment">//排序后的数组</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="六、Uni-APP"><a href="#六、Uni-APP" class="headerlink" title="六、Uni-APP"></a>六、Uni-APP</h3><h4 id="1-uni-app有没有做过分包？"><a href="#1-uni-app有没有做过分包？" class="headerlink" title="1.uni-app有没有做过分包？"></a>1.uni-app有没有做过分包？</h4><p>​        优化小程序的下载和启动速度<br>​        小程序启动默认下载主包并启动页面，当用户进入分包时，才会下载对应的分包，下载完进行展示</p>
 <h3 id="七、Weabpack"><a href="#七、Weabpack" class="headerlink" title="七、Weabpack"></a>七、Weabpack</h3><h4 id="1-webpack打包和不打包的区别？"><a href="#1-webpack打包和不打包的区别？" class="headerlink" title="1.webpack打包和不打包的区别？"></a>1.webpack打包和不打包的区别？</h4><p>​        1.运行效率<br>​        2.对基础的支持不够</p>
 <h4 id="2-webpack是怎么打包的，babel是做什么的？"><a href="#2-webpack是怎么打包的，babel是做什么的？" class="headerlink" title="2.webpack是怎么打包的，babel是做什么的？"></a>2.webpack是怎么打包的，babel是做什么的？</h4><p>​        webpack会把js css image看作一个模块，用import&#x2F;require引入<br>​        找到入口文件，通过入口文件找到关联的依赖文件，把他们打包到一起<br>​        把bundle文件，拆分成多个小的文件，异步按需加载所需要的文件<br>​        如果一个被多个文件引用，打包时只会生成一个文件<br>​        如果引用的文件没有调用，不会打包，如果引入的变量和方法没有调用也不会打包<br>​        对于多个入口文件，加入引入了相同的代码，可以用插件把他抽离到公共文件中</p>
-<h3 id="八、Git"><a href="#八、Git" class="headerlink" title="八、Git"></a>八、Git</h3><h4 id="1-git如何合并、拉取代码？"><a href="#1-git如何合并、拉取代码？" class="headerlink" title="1.git如何合并、拉取代码？"></a>1.git如何合并、拉取代码？</h4><p>​        拉取代码 git pull ‘仓库地址’<br>​        查看状态 git sattus<br>​        提交到本地缓存区  git add .<br>​        提交本地仓库 git commit -m ‘修改描述’<br>​        提交到远程仓库 git push ‘仓库地址’ master<br>​        创建分支 git branch -b xxx<br>​        合并分支 git merge ‘合并分支的名字’</p>
+<h3 id="八、Git"><a href="#八、Git" class="headerlink" title="八、Git"></a>八、Git</h3><h4 id="1-git如何合并、拉取代码？"><a href="#1-git如何合并、拉取代码？" class="headerlink" title="1.git如何合并、拉取代码？"></a>1.git如何合并、拉取代码？</h4><p>​        拉取代码 git pull ‘仓库地址’<br>​        查看状态 git status<br>​        提交到本地缓存区  git add .<br>​        提交本地仓库 git commit -m ‘修改描述’<br>​        提交到远程仓库 git push ‘仓库地址’ master<br>​        创建分支 git branch -b xxx<br>​        合并分支 git merge ‘合并分支的名字’</p>
 <h4 id="2-git如何解决冲突问题？"><a href="#2-git如何解决冲突问题？" class="headerlink" title="2.git如何解决冲突问题？"></a>2.git如何解决冲突问题？</h4><p>​        1.两个分支中修改了同一个文件<br>​        2.两个分支中修改了同一个文件的名字<br>​        1.解决：当前分支上，直接修改代码  add  commit<br>​        2.解决：在本地当前分支上，修改冲突代码 add commit push</p>
 <h4 id="3-git-stash"><a href="#3-git-stash" class="headerlink" title="3.git stash"></a>3.git stash</h4><p>场景一：当前分支A,BUG分支B</p>
 <ol>
@@ -2640,6 +2766,391 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">	height: 340rpx;</span><br><span class="line">	border-radius: 10rpx;</span><br><span class="line">	overflow: hidden;	//溢出部分隐藏，使圆角效果生效</span><br><span class="line">	position: relative;</span><br><span class="line"></span><br><span class="line">	.pic &#123;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 100%;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.tab&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		top: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		border-radius: 0 0 20rpx 0;</span><br><span class="line">		background: rgba(250,129,90,0.7);	//添加背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx); 		//添加失焦磨砂滤镜效果</span><br><span class="line">		font-size: 22rpx;</span><br><span class="line">		transform: scale(0.8);				//缩放</span><br><span class="line">		transform-origin: left top; 		//左上为基准</span><br><span class="line">		padding: 6rpx 10rpx;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	.mask&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		width: 100%;</span><br><span class="line">		height: 70rpx;</span><br><span class="line">		bottom: 0;</span><br><span class="line">		left: 0;</span><br><span class="line">		color: #fff;</span><br><span class="line">		display: flex;</span><br><span class="line">		justify-content: center;</span><br><span class="line">		align-items: center;</span><br><span class="line">		background: rgba(0,0,0,0.2);		//添加半透明背景颜色</span><br><span class="line">		backdrop-filter: blur(20rpx);		//添加失焦磨砂效果</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="网格布局"><a href="#网格布局" class="headerlink" title="网格布局"></a>网格布局</h3><p>grid-template-columns 属性用于设置网格布局中的列数及宽度。</p>
+<p>grid-template-rows 属性用于设置网格布局中的行数及高度。</p>
+<p>gap:网格间距</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: grid;</span><br><span class="line">grid-template-columns: repeat(3,1fr);	//3列</span><br><span class="line">gap: 10px;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="渐变背景"><a href="#渐变背景" class="headerlink" title="渐变背景"></a>渐变背景</h3><p>以下实例演示了从左侧开始的线性渐变，从红色开始，转为黄色:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background-image: linear-gradient(to right, red , yellow); </span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了从左上角到右下角的线性渐变:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background-image: linear-gradient(to bottom right, red , yellow);</span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了线性渐变指定一个角度:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background-image: linear-gradient(180deg, red, yellow); </span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了多个终止色:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);</span><br></pre></td></tr></table></figure>
+
+<p>以下实例使用了透明度:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">grad &#123;  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));</span><br></pre></td></tr></table></figure>
+
+<p>两个方向进行层叠：<strong>实现从从右到左渐变，上到下淡化的效果。</strong></p>
+<ul>
+<li>color 50%指定渐变中的颜色起始点</li>
+<li>color 400px指定渐变中的颜色起始点</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: </span><br><span class="line">	linear-gradient(to bottom,rgba(0,0,0,0) 0%,#fff 50%),//透明到白色，rgba(0,0,0,0)和transparent一样都是透明色，透明从0开始，白色50%开始</span><br><span class="line">	linear-gradient(to left,red,blue);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: </span><br><span class="line">	linear-gradient(to bottom,transparent,#fff 400rpx),	//transparent透明色，白色400rpx时开始</span><br><span class="line">	linear-gradient(to right,#beecd8 20%,#F4E2D8);		//#beecd8从20%开始渐变</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定位元素居中方式"><a href="#定位元素居中方式" class="headerlink" title="定位元素居中方式"></a>定位元素居中方式</h3><ol>
+<li><code>left:0;</code> <code>right:0;</code>，将拉伸宽度；</li>
+<li><code>width: fit-content;</code>，宽度根据内容自适应</li>
+<li><code>margin: auto;</code>，居中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">margin: auto;</span><br><span class="line">width: fit-content;	//宽度根据内容自适应</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h3><p>scss：&amp;&gt;view：选择所有父级是&amp;的view</p>
+<table>
+<thead>
+<tr>
+<th align="left">选择器</th>
+<th align="left">示例</th>
+<th align="left">示例说明</th>
+<th align="left">CSS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-class.html">.<em>class</em></a></td>
+<td align="left">.intro</td>
+<td align="left">选择所有class&#x3D;”intro”的元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-id.html">#<em>id</em></a></td>
+<td align="left">#firstname</td>
+<td align="left">选择所有id&#x3D;”firstname”的元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-all.html">*</a></td>
+<td align="left">*</td>
+<td align="left">选择所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><em><a href="https://www.runoob.com/cssref/sel-element.html">element</a></em></td>
+<td align="left">p</td>
+<td align="left">选择所有<p>元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><em><a href="https://www.runoob.com/cssref/sel-element-comma.html">element,element</a></em></td>
+<td align="left">div,p</td>
+<td align="left">选择所有<div>元素和 <p> 元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-element-class.html">element*.class*</a></td>
+<td align="left">p.hometown</td>
+<td align="left">选择所有 class&#x3D;”hometown” 的 <p> 元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-element-element.html"><em>element</em> <em>element</em></a></td>
+<td align="left">div p</td>
+<td align="left">选择<div>元素内的所有<p>元素</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-element-gt.html"><em>element</em>&gt;<em>element</em></a></td>
+<td align="left">div&gt;p</td>
+<td align="left">选择所有父级是 <div> 元素的 <p> 元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-element-pluss.html"><em>element</em>+<em>element</em></a></td>
+<td align="left">div+p</td>
+<td align="left">选择所有紧跟在 <div> 元素之后的第一个 <p> 元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attribute.html"><em>attribute</em>]</a></td>
+<td align="left">[target]</td>
+<td align="left">选择所有带有target属性元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attribute-value.html"><em>attribute</em>&#x3D;<em>value</em>]</a></td>
+<td align="left">[target&#x3D;-blank]</td>
+<td align="left">选择所有使用target&#x3D;”-blank”的元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attribute-value-contains.html"><em>attribute</em>~&#x3D;<em>value</em>]</a></td>
+<td align="left">[title~&#x3D;flower]</td>
+<td align="left">选择标题属性包含单词”flower”的所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attribute-value-lang.html"><em>attribute</em>|&#x3D;<em>language</em>]</a></td>
+<td align="left">[lang|&#x3D;en]</td>
+<td align="left">选择 lang 属性等于 <strong>en</strong>，或者以 <strong>en-</strong> 为开头的所有元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-link.html">:link</a></td>
+<td align="left">a:link</td>
+<td align="left">选择所有未访问链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-visited.html">:visited</a></td>
+<td align="left">a:visited</td>
+<td align="left">选择所有访问过的链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-active.html">:active</a></td>
+<td align="left">a:active</td>
+<td align="left">选择活动链接</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-hover.html">:hover</a></td>
+<td align="left">a:hover</td>
+<td align="left">选择鼠标在链接上面时</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-focus.html">:focus</a></td>
+<td align="left">input:focus</td>
+<td align="left">选择具有焦点的输入元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-firstletter.html">:first-letter</a></td>
+<td align="left">p:first-letter</td>
+<td align="left">选择每一个<p>元素的第一个字母</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-firstline.html">:first-line</a></td>
+<td align="left">p:first-line</td>
+<td align="left">选择每一个<p>元素的第一行</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-firstchild.html">:first-child</a></td>
+<td align="left">p:first-child</td>
+<td align="left">指定只有当<p>元素是其父级的第一个子级的样式。</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-before.html">:before</a></td>
+<td align="left">p:before</td>
+<td align="left">在每个<p>元素之前插入内容</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-after.html">:after</a></td>
+<td align="left">p:after</td>
+<td align="left">在每个<p>元素之后插入内容</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-lang.html">:lang(<em>language</em>)</a></td>
+<td align="left">p:lang(it)</td>
+<td align="left">选择一个lang属性的起始值&#x3D;”it”的所有<p>元素</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-gen-sibling.html"><em>element1</em>~<em>element2</em></a></td>
+<td align="left">p~ul</td>
+<td align="left">选择p元素之后的每一个ul元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attr-begin.html"><em>attribute</em>^&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src^&#x3D;”https”]</td>
+<td align="left">选择每一个src属性的值以”https”开头的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attr-end.html"><em>attribute</em>$&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src$&#x3D;”.pdf”]</td>
+<td align="left">选择每一个src属性的值以”.pdf”结尾的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">[<a href="https://www.runoob.com/cssref/sel-attr-contain.html"><em>attribute</em>*&#x3D;<em>value</em>]</a></td>
+<td align="left">a[src*&#x3D;”runoob”]</td>
+<td align="left">选择每一个src属性的值包含子字符串”runoob”的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-first-of-type.html">:first-of-type</a></td>
+<td align="left">p:first-of-type</td>
+<td align="left">选择每个p元素是其父级的第一个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-last-of-type.html">:last-of-type</a></td>
+<td align="left">p:last-of-type</td>
+<td align="left">选择每个p元素是其父级的最后一个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-only-of-type.html">:only-of-type</a></td>
+<td align="left">p:only-of-type</td>
+<td align="left">选择每个p元素是其父级的唯一p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-only-child.html">:only-child</a></td>
+<td align="left">p:only-child</td>
+<td align="left">选择每个p元素是其父级的唯一子元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-nth-child.html">:nth-child(<em>n</em>)</a></td>
+<td align="left">p:nth-child(2)</td>
+<td align="left">选择每个p元素是其父级的第二个子元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-nth-last-child.html">:nth-last-child(<em>n</em>)</a></td>
+<td align="left">p:nth-last-child(2)</td>
+<td align="left">选择每个p元素的是其父级的第二个子元素，从最后一个子项计数</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-nth-of-type.html">:nth-of-type(<em>n</em>)</a></td>
+<td align="left">p:nth-of-type(2)</td>
+<td align="left">选择每个p元素是其父级的第二个p元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-nth-last-of-type.html">:nth-last-of-type(<em>n</em>)</a></td>
+<td align="left">p:nth-last-of-type(2)</td>
+<td align="left">选择每个p元素的是其父级的第二个p元素，从最后一个子项计数</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-last-child.html">:last-child</a></td>
+<td align="left">p:last-child</td>
+<td align="left">选择每个p元素是其父级的最后一个子级。</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-root.html">:root</a></td>
+<td align="left">:root</td>
+<td align="left">选择文档的根元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-empty.html">:empty</a></td>
+<td align="left">p:empty</td>
+<td align="left">选择每个没有任何子级的p元素（包括文本节点）</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-target.html">:target</a></td>
+<td align="left">#news:target</td>
+<td align="left">选择当前活动的#news元素（包含该锚名称的点击的URL）</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-enabled.html">:enabled</a></td>
+<td align="left">input:enabled</td>
+<td align="left">选择每一个已启用的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-disabled.html">:disabled</a></td>
+<td align="left">input:disabled</td>
+<td align="left">选择每一个禁用的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-checked.html">:checked</a></td>
+<td align="left">input:checked</td>
+<td align="left">选择每个选中的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-not.html">:not(<em>selector</em>)</a></td>
+<td align="left">:not(p)</td>
+<td align="left">选择每个并非p元素的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-selection.html">::selection</a></td>
+<td align="left">::selection</td>
+<td align="left">匹配元素中被用户选中或处于高亮状态的部分</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-out-of-range.html">:out-of-range</a></td>
+<td align="left">:out-of-range</td>
+<td align="left">匹配值在指定区间之外的input元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-in-range.html">:in-range</a></td>
+<td align="left">:in-range</td>
+<td align="left">匹配值在指定区间之内的input元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-read-write.html">:read-write</a></td>
+<td align="left">:read-write</td>
+<td align="left">用于匹配可读及可写的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-read-only.html">:read-only</a></td>
+<td align="left">:read-only</td>
+<td align="left">用于匹配设置 “readonly”（只读） 属性的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-optional.html">:optional</a></td>
+<td align="left">:optional</td>
+<td align="left">用于匹配可选的输入元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-required.html">:required</a></td>
+<td align="left">:required</td>
+<td align="left">用于匹配设置了 “required” 属性的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-valid.html">:valid</a></td>
+<td align="left">:valid</td>
+<td align="left">用于匹配输入值为合法的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/sel-invalid.html">:invalid</a></td>
+<td align="left">:invalid</td>
+<td align="left">用于匹配输入值为非法的元素</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/css-sel-has.html">:has</a></td>
+<td align="left">:has</td>
+<td align="left">允许根据其后代元素来选择一个元素。</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/cssref/css-sel-is.html">:is</a></td>
+<td align="left">:is</td>
+<td align="left">接收任何数量的选择器作为参数，并且返回这些选择器匹配的元素的并集。</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
         <tag>CSS</tag>
@@ -2648,8 +3159,15 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
   <entry>
     <title>margin和padding区别及用法</title>
     <url>/2024/08/01/margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。<br>1.使用margin的场景：<br>①若需要在border外侧添加空白时。<br>②空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）<br>2.使用padding的场景<br>①需要在border内侧添加空白时<br>②空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</p>
-<p>盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
+    <content><![CDATA[<p>padding 用于控制元素内容与边框之间的间距，是元素内部的空间；margin 用于控制元素与其相邻元素之间的间距，是元素外部的空间。</p>
+<ol>
+<li>使用<code>margin</code>的场景：<br><strong>①若需要在border外侧添加空白时。</strong><br>②盒子空白处不需要背景（色）时。<br>③需要使用负值对页面布局时（margin值可以取负值，但是padding不行）<br>④上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）</li>
+<li>使用<code>padding</code>的场景<br><strong>①需要在border内侧添加空白时。</strong><br>②盒子空白处需要背景（色）时<br>③上下相连的两个盒子之间的空白，希望等于两者之和时。如15px＋10px将得到25px的空白。</li>
+</ol>
+<blockquote>
+<p>根据具体情况使用为妙</p>
+</blockquote>
+<p>? 盒子与盒子间不设置margin为妙，会发生（margin折叠）。在盒子内设置padding为妙。</p>
 <p>margin折叠是指当有两个或多个垂直边距相遇时，形成的一个外边距，这个外边距的高度等于两个元素发生叠加的外边距中高度较大的一个。</p>
 <p>发生margin折叠的三种情况</p>
 <ol>
@@ -2658,11 +3176,184 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <li>父子元素的折叠</li>
 </ol>
 <blockquote>
-<p>盒子用padding居多，盒子内元素用margin居多</p>
+<p>盒子外空白用margin居多，盒子内空白元素用padding居多</p>
 </blockquote>
 ]]></content>
       <tags>
         <tag>CSS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>uni-app笔记</title>
+    <url>/2024/08/03/uni-app%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h2><blockquote>
+<p>各种方法在API里找，拨打电话等…</p>
+<p>各种组件在组件里找</p>
+<p>js等文件配置在全局文件里找，底部导航栏等…</p>
+<p>编译语法在教程找</p>
+</blockquote>
+<ul>
+<li><p>view - div:view标签不能拷贝文字内容。</p>
+</li>
+<li><p>text - span</p>
+</li>
+<li><p>navigator - a</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+</li>
+<li><p>scroll-view - 区域滚动，webview渲染的页面中，区域滚动的性能不及页面滚动。</p>
+<ul>
+<li><p>纵向滑动：<code>&lt;scroll-view scroll-y&gt; 子元素 &lt;/scroll-view&gt;</code></p>
+</li>
+<li><p>横向滑动：<code>&lt;scroll-view scroll-x&gt; 子元素&lt;/scroll-view&gt;</code>，样式设置子元素为<code>display: inline-block;</code>，父元素设置<code>white-space: nowrap;</code></p>
+</li>
+</ul>
+</li>
+<li><p>swiper - 轮播图</p>
+</li>
+</ul>
+<h3 id="uniapp页面生命周期"><a href="#uniapp页面生命周期" class="headerlink" title="uniapp页面生命周期"></a>uniapp页面生命周期</h3><ul>
+<li><p>onLoad(e) – setup&#x2F;Created，只有onLoad()能拿到<strong>页面路由参数</strong></p>
+</li>
+<li><p>onShow()</p>
+</li>
+<li><p>onReady() – onMounted，只有onReady()才能获取到dom节点</p>
+</li>
+</ul>
+<h3 id="uniapp像素单位rpx"><a href="#uniapp像素单位rpx" class="headerlink" title="uniapp像素单位rpx"></a>uniapp像素单位rpx</h3><p>以750为基准</p>
+<h3 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h3><h4 id="全局组件样式-直接应用-："><a href="#全局组件样式-直接应用-：" class="headerlink" title="全局组件样式(直接应用)："></a>全局组件样式(直接应用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/common-style.scss</code>(css&#x2F;scss&#x2F;less)，然后在<code>App.vue</code>用@import导入到<code>&lt;style&gt;&lt;/style&gt;</code>中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">@import &quot;@/common/style/common-style.scss&quot;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>uni.scss：</p>
+<p>项目自带颜色样式，可直接使用，也可在此文件创建新颜色样式。如<code>background: $uni-color-primary</code></p>
+</blockquote>
+<h4 id="全局颜色字体样式-需要自行使用-："><a href="#全局颜色字体样式-需要自行使用-：" class="headerlink" title="全局颜色字体样式(需要自行使用)："></a>全局颜色字体样式(需要自行使用)：</h4><p>在<code>common</code>文件夹下创建样式文件<code>@/common/style/base-style.scss</code>,然后在<code>uni.scss</code>中引入</p>
+<ol>
+<li>修改字体等直接用color:$变量名</li>
+<li>修改uni-icons字体图标组件时，需要用到vue的<code>:deep</code>深度选择器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:deep()&#123;</span><br><span class="line">	.uni-icons&#123;</span><br><span class="line">		color:$brand-theme-color !important;	// !important表优先级最高，高于默认的行内样式</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>vite.config中安装插件<code>unplugin-auto-import</code>自动导入vue和uniapp的<strong>生命周期、函数</strong>等</li>
+</ul>
+<p><code>npm i unplugin-auto-import</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在vite.config.js中引入</span><br><span class="line"></span><br><span class="line">import &#123; defineConfig &#125; from &#x27;vite&#x27;</span><br><span class="line">import uni from &#x27;@dcloudio/vite-plugin-uni&#x27;</span><br><span class="line">import AutoImport from &#x27;unplugin-auto-import/vite&#x27;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">	plugins: [</span><br><span class="line">		uni(),</span><br><span class="line">		//自动导入配置</span><br><span class="line">		AutoImport(&#123;</span><br><span class="line">			imports: [</span><br><span class="line">				//预设</span><br><span class="line">				&#x27;vue&#x27;,</span><br><span class="line">				&#x27;uni-app&#x27;</span><br><span class="line">			]</span><br><span class="line">		&#125;)</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="扩展组件uni-ui"><a href="#扩展组件uni-ui" class="headerlink" title="扩展组件uni-ui"></a>扩展组件uni-ui</h3><p>登录uniapp账号后直接按需下载相应组件，下载完项目根目录有uni_modules文件夹</p>
+<h3 id="网络请求的三种处理方式"><a href="#网络请求的三种处理方式" class="headerlink" title="网络请求的三种处理方式"></a>网络请求的三种处理方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//1.success里对返回结果进行处理，易产生回调地狱</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;,</span><br><span class="line">		success:res=&gt;&#123;</span><br><span class="line">			console.log(res);</span><br><span class="line">			arrs.value = res.data </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.使用.then对返回结果进行处理</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;).then(res=&gt;&#123;</span><br><span class="line">		//处理返回结果</span><br><span class="line">		arrs.value = res.data </span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.异步操作同步化</span><br><span class="line">const request = async () =&gt; &#123;</span><br><span class="line">	const res = await uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;)</span><br><span class="line">	//处理返回结果</span><br><span class="line">	arrs.value = res.data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="微信开发者工具跳转到指定页面"><a href="#微信开发者工具跳转到指定页面" class="headerlink" title="微信开发者工具跳转到指定页面"></a>微信开发者工具跳转到指定页面</h3><ul>
+<li>到编译模式里设置相关页面路径即可</li>
+</ul>
+<h3 id="下拉刷新实现"><a href="#下拉刷新实现" class="headerlink" title="下拉刷新实现"></a>下拉刷新实现</h3><p>下拉刷新利用生命周期钩子onPullDownRefresh()</p>
+<p>使用前要在pages.json开启配置：</p>
+<blockquote>
+<ul>
+<li>需要在 <code>pages.json</code> 里，找到的当前页面的pages节点，并在 <code>style</code> 选项中开启 <code>enablePullDownRefresh</code>。</li>
+<li>当处理完数据刷新后，<code>uni.stopPullDownRefresh</code> 可以停止当前页面的下拉刷新。一般在finally里调用<code>uni.stopPullDownRefresh</code></li>
+</ul>
+</blockquote>
+<p>相关api：</p>
+<blockquote>
+<p>uni.startPullDownRefresh(OBJECT):相当于手动下拉刷新</p>
+<p>uni.stopPullDownRefresh()</p>
+</blockquote>
+<p>加载更多字样：在列表尾部加扩展组件</p>
+<p><code>&lt;uni-load-more status=&quot;loading&quot;&gt;&lt;/uni-load-more&gt;</code></p>
+<h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>env(safe-area-inset-bottom)：移动端设置，可防止触摸无效等。</p>
+<p>可设置为<code>height:env(safe-area-inset-bottom);</code>,<code>padding-bottom:env(safe-area-inset-bottom);</code></p>
+<h3 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h3><ul>
+<li>条件编译处理多端差异，处理跨端兼容。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>条件编译写法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#ifdef <strong>APP-PLUS</strong> 需条件编译的代码 #endif</td>
+<td>仅出现在 App 平台下的代码</td>
+</tr>
+<tr>
+<td>#ifndef <strong>H5</strong> 需条件编译的代码 #endif</td>
+<td>除了 H5 平台，其它平台均存在的代码（注意if后面有个n）</td>
+</tr>
+<tr>
+<td>#ifdef <strong>H5</strong> || <strong>MP-WEIXIN</strong> 需条件编译的代码 #endif</td>
+<td>在 H5 平台或微信小程序平台存在的代码（这里只有||，不可能出现&amp;&amp;，因为没有交集）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>适用于html和css，通过注释方式进行编译</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//html：</span><br><span class="line">&lt;!-- #ifdef APP --&gt;</span><br><span class="line">条件编译标签					</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//css:</span><br><span class="line">/* #ifdef APP */</span><br><span class="line">条件编译样式	</span><br><span class="line">/* #endif */</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//小程序时</span><br><span class="line">&lt;!-- #ifdef MP --&gt;</span><br><span class="line">&lt;button open-type=&quot;contact&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br><span class="line"></span><br><span class="line">//不是小程序时</span><br><span class="line">&lt;!-- #ifndef MP --&gt;</span><br><span class="line">&lt;button&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- #endif --&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元素顶到状态栏问题"><a href="#元素顶到状态栏问题" class="headerlink" title="元素顶到状态栏问题"></a>元素顶到状态栏问题</h3><p>全屏时，元素顶到状态栏时解决：</p>
+<blockquote>
+<p>在元素前设置一个空盒子，通过API <code>uni.getSystemInfoSync()</code>获取到状态栏高度<code>statusBarHeight</code>,然后给空盒子设置高度，使空盒子顶下占用到状态栏的元素</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue响应式数据原理</title>
+    <url>/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h3 id="vue2-x的响应式"><a href="#vue2-x的响应式" class="headerlink" title="vue2.x的响应式"></a>vue2.x的响应式</h3><p>劫持一个个属性</p>
+<ul>
+<li><p>实现原理：</p>
+<ul>
+<li><p>对象类型：通过<code>Object.defineProperty()</code>对属性的读取(getter)、修改(setter)进行拦截（<strong>数据劫持</strong>）。</p>
+</li>
+<li><p>数组类型：通过重写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(data, <span class="string">&#x27;count&#x27;</span>, &#123;</span><br><span class="line">    get () &#123;&#125;, </span><br><span class="line">    set () &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>存在问题：</p>
+<ul>
+<li>新增属性、删除属性, 界面不会更新。</li>
+<li>直接通过下标修改数组, 界面不会自动更新。</li>
+<li>不能监视到数组索引的值的变化。</li>
+</ul>
+</li>
+</ul>
+<p>&#x2F;&#x2F;模拟实现</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">	<span class="attr">address</span>:<span class="string">&#x27;xx&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个监视的实例对象，用于监视data中属性的变化</span></span><br><span class="line"><span class="keyword">const</span> obs = <span class="keyword">new</span> <span class="title class_">Observer</span>(data)		</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obs)	</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备一个vm实例对象</span></span><br><span class="line"><span class="keyword">let</span> vm = &#123;&#125;</span><br><span class="line">vm.<span class="property">_data</span> = data = obs</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Observer</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">	<span class="comment">//汇总对象中所有的属性形成一个数组</span></span><br><span class="line">	<span class="keyword">const</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj)</span><br><span class="line">	<span class="comment">//遍历</span></span><br><span class="line">	keys.<span class="title function_">forEach</span>(<span class="function">(<span class="params">k</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">this</span>,k,&#123;</span><br><span class="line">			<span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> obj[k]</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="title function_">set</span>(<span class="params">val</span>)&#123;</span><br><span class="line">				<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;k&#125;</span>被改了，我要去解析模板，生成虚拟DOM.....我要开始忙了`</span>)</span><br><span class="line">				obj[k] = val</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析模板，生成虚拟DOM，对比虚拟dom</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Vue3-0的响应式"><a href="#Vue3-0的响应式" class="headerlink" title="Vue3.0的响应式"></a>Vue3.0的响应式</h3><p>代理整个对象</p>
+<ul>
+<li><p>实现原理: </p>
+<ul>
+<li><p>通过Proxy（代理）:  拦截对象中任意属性的变化, 包括：属性值的读写、属性的添加、属性的删除、根据数组下标更改值等。</p>
+</li>
+<li><p>通过Reflect（反射）:  对源对象的属性进行操作。</p>
+</li>
+<li><p>MDN文档中描述的Proxy与Reflect：</p>
+<ul>
+<li><p>Proxy：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy</a></p>
+</li>
+<li><p>Reflect：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//p:代理数据， data:源数据， target: 目标对象/源数据， prop:目标对象的某个属性名， value:要修改的值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Proxy</span>(data, &#123;</span><br><span class="line">	<span class="comment">// 拦截读取属性值</span></span><br><span class="line">    get (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(target, prop)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截设置属性值或添加新属性</span></span><br><span class="line">    set (target, prop, value) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, prop, value)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 拦截删除属性</span></span><br><span class="line">    deleteProperty (target, prop) &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">deleteProperty</span>(target, prop)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">proxy.<span class="property">name</span> = <span class="string">&#x27;tom&#x27;</span>   </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>不写<code>&#123;&#125;</code>的get、set、deleteProperty也可，但是无法捕获到数据的变化</p>
+</li>
+</ul>
+]]></content>
   </entry>
 </search>
