@@ -1709,9 +1709,9 @@
 <p>​        在HTML页面中的所有元素都可以看成是一个盒子<br>​        盒子的组成：内容content、内边距padding、边框border、外边距margin<br>​        盒模型的类型：<br>​            标准盒模型<br>​                margin + border + padding + content，宽高不包含内边距和边框<br>​            IE盒模型<br>​                margin + content(border + padding)，宽高包含内边距和边框<br>​        控制盒模型的模式：box-sizing:content-box（默认值，标准盒模型）、border-box（IE盒模型）;</p>
 <h4 id="2-CSS选择器的优先级？"><a href="#2-CSS选择器的优先级？" class="headerlink" title="2.CSS选择器的优先级？"></a>2.CSS选择器的优先级？</h4><p>​        CSS的特性：继承性、层叠性、优先级<br>​        优先级：写CSS样式的时候，会给同一个元素添加多个样式，此时谁的权重高就显示谁的样式<br>​        标签、类&#x2F;伪类&#x2F;属性、全局选择器、行内样式、id、!important<br>​        !important &gt; 行内样式 &gt; id &gt; 类&#x2F;伪类&#x2F;属性 &gt; 标签 &gt; 全局选择器</p>
 <h4 id="3-隐藏元素的方法有哪些，特点是？"><a href="#3-隐藏元素的方法有哪些，特点是？" class="headerlink" title="3.隐藏元素的方法有哪些，特点是？"></a>3.隐藏元素的方法有哪些，特点是？</h4><ol>
-<li>display:none;元素在页面上消失，不占据空间</li>
-<li>opacity:0;​设置了元素的透明度为0，元素不可见，占据空间位置</li>
-<li>visibility:hidden;让元素消失，占据空间位置，一种不可见的状态</li>
+<li>display:none;元素在页面上消失，<strong>不占据空间</strong></li>
+<li>opacity:0;​设置了元素的透明度为0，元素不可见，<strong>占据空间位置</strong></li>
+<li>visibility:hidden;让元素消失，<strong>占据空间位置</strong>，一种不可见的状态</li>
 <li>利用缩放：transform: scale(0);</li>
 <li>利用定位：position:absolute;</li>
 <li>clip-path</li>
@@ -2031,7 +2031,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h4 id="3-v-for中的key值的作用是什么？"><a href="#3-v-for中的key值的作用是什么？" class="headerlink" title="3.v-for中的key值的作用是什么？"></a>3.v-for中的key值的作用是什么？</h4><p>​        key属性是DOM元素的唯一标识<br>​        作用：<br>​            1.提高虚拟DOM的更新<br>​            2.若不设置key，可能会触发一些bug。key属性可以避免数据混乱的情况出现 （如果元素中包含了有临时数据的元素，如果不用key就会产生数据混乱）<br>​            3.为了触发过渡效果</p>
 <h4 id="4-说一下你对vue生命周期的理解。"><a href="#4-说一下你对vue生命周期的理解。" class="headerlink" title="4.说一下你对vue生命周期的理解。"></a>4.说一下你对vue生命周期的理解。</h4><p>​        组件从创建到销毁的过程就是它的生命周期<br>​        <strong>创建</strong><br>​            beforeCreat<br>​                在这个阶段<strong>属性和方法</strong>都不能使用<br>​            created<br>​                这里时实例创建完成之后，在这里完成了数据监测，可以使用数据，修改数据，不会触发updated，也不会更新视图<br><strong>​        挂载</strong><br>​            beforeMount<br>​                完成了模板的编译，虚拟DOM也完成创建，即将渲染，修改数据，不会触发updated<br>​            Mounted<br>​                把编译好的模板挂载到页面，这里可以发送异步请求也可以访问DOM节点<br><strong>​        更新</strong><br>​            beforeUpdate<br>​                组件数据更新之前使用，数据是新的，页面上的数据时旧的，组件即将更新，准备渲染，可以改数据<br>​            updated<br>​                render重新做了渲染，这时数据和页面都是新的，避免在此更新数据<br>​        <strong>销毁</strong><br>​            beforeDestroy<br>​                实例销毁前，在这里实例还可以用，可以清楚定时器等等<br>​            destroyed<br>​                组件已经被销毁了，全部都销毁<br>​        使用了keep-alive时多出两个周期：<br>​            activited<br>​                组件激活时<br>​            deactivited<br>​                组件被销毁时</p>
 <p>​	errorCaptured</p>
-<h4 id="5-在created和mounted去请求数据，有什么区别？"><a href="#5-在created和mounted去请求数据，有什么区别？" class="headerlink" title="5.在created和mounted去请求数据，有什么区别？"></a>5.在created和mounted去请求数据，有什么区别？</h4><p>​        created：<strong>在渲染前调用</strong>，通常先初始化属性，然后做渲染<br>​        mounted：<strong>在模板渲染完成后</strong>，一般都是初始化页面后，在对元素节点进行操作<br>​                在这里请求数据可能会出现闪屏的问题，created里不会<br>​        一般用created比较多<br>​        请求的数据对DOM有影响，那么使用created<br>​        如果请求的数据对DOM无关，可以放在mounted</p>
+<h4 id="5-在created和mounted去请求数据，有什么区别？"><a href="#5-在created和mounted去请求数据，有什么区别？" class="headerlink" title="5.在created和mounted去请求数据，有什么区别？"></a>5.在created和mounted去请求数据，有什么区别？</h4><p>​        created：<strong>在渲染前调用</strong>，通常先初始化属性，然后做渲染<br>​        mounted：<strong>在模板渲染完成后</strong>，一般都是初始化页面后，在对元素节点进行操作<br>​                <strong>在这里请求数据可能会出现闪屏的问题，created里不会</strong><br>​        一般用created比较多<br>​        1.请求的数据对DOM有影响，那么使用created<br>​        2.如果请求的数据对DOM无关，可以放在mounted</p>
 <h4 id="6-vue中的修饰符有哪些？"><a href="#6-vue中的修饰符有哪些？" class="headerlink" title="6.vue中的修饰符有哪些？"></a>6.vue中的修饰符有哪些？</h4><p>​        1.事件修饰符<br>​            .stop       阻止冒泡<br>​            .prevent    阻止默认行为<br>​            .capture    内部元素触发的事件先在次处理<br>​            .self       只有在event.target是当前元素时触发<br>​            .once       事件只会触发一次<br>​            .passive    立即触发默认行为<br>​            .native     把当前元素作为原生标签看待<br>​        2.按键修饰符<br>​            .keyup      键盘抬起<br>​            .keydown    键盘按下<br>​        3.系统修饰符<br>​            .ctrl<br>​            .alt<br>​            .meta<br>​        4.鼠标修饰符<br>​            .left       鼠标左键<br>​            .right      鼠标右键<br>​            .middle     鼠标中键<br>​        5.表单修饰符<br>​            .lazy       等输入完之后再显示<br>​            .trim       删除内容前后的空格<br>​            .number     输入是数字或转为数字</p>
 <h4 id="7-elementui是怎么做表单验证的？"><a href="#7-elementui是怎么做表单验证的？" class="headerlink" title="7.elementui是怎么做表单验证的？"></a>7.elementui是怎么做表单验证的？</h4><p>​        1.在表单中加rules属性，然后再data里写校验规则<br>​        2.内部添加规则<br>​        3.自定义函数校验</p>
 <h4 id="8-vue如何进行组件通信-组件传参？"><a href="#8-vue如何进行组件通信-组件传参？" class="headerlink" title="8.vue如何进行组件通信,组件传参？"></a>8.vue如何进行组件通信,组件传参？</h4><p>​        1.父传子<br>​            props<br>​                父组件使用自定义属性，然后子组件使用props<br>​            $ref<br>​                引用信息会注册在父组件的$refs对象上<br>​        2.子传父<br>​            $emit<br>​                子组件绑定自定义事件，触发执行后，传给父组件，父组件需要用事件监听来接收参数<br>​        3.兄弟传<br>​            new一个新的vue实例，用on和emit来对数据进行传输<br>​        4.vuex传值</p>
@@ -3355,5 +3355,62 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>js操作数组方法</title>
+    <url>/2024/08/08/js%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="js操作数组方法"><a href="#js操作数组方法" class="headerlink" title="js操作数组方法"></a>js操作数组方法</h2><ol>
+<li>Array.map(function)，<code>map</code> 方法用于遍历数组，并对数组中的每个元素执行提供的函数，生成一个新的数组。原数组不变。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：根据pets数组，每次执行函数返回pets每一项的url，返回一个只有url的新数组urls</span><br><span class="line">let urls = pets.value.map(item =&gt; item.url)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>遍历：Array.forEach(function)，<code>forEach</code> 方法用于遍历数组，为数组中的每个元素执行一次提供的函数。原数组不变。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4];</span><br><span class="line">numbers.forEach((number, index) =&gt; &#123;</span><br><span class="line">  console.log(`Index: $&#123;index&#125;, Value: $&#123;number&#125;`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>map和foreach的区别：</p>
+<ol>
+<li><p><code>forEach</code> 没有返回值，总是返回 <code>undefined</code>;</p>
+</li>
+<li><p><code>forEach</code> 无法终止或跳出循环（除非抛出一个异常）;</p>
+</li>
+<li><p><code>map</code> 返回一个新的数组，数组中的元素是原数组元素执行提供的函数后的结果;</p>
+</li>
+<li><p>map因为返回数组所以可以链式操作，forEach不能；</p>
+</li>
+<li><p>map 的速度大于forEach;</p>
+</li>
+</ol>
+</blockquote>
+<ol start="3">
+<li>Array.filter(function)，过滤数组中，符合条件的元素并返回一个新的数组。原数组不变。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5]</span><br><span class="line">var newArr = arr.filter(x =&gt; x&gt;3);</span><br><span class="line">//4,5</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li><p>Array.every((item) &#x3D;&gt; item.selected &#x3D;&#x3D;&#x3D; true)，对数组中的每一项进行判断，若都符合则返回true，否则返回false。原数组不变。</p>
+</li>
+<li><p>Array.find( (item) &#x3D;&gt; 条件 )，<strong>找到符合条件的那一项</strong>，<code>const item = cartList.value.find((item) =&gt; item.skuId === skuId)</code></p>
+</li>
+<li><p>Array.findIndex()，<strong>找到符合条件的下标</strong>。<code>const index = cartList.value.findIndex(item =&gt; skuId === item.skuId) //找到要删除的下标</code></p>
+</li>
+<li><p>累加：cartList.value.reduce((a,c)&#x3D;&gt;a+c.count,0),a为累加总数，c为cartList的每一项</p>
+</li>
+<li><p>Array.splice(a,b)，从下标为a开始删除b个元素。</p>
+</li>
+</ol>
+<blockquote>
+<p>push,pop,shift,unshift,sort,splice</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>JavaScrip</tag>
+      </tags>
   </entry>
 </search>
