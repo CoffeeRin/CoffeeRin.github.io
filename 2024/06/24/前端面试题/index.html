@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">16.2k</span>
+            <span class="post-count">16.3k</span>
         </span>
     </span>
 
@@ -120,7 +120,7 @@
 <li>opacity:0;​设置了元素的透明度为0，元素不可见，<strong>占据空间位置</strong></li>
 <li>visibility:hidden;让元素消失，<strong>占据空间位置</strong>，一种不可见的状态</li>
 <li>利用缩放：transform: scale(0);</li>
-<li>利用定位：position:absolute;</li>
+<li>利用定位：position:absolute;z-index;</li>
 <li>clip-path</li>
 </ol>
 <h4 id="4-px和rem的区别是什么？"><a href="#4-px和rem的区别是什么？" class="headerlink" title="4.px和rem的区别是什么？"></a>4.px和rem的区别是什么？</h4><p>​        px是像素，显示器上给我们呈现画面的像素，每个像素的大小是一样，绝对单位长度<br>​        rem，相对单位，相对于html根节点的font-size的值，直接给html节点的font-size:62.5%;<br>​            1rem &#x3D; 10px; （16px*62.5%&#x3D;10px）</p>
@@ -270,7 +270,7 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 <h4 id="21-说一下事件循环。"><a href="#21-说一下事件循环。" class="headerlink" title="21.说一下事件循环。"></a>21.说一下事件循环。</h4><p>JS是一个单线程的脚本语言<br>主线程 执行栈 任务队列  宏任务 微任务<br>主线程先执行同步任务，然后才去执行任务队列里的任务，如果在执行宏任务之前有微任务，那么要先执行微任务<br>全部执行完之后等待主线程的调用，调用完之后再去任务队列中查看是否有异步任务，这样一个循环往复的过程就是事件循环！</p>
 <p>主线程同步任务&gt;任务队列(异步)&gt;微任务&gt;宏任务</p>
 <h4 id="22-ajax是什么？怎么实现的？"><a href="#22-ajax是什么？怎么实现的？" class="headerlink" title="22.ajax是什么？怎么实现的？"></a>22.ajax是什么？怎么实现的？</h4><p>创建<strong>交互式网页应用的网页开发技术</strong><br>    在不重新加载整个网页的前提下，与服务器交换数据并更新部分内容<br>通过XmlHttpRequest对象向服务器发送异步请求，然后从服务器拿到数据，最后通过JS操作DOM更新页面<br>1.创建XmlHttpRequest对象 xhr<br>2.通过xhr对象里的open()方法和服务器建立连接<br>3.构建请求所需的数据，并通过xhr对象的send()发送给服务器<br>4.通过xhr对象的onreadystatechanges事件监听服务器和你的通信状态<br>5.接收并处理服务器响应的数据结果<br>6.把处理的数据更新到HTML页面上</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function loadData() &#123;</span><br><span class="line">  // 创建 XMLHttpRequest 对象</span><br><span class="line">  var xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">  // 配置请求，指定请求方法和URL</span><br><span class="line">  xhr.open(&quot;GET&quot;, &quot;https://jsonplaceholder.typicode.com/posts/1&quot;, true);</span><br><span class="line"></span><br><span class="line">  // 定义请求完成后的回调函数</span><br><span class="line">  xhr.onreadystatechange = function() &#123;</span><br><span class="line">    // 请求完成且响应状态为 200 表示成功</span><br><span class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line">      // 解析服务器响应的 JSON 数据</span><br><span class="line">      var data = JSON.parse(xhr.responseText);</span><br><span class="line"></span><br><span class="line">      // 更新页面上的内容</span><br><span class="line">      document.getElementById(&quot;result&quot;).innerHTML = &quot;Title: &quot; + data.title;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  // 发送请求</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function loadData() &#123;</span><br><span class="line">  // 创建 XMLHttpRequest 对象</span><br><span class="line">  var xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">  // 配置请求，指定请求方法和URL</span><br><span class="line">  xhr.open(&quot;GET&quot;, &quot;https://jsonplaceholder.typicode.com/posts/1&quot;, true);</span><br><span class="line"></span><br><span class="line">  // 定义请求完成后的回调函数</span><br><span class="line">  xhr.onreadystatechange = function() &#123;</span><br><span class="line">    // 请求完成且响应状态为 200 表示成功</span><br><span class="line">    if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) &#123;</span><br><span class="line">      // 解析服务器响应的 JSON 数据</span><br><span class="line">      var data = JSON.parse(xhr.responseText);</span><br><span class="line"></span><br><span class="line">      // 更新页面上的内容</span><br><span class="line">      document.getElementById(&quot;result&quot;).innerHTML = &quot;Title: &quot; + data.title;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  // 发送请求</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>readyState:</strong></p>
 <p>0：请求未初始化<br>1：服务器连接已建立<br>2：请求已接收<br>3：请求处理中<br>4:请求已完成，且响应已就绪</p>
@@ -310,12 +310,21 @@ __proto__可以理解为指针，实例对象中的属性，指向了构造函�
 </li>
 <li><p>把渲染树的每个节点渲染到屏幕上（绘制）</p>
 </li>
+<li><p>页面发生变化时：重排和回流(重排)</p>
+<ul>
+<li>重绘：重新绘制已经显示的元素，（计算好盒模型的位置、大小之后）</li>
+<li>回流(重排)：重新计算元素的位置和大小。盒模型在页面上的位置和大小<ul>
+<li>回流比重绘的代价更高，因为回流会涉及到整个渲染树的<strong>重新计算</strong>和<strong>布局</strong></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>断开TCP连接</p>
 </li>
 </ol>
-<h4 id="30-DOM树和渲染树有什么区别？"><a href="#30-DOM树和渲染树有什么区别？" class="headerlink" title="30.DOM树和渲染树有什么区别？"></a>30.DOM树和渲染树有什么区别？</h4><p>DOM树是和HTML标签一一对应的，包括head和隐藏元素<br>渲染树是不包含head和隐藏元素</p>
+<h4 id="30-DOM树和渲染树有什么区别？"><a href="#30-DOM树和渲染树有什么区别？" class="headerlink" title="30.DOM树和渲染树有什么区别？"></a>30.DOM树和渲染树有什么区别？</h4><p>DOM树是和HTML标签一一对应的，包括head和隐藏元素<br>渲染树是不包含head和隐藏元素的，是实际在页面上显示的</p>
 <h4 id="31-精灵图和base64的区别是什么？"><a href="#31-精灵图和base64的区别是什么？" class="headerlink" title="31.精灵图和base64的区别是什么？"></a>31.精灵图和base64的区别是什么？</h4><p>精灵图：把多张小图整合到一张大图上，利用定位的一些属性把小图显示在页面上，当访问页面可以减少请求，提高加载速度<br>base64：传输8Bit字节代码的编码方式，把原本二进制形式转为64个字符的单位，最后组成字符串<br>base64是会和html css一起下载到浏览器中，减少请求，减少跨域问题，但是一些低版本不支持，若base64体积比原图片大，不利于css的加载。</p>
 <h4 id="32-svg格式了解多少？"><a href="#32-svg格式了解多少？" class="headerlink" title="32.svg格式了解多少？"></a>32.svg格式了解多少？</h4><p>可缩放矢量图，基于<strong>XML语法格式</strong>的图像格式，其他图像是基于像素的，SVG是属于对图像形状的描述，本质是文本文件，体积小，并且不管放大多少倍都不会失真<br>1.SVG可直接插入页面中，成为DOM一部分，然后用JS或CSS进行操作</p>
 <pre><code>    &lt;svg&gt;&lt;/svg&gt;
