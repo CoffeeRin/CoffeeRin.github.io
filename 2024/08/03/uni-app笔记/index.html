@@ -83,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -92,7 +92,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">5 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
@@ -169,6 +169,13 @@
 <h3 id="扩展组件uni-ui"><a href="#扩展组件uni-ui" class="headerlink" title="扩展组件uni-ui"></a>扩展组件uni-ui</h3><p>登录uniapp账号后直接按需下载相应组件，下载完项目根目录有uni_modules文件夹</p>
 <h3 id="网络请求的三种处理方式"><a href="#网络请求的三种处理方式" class="headerlink" title="网络请求的三种处理方式"></a>网络请求的三种处理方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//1.success里对返回结果进行处理，易产生回调地狱</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;,</span><br><span class="line">		success:res=&gt;&#123;</span><br><span class="line">			console.log(res);</span><br><span class="line">			arrs.value = res.data </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.使用.then对返回结果进行处理</span><br><span class="line">function request()&#123;</span><br><span class="line">	uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;).then(res=&gt;&#123;</span><br><span class="line">		//处理返回结果</span><br><span class="line">		arrs.value = res.data </span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.异步操作同步化</span><br><span class="line">const request = async () =&gt; &#123;</span><br><span class="line">	const res = await uni.request(&#123;</span><br><span class="line">		url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">	&#125;)</span><br><span class="line">	//处理返回结果</span><br><span class="line">	arrs.value = res.data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>异步同步化错误处理：</p>
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">	const request = async () =&gt; &#123;</span><br><span class="line">		const res = await uni.request(&#123;</span><br><span class="line">			url:&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><br><span class="line">		&#125;)</span><br><span class="line">		//处理返回结果</span><br><span class="line">		arrs.value = res.data</span><br><span class="line">	&#125;</span><br><span class="line">&#125;catch(err)&#123;</span><br><span class="line"> console.log(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>包裹异步同步化语句</p>
+</blockquote>
 <h3 id="微信开发者工具跳转到指定页面"><a href="#微信开发者工具跳转到指定页面" class="headerlink" title="微信开发者工具跳转到指定页面"></a>微信开发者工具跳转到指定页面</h3><ul>
 <li>到编译模式里设置相关页面路径即可</li>
 </ul>
@@ -187,7 +194,7 @@
 </blockquote>
 <p>加载更多字样：在列表尾部加扩展组件</p>
 <p><code>&lt;uni-load-more status=&quot;loading&quot;&gt;&lt;/uni-load-more&gt;</code></p>
-<h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>env(safe-area-inset-bottom)：移动端设置，可防止触摸无效等。</p>
+<h3 id="底部安全区域"><a href="#底部安全区域" class="headerlink" title="底部安全区域"></a>底部安全区域</h3><p>env(safe-area-inset-bottom)：移动端设置，可防止触摸无效等。</p>
 <p>可设置为<code>height:env(safe-area-inset-bottom);</code>,<code>padding-bottom:env(safe-area-inset-bottom);</code></p>
 <h3 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h3><ul>
 <li>条件编译处理多端差异，处理跨端兼容。</li>
@@ -224,6 +231,27 @@
 <blockquote>
 <p>在元素前设置一个空盒子，通过API <code>uni.getSystemInfoSync()</code>获取到状态栏高度<code>statusBarHeight</code>,然后给空盒子设置高度，使空盒子顶下占用到状态栏的元素</p>
 </blockquote>
+<h3 id="触底刷新"><a href="#触底刷新" class="headerlink" title="触底刷新"></a>触底刷新</h3><ol>
+<li><p>使用API onReachBottom()</p>
+</li>
+<li><p>插件z-padding</p>
+</li>
+</ol>
+<h3 id="正在加载提示"><a href="#正在加载提示" class="headerlink" title="正在加载提示"></a>正在加载提示</h3><ol>
+<li>初始进入页面的正在加载</li>
+</ol>
+<p>​	使用<code>uni-load-more</code>拓展组件，根据有无数据进行条件渲染<code>v-if</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;loadingLayout&quot; v-if=&quot;!classList.length&quot;&gt;</span><br><span class="line">	&lt;uni-load-more status=&quot;loading&quot;&gt;&lt;/uni-load-more&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下拉触底的正在加载</li>
+</ol>
+<p>​	加载完后需要现实没有更多数据<code>:status=&quot;noData?&#39;noMore&#39;:&#39;loading&#39;&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;loadingLayout&quot; v-if=&quot;classList.length || noData&quot;&gt;</span><br><span class="line">	&lt;uni-load-more :status=&quot;noData?&#x27;noMore&#x27;:&#x27;loading&#x27;&quot;&gt;&lt;/uni-load-more&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地缓存"><a href="#本地缓存" class="headerlink" title="本地缓存"></a>本地缓存</h3><p>同步地</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uni.setStorageSync(&quot;storageList&quot;,List)</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       
