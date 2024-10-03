@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-08-28T23:12:18.587Z</updated>
+  <updated>2024-10-03T12:48:36.313Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Axure快捷键</title>
+    <link href="https://coffeerin.github.io/2024/10/03/Axure%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://coffeerin.github.io/2024/10/03/Axure%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2024-10-03T12:48:02.000Z</published>
+    <updated>2024-10-03T12:48:36.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;添加元件类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;R&lt;/code&gt;:矩形；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;L&lt;/code&gt;:线段；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt;:圆形；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;P&lt;/code&gt;:绘画；&lt;/li&gt;
+&lt;li&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Axure" scheme="https://coffeerin.github.io/tags/Axure/"/>
+    
+  </entry>
   
   <entry>
     <title>怎么安装多版本的node？</title>
@@ -449,31 +478,6 @@
     
     
     <category term="问题解决" scheme="https://coffeerin.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件工程导论概念</title>
-    <link href="https://coffeerin.github.io/2024/01/06/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E6%A6%82%E5%BF%B5/"/>
-    <id>https://coffeerin.github.io/2024/01/06/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E6%A6%82%E5%BF%B5/</id>
-    <published>2024-01-06T15:01:12.000Z</published>
-    <updated>2024-01-06T15:10:51.326Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;第1章-软件工程学概述&quot;&gt;&lt;a href=&quot;#第1章-软件工程学概述&quot; class=&quot;headerlink&quot; title=&quot;第1章 软件工程学概述&quot;&gt;&lt;/a&gt;第1章 软件工程学概述&lt;/h3&gt;&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="软件工程导论" scheme="https://coffeerin.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/"/>
-    
-    
-    <category term="软件工程导论" scheme="https://coffeerin.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/"/>
     
   </entry>
   
