@@ -83,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">431</span>
+            <span class="post-count">574</span>
         </span>
     </span>
 
@@ -92,7 +92,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -108,7 +108,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="js操作数组方法"><a href="#js操作数组方法" class="headerlink" title="js操作数组方法"></a>js操作数组方法</h2><ol>
-<li>Array.map(function)，<code>map</code> 方法用于遍历数组，并对数组中的每个元素执行提供的函数，生成一个新的数组。原数组不变。</li>
+<li>Array.map(function)，<code>map</code> 方法用于遍历数组，并对数组中的每个元素<strong>执行提供的函数</strong>，<strong>生成一个新的数组</strong>。原数组不变。</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//示例：根据pets数组，每次执行函数返回pets每一项的url，返回一个只有url的新数组urls</span><br><span class="line">let urls = pets.value.map(item =&gt; item.url)</span><br></pre></td></tr></table></figure>
 
@@ -135,26 +135,45 @@
 </ol>
 </blockquote>
 <ol start="3">
-<li>Array.filter(function)，过滤数组中，符合条件的元素并返回一个新的数组。原数组不变。</li>
+<li>Array.filter((item) &#x3D;&gt; 条件)，过滤数组中，符合条件的元素并返回一个新的数组。原数组不变。</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5]</span><br><span class="line">var newArr = arr.filter(x =&gt; x&gt;3);</span><br><span class="line">//4,5</span><br></pre></td></tr></table></figure>
 
 
 
 <ol start="4">
-<li><p>Array.every((item) &#x3D;&gt; item.selected &#x3D;&#x3D;&#x3D; true)，对数组中的每一项进行判断，若都符合则返回true，否则返回false。原数组不变。</p>
+<li>Array.every((item) &#x3D;&gt; 条件)对数组中的每一项进行判断，若都符合则返回true，否则返回false。原数组不变。</li>
+</ol>
+<p>​	应用场景：单选框全选后，全选框要自动选上。</p>
+<p>​	<code>Array.every((item) =&gt; item.selected === true)，</code></p>
+<ol start="5">
+<li><p>Array.find((item) &#x3D;&gt; 条件)，<strong>找到符合条件的那一项</strong>。</p>
+<p><code>const item = cartList.value.find((item) =&gt; item.skuId === skuId)</code></p>
 </li>
-<li><p>Array.find( (item) &#x3D;&gt; 条件 )，<strong>找到符合条件的那一项</strong>，<code>const item = cartList.value.find((item) =&gt; item.skuId === skuId)</code></p>
+<li><p>Array.findIndex( (item) &#x3D;&gt; 条件)，<strong>找到符合条件的下标</strong>。</p>
+<p><code>const index = cartList.value.findIndex(item =&gt; skuId === item.skuId) //找到要删除的下标</code></p>
 </li>
-<li><p>Array.findIndex()，<strong>找到符合条件的下标</strong>。<code>const index = cartList.value.findIndex(item =&gt; skuId === item.skuId) //找到要删除的下标</code></p>
+<li><p>累加：cartList.value.reduce((a,c)&#x3D;&gt;a+c.count,0)，a为累加总数，c为cartList的每一项</p>
 </li>
-<li><p>累加：cartList.value.reduce((a,c)&#x3D;&gt;a+c.count,0),a为累加总数，c为cartList的每一项</p>
-</li>
-<li><p>Array.splice(a,b)，从下标为a开始删除b个元素。</p>
+<li><p>Array.includes()，判断数组中是否存在某个值</p>
 </li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers.<span class="title function_">includes</span>(<span class="number">3</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers.<span class="title function_">includes</span>(<span class="number">6</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="9">
+<li>Array.slice(a,b)，<strong>截取</strong>数组下标a到b的元素并返回一个新数组，<strong>原数组不变</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">4</span>));<span class="comment">//只保存（从第一开始数（不包括第一个），数到第四个）//  [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="10">
+<li>Array.splice(a,b)，从下标为a开始删除b个元素。<strong>原数组改变</strong></li>
+</ol>
 <blockquote>
-<p>push,pop,shift,unshift,sort,splice</p>
+<p>push,pop,shift,unshift,sort</p>
 </blockquote>
  
       <!-- reward -->

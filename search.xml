@@ -1705,24 +1705,31 @@
     <title>前端面试题</title>
     <url>/2024/06/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h3 id="一、CSS"><a href="#一、CSS" class="headerlink" title="一、CSS"></a>一、CSS</h3><h4 id="1-说一下CSS的盒模型。"><a href="#1-说一下CSS的盒模型。" class="headerlink" title="1.说一下CSS的盒模型。"></a>1.说一下CSS的盒模型。</h4><p>盒模型的属性：</p>
-<p><em>width、height、padding、border、margin</em></p>
-<p>​        在HTML页面中的所有元素都可以看成是一个盒子<br>​        盒子的组成：内容content、内边距padding、边框border、外边距margin<br>​        盒模型的类型：<br>​            标准盒模型<br>​                margin + border + padding + content，宽高不包含内边距和边框<br>​            IE盒模型<br>​                margin + content(border + padding)，宽高包含内边距和边框<br>​        控制盒模型的模式：box-sizing:content-box（默认值，标准盒模型）、border-box（IE盒模型）;</p>
-<h4 id="2-CSS选择器的优先级？"><a href="#2-CSS选择器的优先级？" class="headerlink" title="2.CSS选择器的优先级？"></a>2.CSS选择器的优先级？</h4><p>​        CSS的特性：继承性、层叠性、优先级<br>​        优先级：写CSS样式的时候，会给同一个元素添加多个样式，此时谁的权重高就显示谁的样式<br>​        标签、类&#x2F;伪类&#x2F;属性、全局选择器、行内样式、id、!important<br>​        !important &gt; 行内样式 &gt; id &gt; 类&#x2F;伪类&#x2F;属性 &gt; 标签 &gt; 全局选择器</p>
+<p><em>width、height、padding、border、margin</em>（margin:上 右 下 左）</p>
+<p>在HTML页面中的所有元素都可以看成是一个盒子<br>盒子的组成：内容content、内边距padding、边框border、外边距margin<br>盒模型的类型：</p>
+<ol>
+<li><p><strong>标准盒模型</strong><br>margin + border + padding + content，<strong>宽高不包含内边距和边框</strong></p>
+</li>
+<li><p><strong>IE盒模型</strong><br>margin + content(border + padding)，<strong>宽高包含内边距和边框</strong></p>
+<p>控制盒模型的模式：<code>box-sizing:content-box</code>（默认值，标准盒模型）、<code>box-sizing:border-box</code>（IE盒模型）;</p>
+</li>
+</ol>
+<h4 id="2-CSS选择器的优先级？"><a href="#2-CSS选择器的优先级？" class="headerlink" title="2.CSS选择器的优先级？"></a>2.CSS选择器的优先级？</h4><p>​	CSS的特性：继承性、层叠性、优先级<br>​	优先级：写CSS样式的时候，会给同一个元素添加多个样式，此时谁的权重高就显示谁的样式<br>​	标签、类&#x2F;伪类&#x2F;属性、全局选择器、行内样式、id、!important<br>​	<strong>!important &gt; 行内样式 &gt; id &gt; 类&#x2F;伪类&#x2F;属性 &gt; 标签 &gt; 全局选择器</strong></p>
 <h4 id="3-隐藏元素的方法有哪些，特点是？"><a href="#3-隐藏元素的方法有哪些，特点是？" class="headerlink" title="3.隐藏元素的方法有哪些，特点是？"></a>3.隐藏元素的方法有哪些，特点是？</h4><ol>
-<li>display:none;元素在页面上消失，<strong>不占据空间</strong></li>
-<li>opacity:0;​设置了元素的透明度为0，元素不可见，<strong>占据空间位置</strong></li>
-<li>visibility:hidden;让元素消失，一种不可见的状态，<strong>占据空间位置</strong></li>
-<li>利用缩放：transform: scale(0);</li>
+<li><code>display:none;</code>元素在页面上消失，<strong>不占据空间</strong></li>
+<li><code>opacity:0;​</code>设置了元素的透明度为0，元素不可见，<strong>占据空间位置</strong></li>
+<li><code>visibility:hidden;</code>让元素消失，一种不可见的状态，<strong>占据空间位置</strong></li>
+<li>利用缩放：<code>transform: scale(0);</code></li>
 <li>利用定位：<code>position:absolute;</code> + <code>z-index：-1</code>;</li>
 <li>clip-path?</li>
 </ol>
-<h4 id="4-px和rem的区别是什么？"><a href="#4-px和rem的区别是什么？" class="headerlink" title="4.px和rem的区别是什么？"></a>4.px和rem的区别是什么？</h4><p>​        px是像素，显示器上给我们呈现画面的像素，每个像素的大小是一样，绝对单位长度<br>​        rem，相对单位，相对于html根节点的font-size的值，直接给html节点的font-size:62.5%;<br>​            1rem &#x3D; 10px; （16px*62.5%&#x3D;10px）</p>
+<h4 id="4-px和rem的区别是什么？"><a href="#4-px和rem的区别是什么？" class="headerlink" title="4.px和rem的区别是什么？"></a>4.px和rem的区别是什么？</h4><p>​	px是像素，显示器上给我们呈现画面的像素，每个像素的大小是一样，绝对单位长度;<br>​	rem，相对单位，相对于html根节点的font-size的值，直接给html节点的font-size:62.5%;<br>​	1rem &#x3D; 10px; （16px*62.5%&#x3D;10px）</p>
 <h4 id="5-重绘重排有什么区别？"><a href="#5-重绘重排有什么区别？" class="headerlink" title="5.重绘重排有什么区别？"></a>5.重绘重排有什么区别？</h4><p>​        <strong>重排（回流）</strong>：对DOM元素的大小、位置进行修改后，<strong>浏览器需要重新计算元素的几何属性</strong>。<br>​        <strong>重绘</strong>：对DOM元素的样式进行修改，比如color，<strong>浏览器不需要重新计算元素的几何属性</strong>，重新绘制元素的新样式 。    </p>
 <p>页面发生变化时：重排和回流(重排)</p>
 <ul>
-<li><p>重绘：页面元素样式发生变化，重新绘制已经显示的元素</p>
+<li><p>重绘：确定好元素的位置和大小后，页面元素样式发生变化，重新绘制已经显示的元素。</p>
 </li>
-<li><p>回流(重排)：页面元素的大小位置发生变化，重新计算元素的位置和大小。盒模型在页面上的位置和大小</p>
+<li><p>回流(重排)：确定好元素的位置和大小后，元素的大小位置发生变化，重新计算元素的位置和大小。盒模型在页面上的位置和大小</p>
 <blockquote>
 <p>回流比重绘的代价更高，因为回流会涉及到整个渲染树的<strong>重新计算</strong>和<strong>布局</strong></p>
 </blockquote>
@@ -1812,13 +1819,17 @@
 <li><p>粘性定位，参考离它最近的一个拥有“滚动机制”的祖先元素，<strong>不会脱离文档流</strong>。</p>
 </li>
 </ol>
-<h4 id="11-消除浮动"><a href="#11-消除浮动" class="headerlink" title="11.消除浮动"></a>11.消除浮动</h4><ol>
+<h4 id="11-消除浮动"><a href="#11-消除浮动" class="headerlink" title="11.消除浮动"></a>11.消除浮动</h4><p>浮动：在文本和其他元素直接可以利用浮动控制其位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">img </span><br><span class="line">&#123;</span><br><span class="line">	float:right;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;在下面的段落中，我们添加了一个 &lt;b&gt;float:right&lt;/b&gt; 的图片。导致图片将会浮动在段落的右边。&lt;/p&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">&lt;img src=&quot;logocss.gif&quot; width=&quot;95&quot; height=&quot;84&quot; /&gt;</span><br><span class="line">这是一些文本。这是一些文本。这是一些文本。</span><br><span class="line">这是一些文本。这是一些文本。这是一些文本。</span><br><span class="line">这是一些文本。这是一些文本。这是一些文本。</span><br><span class="line">这是一些文本。这是一些文本。这是一些文本。</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
 <li><p><code>clear:both</code> clear属性指定元素两侧不能出现浮动元素,添加一个空的块级元素，给其<code>clear:both</code>属性。</p>
 <p><strong>在浮动元素下加<br clear="all"></strong></p>
 </li>
 <li><p>添加伪元素 ，在父元素内的最后添加一个伪元素。</p>
 </li>
 </ol>
+<p>​	使用伪元素clearfix</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line"> content:&#x27;&#x27;;</span><br><span class="line"> display:block;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;clearfix&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line"> ...</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -1856,7 +1867,7 @@ Array
 String
     concat() length  slice() split()
 </code></pre>
-<h4 id="3-操作数组的方法有哪些？"><a href="#3-操作数组的方法有哪些？" class="headerlink" title="3.操作数组的方法有哪些？"></a>3.操作数组的方法有哪些？</h4><pre><code>push() pop() sort() splice() unshift() shift() reverse() concat() join() 
+<h4 id="3-操作数组的方法有哪些？"><a href="#3-操作数组的方法有哪些？" class="headerlink" title="3.操作数组的方法有哪些？"></a>3.操作数组的方法有哪些？</h4><pre><code>push() pop() sort() splice() unshift() shift() reverse() concat() split(),join()=&gt;数组和字符串的转换
 map() filter() every() some() reduce() isArray() findIndex() find()
 哪些方法会改变原数组？
     push() pop() unshift() shift() sort() reverse() splice()
@@ -1868,7 +1879,7 @@ map() filter() every() some() reduce() isArray() findIndex() find()
 <li><p>引用数据类型：instanceof</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">p <span class="keyword">instanceof</span> <span class="title class_">Person</span> -&gt; <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>XXX.constructor  –均可	     </p>
+<li><p>XXX.constructor  – 均可	     </p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="number">5</span>).<span class="property">constructor</span> === <span class="title class_">Number</span> -&gt; <span class="literal">true</span>,<span class="string">&quot;text&quot;</span>.<span class="property">constructor</span> === <span class="title class_">String</span>,p.<span class="property">constructor</span> === <span class="title class_">Person</span>-&gt;<span class="literal">true</span><span class="string">`</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Object.prototype.toString.call() -&gt; “[object Object&#x2F;Array&#x2F;Function&#x2F;String&#x2F;Number&#x2F;Date…]”</p>
@@ -1899,7 +1910,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
     保存在堆内存当中，声明一个引用类型的变量，它保存的是引用类型数据的地址
     假如声明两个引用类型同时指向了一个地址的时候，修改其中一个那么另外一个也会改变
 </code></pre>
-<h4 id="9-说一下原型链。"><a href="#9-说一下原型链。" class="headerlink" title="9.说一下原型链。"></a>9.说一下原型链。</h4><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">原型链是一种搜索机制，当查找对象的某个属性时，首先先从对象身上找，如果没有则从对象的原型上找，如果还是没有，就到Object.prototype的身上找，如果还是没有则说明该对象没有这个属性。</span><br><span class="line"></span><br><span class="line">原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象。</span><br><span class="line">使用prototype可以把方法挂在原型上，内存值保存一份。</span><br><span class="line"><span class="built_in">_</span><span class="built_in">_</span>proto<span class="built_in">_</span><span class="built_in">_</span>可以理解为指针，实例对象中的属性，<span class="built_in">_</span><span class="built_in">_</span>proto<span class="built_in">_</span><span class="built_in">_</span>指向了构造函数的原型对象（prototype）。</span><br><span class="line"></span><br><span class="line">原型链是 JavaScript 中用于实现继承和属性查找的一种机制。每个对象都有一个原型对象（prototype），通过原型对象可以实现属性和方法的继承。当访问一个对象的属性或方法时，如果对象本身不存在这个属性或方法，JavaScript 引擎会沿着原型链向上查找，直到找到相应的属性或方法或者到达原型链的顶端（Object.prototype）为止。</span><br></pre></td></tr></table></figure>
+<h4 id="9-说一下原型链。"><a href="#9-说一下原型链。" class="headerlink" title="9.说一下原型链。"></a>9.说一下原型链。</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">原型链是一种搜索和继承机制，当查找对象的某个属性时，首先先从对象身上找，如果没有则从对象的原型上找，如果还是没有，就到Object.prototype的身上找，如果还是没有则说明该对象没有这个属性。</span><br><span class="line"></span><br><span class="line">原型就是一个普通对象，它是为构造函数的实例共享属性和方法；所有实例中引用的原型都是同一个对象。</span><br><span class="line">使用<span class="code">`Object.prototype.属性名/方法名`</span>可以把方法挂在原型上，内存值保存一份。</span><br><span class="line"><span class="strong">__proto__</span>可以理解为指针，实例对象中的属性，<span class="strong">__proto__</span>指向了构造函数的原型对象（prototype）。</span><br><span class="line"></span><br><span class="line">原型链是 JavaScript 中用于实现继承和属性查找的一种机制。每个对象都有一个原型对象（prototype），通过原型对象可以实现属性和方法的继承。当访问一个对象的属性或方法时，如果对象本身不存在这个属性或方法，JavaScript 引擎会沿着原型链向上查找，直到找到相应的属性或方法或者到达原型链的顶端（Object.prototype）为止。</span><br></pre></td></tr></table></figure>
 
 <h4 id="10-new操作符具体做了什么？"><a href="#10-new操作符具体做了什么？" class="headerlink" title="10.new操作符具体做了什么？"></a>10.new操作符具体做了什么？</h4><pre><code>1.先创建一个空对象
 2.把空对象和构造函数通过原型链进行链接
@@ -1935,7 +1946,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 7. 匿名函数中的this
 永远指向了window,匿名函数的执行环境具有全局性，因此this指向window
 </code></pre>
-<h4 id="14-script标签里的async和defer有什么区别？"><a href="#14-script标签里的async和defer有什么区别？" class="headerlink" title="14.script标签里的async和defer有什么区别？"></a>14.script标签里的async和defer有什么区别？</h4><p>当没有async和defer这两个属性的时候，浏览器会立刻加载并执行指定的脚本<br>async：<br>加载和渲染后面元素的过程将和script的加载和执行并行进行（异步）<br>defer：<br>加载和渲染后面元素的过程将和script的加载并行进行（异步），但是它的执行事件要等所有元素解析完成之后才会执行</p>
+<h4 id="14-script标签里的async和defer有什么区别？"><a href="#14-script标签里的async和defer有什么区别？" class="headerlink" title="14.script标签里的async和defer有什么区别？"></a>14.script标签里的async和defer有什么区别？</h4><p>当没有async和defer这两个属性的时候，浏览器会立刻加载并执行指定的脚本<br>async：<br><strong>加载和渲染</strong>后面元素的过程将和script的<strong>加载和执行</strong>并行进行（异步）<br>defer：<br><strong>加载和渲染</strong>后面元素的过程将和script的加载并行进行（异步），但是它的执行事件要等所有元素解析完成之后才会执行</p>
 <h4 id="15-setTimeout最小执行时间是多少？"><a href="#15-setTimeout最小执行时间是多少？" class="headerlink" title="15.setTimeout最小执行时间是多少？"></a>15.setTimeout最小执行时间是多少？</h4><p>HTML5规定的内容：</p>
 <ul>
 <li>setTimeout最小执行时间是4ms</li>
@@ -1943,7 +1954,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 </ul>
 <h4 id="16-ES6和ES5有什么区别？"><a href="#16-ES6和ES5有什么区别？" class="headerlink" title="16.ES6和ES5有什么区别？"></a>16.ES6和ES5有什么区别？</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS的组成：ECMAScript BOM  DOM</span><br><span class="line">ES5:ECMAScript5,2009年ECMAScript的第五次修订，ECMAScript2009</span><br><span class="line">ES6:ECMAScript6,2015年ECMAScript的第六次修订，ECMAScript2015，是JS的下一个版本标准</span><br></pre></td></tr></table></figure>
 
-<h4 id="17-ES6的新特性有哪些？"><a href="#17-ES6的新特性有哪些？" class="headerlink" title="17.ES6的新特性有哪些？"></a>17.ES6的新特性有哪些？</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.  新增块级作用域（let,const）</span><br><span class="line">   不存在变量提升</span><br><span class="line">   存在暂时性死区的问题</span><br><span class="line">   块级作用域的内容</span><br><span class="line">   不能在同一个作用域内重复声明</span><br><span class="line">2.  新增了定义类的语法糖（class）</span><br><span class="line">3.  新增了一种基本数据类型（symbol）</span><br><span class="line">4.  新增了解构赋值</span><br><span class="line">   从数组或者对象中取值，然后给变量赋值</span><br><span class="line">5.  新增了函数参数的默认值</span><br><span class="line">6.  给数组新增了API</span><br><span class="line">7.  对象和数组新增了扩展运算符</span><br><span class="line">8.  Promise</span><br><span class="line">   解决回调地狱的问题。</span><br><span class="line">   自身有all,reject,resolve,race方法</span><br><span class="line">   原型上有then,catch</span><br><span class="line">   把异步操作队列化</span><br><span class="line">   三种状态：pending初始状态,fulfilled操作成功,rejected操作失败</span><br><span class="line">   状态：pending -&gt; fulfilled;pending -&gt; rejected 一旦发生，状态就会凝固，不会再变</span><br><span class="line">   async  await</span><br><span class="line">   同步代码做异步的操作，两者必须搭配使用</span><br><span class="line">   async表明函数内有异步操作，调用函数会返回promise</span><br><span class="line">   await是组成async的表达式，结果是取决于它等待的内容，如果是promise那就是promise的结果，如果是普通函数就进行链式调用</span><br><span class="line">   await后的promise如果是reject状态，那么整个async函数都会中断，后面的代码不执行</span><br><span class="line"></span><br><span class="line">9.  新增了模块化（import,export）</span><br><span class="line">10.  新增了set和map数据结构</span><br><span class="line">    set就是不重复</span><br><span class="line">    map的key的类型不受限制</span><br><span class="line">11.  新增了generator</span><br><span class="line">12.  新增了箭头函数</span><br><span class="line">    不能作为构造函数使用，不能用new</span><br><span class="line">    箭头函数就没有原型</span><br><span class="line">    箭头函数没有arguments</span><br><span class="line">    箭头函数不能用call,apply,bind去改变this的执行</span><br><span class="line">    this指向外层第一个函数的this</span><br></pre></td></tr></table></figure>
+<h4 id="17-ES6的新特性有哪些？"><a href="#17-ES6的新特性有哪些？" class="headerlink" title="17.ES6的新特性有哪些？"></a>17.ES6的新特性有哪些？</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span>  新增块级作用域（let,const）</span><br><span class="line">   不存在变量提升</span><br><span class="line">   存在暂时性死区的问题</span><br><span class="line">   块级作用域的内容</span><br><span class="line">   不能在同一个作用域内重复声明</span><br><span class="line"><span class="bullet">2.</span>  新增了定义类的语法糖（class）</span><br><span class="line"><span class="bullet">3.</span>  新增了一种基本数据类型（symbol）</span><br><span class="line"><span class="bullet">4.</span>  新增了解构赋值</span><br><span class="line">   从数组或者对象中取值，然后给变量赋值</span><br><span class="line"><span class="bullet">5.</span>  新增了函数参数的默认值</span><br><span class="line"><span class="bullet">6.</span>  给数组新增了API</span><br><span class="line"><span class="bullet">7.</span>  对象和数组新增了扩展运算符</span><br><span class="line"><span class="bullet">8.</span>  Promise</span><br><span class="line">   解决回调地狱的问题。</span><br><span class="line">   自身有all,reject,resolve,race方法</span><br><span class="line">   原型上有then,catch</span><br><span class="line">   把异步操作队列化</span><br><span class="line">   三种状态：<span class="code">`pending初始状态,fulfilled操作成功,rejected操作失败`</span></span><br><span class="line">   状态：pending -&gt; fulfilled;pending -&gt; rejected 一旦发生，状态就会凝固，不会再变</span><br><span class="line">   async  await</span><br><span class="line">   同步代码做异步的操作，两者必须搭配使用</span><br><span class="line">   async表明函数内有异步操作，调用函数会返回promise</span><br><span class="line">   await是组成async的表达式，结果是取决于它等待的内容，如果是promise那就是promise的结果，如果是普通函数就进行链式调用</span><br><span class="line">   await后的promise如果是reject状态，那么整个async函数都会中断，后面的代码不执行</span><br><span class="line"></span><br><span class="line"><span class="bullet">9.</span>  新增了模块化（import,export）</span><br><span class="line"><span class="bullet">10.</span>  新增了set和map数据结构</span><br><span class="line"><span class="code">    set就是不重复</span></span><br><span class="line"><span class="code">    map的key的类型不受限制</span></span><br><span class="line"><span class="code">11.  新增了generator</span></span><br><span class="line"><span class="code">12.  新增了箭头函数</span></span><br><span class="line"><span class="code">    不能作为构造函数使用，不能用new</span></span><br><span class="line"><span class="code">    箭头函数就没有原型</span></span><br><span class="line"><span class="code">    箭头函数没有arguments</span></span><br><span class="line"><span class="code">    箭头函数不能用call,apply,bind去改变this的执行</span></span><br><span class="line"><span class="code">    this指向外层第一个函数的this</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="18-call-aply-bind三者有什么区别？"><a href="#18-call-aply-bind三者有什么区别？" class="headerlink" title="18.call,aply,bind三者有什么区别？"></a>18.call,aply,bind三者有什么区别？</h4><p>都是改变this指向和函数的调用，call和apply的功能类似，只是传参的方法不同<br>call方法传的是一个参数列表<br>apply传递的是一个数组<br>bind传参后不会立刻执行，会返回一个改变了this指向的函数，这个函数还是可以传参的，bind()()<br>call方法的性能要比apply好一些，所以call用的更多一点</p>
 <h4 id="19-用递归的时候有没有遇到什么问题？"><a href="#19-用递归的时候有没有遇到什么问题？" class="headerlink" title="19.用递归的时候有没有遇到什么问题？"></a>19.用递归的时候有没有遇到什么问题？</h4><p>如果一个函数内可以调用函数本身，那么这个就是递归函数<br>函数内部调用自己<br>特别注意：写递归必须要有<strong>退出条件</strong>return</p>
@@ -1969,7 +1980,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 <li>重复执行以上步骤，形成事件循环。</li>
 </ol>
 </blockquote>
-<p>JS是一个单线程的脚本语言<br>主线程 执行栈 任务队列  宏任务 微任务<br>主线程先执行同步任务，然后才去执行任务队列里的任务，如果在执行宏任务之前有微任务，那么要先执行微任务<br>全部执行完之后等待主线程的调用，调用完之后再去任务队列中查看是否有异步任务，这样一个循环往复的过程就是事件循环！</p>
+<p>JS是一个单线程的脚本语言<br>    主线程 执行栈 任务队列  宏任务 微任务<br>    主线程先执行同步任务，然后才去执行任务队列里的任务，如果在执行宏任务之前有微任务，那么要先执行微任务。全部执行完之后等待主线程的调用，调用完之后再去任务队列中查看是否有异步任务，这样一个循环往复的过程就是事件循环！</p>
 <p>主线程同步任务&gt;任务队列(异步)&gt;微任务&gt;宏任务</p>
 <h4 id="22-ajax是什么？怎么实现的？"><a href="#22-ajax是什么？怎么实现的？" class="headerlink" title="22.ajax是什么？怎么实现的？"></a>22.ajax是什么？怎么实现的？</h4><p>创建<strong>交互式网页应用的网页开发技术</strong><br>    在不重新加载整个网页的前提下，与服务器交换数据并更新部分内容<br>通过XmlHttpRequest对象向服务器发送异步请求，然后从服务器拿到数据，最后通过JS操作DOM更新页面<br>1.创建XmlHttpRequest对象 xhr<br>2.通过xhr对象里的open()方法和服务器建立连接<br>3.构建请求所需的数据，并通过xhr对象的send()发送给服务器<br>4.通过xhr对象的onreadystatechanges事件监听服务器和你的通信状态<br>5.接收并处理服务器响应的数据结果<br>6.把处理的数据更新到HTML页面上</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 创建 XMLHttpRequest 对象</span></span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 配置请求，指定请求方法和URL</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 定义请求完成后的回调函数</span></span><br><span class="line">  xhr.<span class="property">onreadystatechange</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 请求完成且响应状态为 200 表示成功</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">      <span class="comment">// 解析服务器响应的 JSON 数据</span></span><br><span class="line">      <span class="keyword">const</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 更新页面上的内容</span></span><br><span class="line">      <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;result&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;Title: &quot;</span> + data.<span class="property">title</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 发送请求</span></span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1998,7 +2009,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 </li>
 <li><p>建立TCP连接</p>
 </li>
-<li><p>发送HTTP请求</p>
+<li><p>客户端发送HTTP请求</p>
 </li>
 <li><p>服务器处理请求</p>
 </li>
@@ -2030,7 +2041,7 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 <li><p>断开TCP连接</p>
 </li>
 </ol>
-<h4 id="30-DOM树和渲染树有什么区别？"><a href="#30-DOM树和渲染树有什么区别？" class="headerlink" title="30.DOM树和渲染树有什么区别？"></a>30.DOM树和渲染树有什么区别？</h4><p>DOM树是和HTML标签一一对应的，包括head和隐藏元素<br>渲染树是不包含head和隐藏元素的，是实际在页面上显示的</p>
+<h4 id="30-DOM树和渲染树有什么区别？"><a href="#30-DOM树和渲染树有什么区别？" class="headerlink" title="30.DOM树和渲染树有什么区别？"></a>30.DOM树和渲染树有什么区别？</h4><p>DOM树是和HTML标签一一对应的，包括<strong>head和隐藏元素</strong><br>渲染树是不包含head和隐藏元素的，是实际在页面上显示的</p>
 <h4 id="31-精灵图和base64的区别是什么？"><a href="#31-精灵图和base64的区别是什么？" class="headerlink" title="31.精灵图和base64的区别是什么？"></a>31.精灵图和base64的区别是什么？</h4><p>精灵图：把多张小图整合到一张大图上，利用定位的一些属性把小图显示在页面上，当访问页面可以减少请求，提高加载速度<br>base64：传输8Bit字节代码的编码方式，把原本二进制形式转为64个字符的单位，最后组成字符串<br>base64是会和html css一起下载到浏览器中，减少请求，减少跨域问题，但是一些低版本不支持，若base64体积比原图片大，不利于css的加载。</p>
 <h4 id="32-svg格式了解多少？"><a href="#32-svg格式了解多少？" class="headerlink" title="32.svg格式了解多少？"></a>32.svg格式了解多少？</h4><p>可缩放矢量图，基于<strong>XML语法格式</strong>的图像格式，其他图像是基于像素的，SVG是属于对图像形状的描述，本质是文本文件，体积小，并且不管放大多少倍都不会失真<br>1.SVG可直接插入页面中，成为DOM一部分，然后用JS或CSS进行操作</p>
 <pre><code>    &lt;svg&gt;&lt;/svg&gt;
@@ -2050,11 +2061,11 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 <p>​	server:服务器类型信息</p>
 <p>​        Location:指明用于重定向的 URI</p>
 <p>​	Refresh:控制定时重定向</p>
+<p>https：</p>
+<p>1.客户端发起https请求<br>2.服务器配置证书并发送给客户端<br>3.客户端收到证书后进行验证，如果验证通过就生成对称密钥，并用证书里的公钥加密这个对称密钥<br>4.客户端将加密后的对称密钥发送给服务器<br>5.服务器接收到客户端发来的对称密钥后，用自己之前的私钥进行非对称解密，解密之后得到客户端的密钥，然<br>后用客户端的对称密钥对返回的数据进行加密，这样传输的数据都是密文。<br>6.服务器将加密后的密文发送给客户端<br>7.客户端收到密文后用自己的对称密钥进行解密</p>
 <h4 id="36-说一下浏览器的缓存策略。（查）"><a href="#36-说一下浏览器的缓存策略。（查）" class="headerlink" title="36.说一下浏览器的缓存策略。（查）"></a>36.说一下浏览器的缓存策略。（查）</h4><p>​    强缓存（本地缓存）、协商缓存（弱缓存）</p>
-<blockquote>
-<p>强缓存是当我们访问URL的时候，不会向服务器发送请求，直接从缓存中读取资源，但是会返回200的状态码。</p>
-<p>协商缓存就是强缓存失效后，浏览器携带缓存标识向服务器发送请求，由服务器根据缓存标识来决定是否使用缓存的过程。</p>
-</blockquote>
+<p>强缓存：当访问URL的时候，不会向服务器发送请求，直接从缓存中读取资源，但是会返回200的状态码。</p>
+<p>协商缓存：强缓存失效后，浏览器携带<strong>缓存标识</strong>向服务器发送请求，由服务器根据<strong>缓存标识</strong>来决定是否使用缓存的过程。</p>
 <p>​    强缓：不发起请求，直接使用缓存里的内容，浏览器把JS，CSS，image等存到内存中，下次用户访问直接从内存中取，提高性能<br>​    协缓：需要向后台发请求，通过判断(需要询问服务器缓存是否过期)来决定是否使用协商缓存，如果<strong>请求内容没有变化</strong>，则返回304，浏览器就用缓存里的内容<br>​    强缓存的触发：<br>​        HTTP1.0:时间戳响应标头<br>​        HTTP1.1:Cache-Control响应标头<br>​    协商缓存触发：<br>​        HTTP1.0:请求头：if-modified-since 响应头：last-modified<br>​        HTTP1.1:请求头：if-none-match 响应头：Etag</p>
 <h4 id="37-说一下什么是“同源策略”？-查"><a href="#37-说一下什么是“同源策略”？-查" class="headerlink" title="37.说一下什么是“同源策略”？(查)"></a>37.说一下什么是“同源策略”？(查)</h4><p>​    http:&#x2F;&#x2F; www.  aaa.com:8080&#x2F;index&#x2F;vue.js<br>​    协议    子域名 主域名  端口号     资源<br>​    同源策略是浏览器的核心，如果没有这个策略就会遭受网络攻击<br>​    主要指的就是协议+域名+端口号三者一致，若其中一个不一样则不是同源，会产生跨域<br>​    三个允许跨域加载资源的标签：img  link  script<br>​    跨域是可以发送请求，后端也会正常返回结果，只不过这个结果被浏览器拦截了！<br>​    JSONP<br>​    CORS<br>​    websocket<br>​    反向代理</p>
 <h4 id="38-防抖和节流是什么？"><a href="#38-防抖和节流是什么？" class="headerlink" title="38.防抖和节流是什么？"></a>38.防抖和节流是什么？</h4><p>​    都是应对页面中频繁触发事件的优化方案</p>
@@ -2184,6 +2195,24 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 <li><p><strong>使用<code>for..in</code>循环</strong>：通过遍历对象的属性，如果在循环体内没有找到任何属性，则可以认为对象为空。这种方法可以通过定义一个函数来实现，如果在循环中找到属性则返回<code>false</code>，否则返回<code>true</code>表示对象为空。</p>
 </li>
 </ol>
+<h4 id="48-https工作流程"><a href="#48-https工作流程" class="headerlink" title="48.https工作流程"></a>48.https工作流程</h4><ol>
+<li><p>客户端发起https请求</p>
+</li>
+<li><p>服务器配置证书并发送给客户端</p>
+</li>
+<li><p>客户端收到证书后进行验证，如果验证通过就生成对称密钥，并用证书里的公钥加密这个对称密钥</p>
+</li>
+<li><p>客户端将加密后的对称密钥发送给服务器</p>
+</li>
+<li><p>服务器接收到客户端发来的对称密钥后，用自己之前的私钥进行非对称解密，解密之后得到客户端的密钥，然</p>
+<p>后用客户端的对称密钥对返回的数据进行加密，这样传输的数据都是密文。</p>
+</li>
+<li><p>服务器将加密后的密文发送给客户端</p>
+</li>
+<li><p>客户端收到密文后用自己的对称密钥进行解密</p>
+</li>
+</ol>
+<p>服务器证书→客户端生成对称密钥并用服务器证书的公钥加密→发送给服务器→服务器的私钥进行非对称解密得到客户端的密钥→加密数据→发送给客户端→客户端进行对称解密</p>
 <h3 id="三、HTML5CSS3"><a href="#三、HTML5CSS3" class="headerlink" title="三、HTML5CSS3"></a>三、HTML5CSS3</h3><h4 id="1-语义化的理解。"><a href="#1-语义化的理解。" class="headerlink" title="1.语义化的理解。"></a>1.语义化的理解。</h4><p>​        在写HTML页面结构时所用的标签有意义<br>​        头部用head  主体用main  底部用foot…<br>​        怎么判断页面是否语义化了？<br>​            把CSS去掉，如果能够清晰的看出来页面结构，显示内容较为正常<br>​        <strong>为什么要选择语义化？</strong><br>​            1.让HTML结构更加清晰明了<br>​            2.方便团队协作，利于开发<br>​            3.有利于爬虫和SEO，有利于搜索引擎检索和抓取<br>​            4.能够让浏览器更好的去解析代码<br>​            5.给用户带来良好的体验</p>
 <h4 id="2-H5C3有哪些新特性？"><a href="#2-H5C3有哪些新特性？" class="headerlink" title="2.H5C3有哪些新特性？"></a>2.H5C3有哪些新特性？</h4><p>​        H5的新特性：<br>​            1.语义化的标签<br>​            2.新增音频视频<br>​            3.画布canvas<br>​            4.数据存储localstorage sessionstorage<br>​            5.增加了表单控件 email url search…<br>​            6.拖拽释放API<br>​        CSS3的新特性：<br>​            1.新增选择器：属性选择器、伪类选择器、伪元素选择器<br>​            2.增加了媒体查询<br>​            3.文字阴影<br>​            4.边框<br>​            5.盒子模型box-sizing<br>​            6.渐变<br>​            7.过度<br>​            8.自定义动画<br>​            9.背景的属性<br>​            10.2D和3D</p>
 <h4 id="3-rem是如何做适配的？"><a href="#3-rem是如何做适配的？" class="headerlink" title="3.rem是如何做适配的？"></a>3.rem是如何做适配的？</h4><p>​        rem是相对长度，相对于根元素（html）的font-size属性来计算大小，通常来做移动端的适配<br>​        rem是根据根元素font-size计算值的倍数<br>​        比如html上的font-size:16px，给div设置宽为1.5rem,1.2rem &#x3D; 16px*1.2 &#x3D; 19.2px.</p>
@@ -2212,7 +2241,8 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 </blockquote>
 <h4 id="10-axios是怎么做封装的？"><a href="#10-axios是怎么做封装的？" class="headerlink" title="10.axios是怎么做封装的？"></a>10.axios是怎么做封装的？</h4><p>​        下载 创建实例 接着封装请求，响应拦截器  抛出 最后封装接口</p>
 <h4 id="11-vue路由时怎么传参的？"><a href="#11-vue路由时怎么传参的？" class="headerlink" title="11.vue路由时怎么传参的？"></a>11.vue路由时怎么传参的？</h4><p>​	1.params传参<br>​            this.$router.push({name:’index’,params:{id:item.id}})<br>​            this.$route.params.id<br>​        2.路由属性传参<br>​            this.$router.push({name:’&#x2F;index&#x2F;${item.id}’})<br>​            路由配置 { path:’&#x2F;index:id’ }<br>​        3.query传参（可以解决页面刷新参数丢失的问题）<br>​            this.$router.push({<br>​                name:’index’,<br>​                query:{id:item.id}<br>​            })</p>
-<h4 id="12-vue路由的hash模式和history模式有什么区别？"><a href="#12-vue路由的hash模式和history模式有什么区别？" class="headerlink" title="12.vue路由的hash模式和history模式有什么区别？***"></a>12.vue路由的hash模式和history模式有什么区别？***</h4><p><strong>1. URL 结构</strong></p>
+<h4 id="12-vue路由的hash模式和history模式有什么区别？"><a href="#12-vue路由的hash模式和history模式有什么区别？" class="headerlink" title="12.vue路由的hash模式和history模式有什么区别？***"></a>12.vue路由的hash模式和history模式有什么区别？***</h4><p>hash模式适合单页面应用</p>
+<p><strong>1. URL 结构</strong></p>
 <ul>
 <li><strong>history：</strong> 使用实际的 URL 路径，例如 “&#x2F;about”。</li>
 <li><strong>hash：</strong> 在 URL 的末尾使用哈希 (#) 符号，例如 “&#x2F;#about”。</li>
@@ -3553,12 +3583,15 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 </li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
   </entry>
   <entry>
     <title>js操作数组方法</title>
     <url>/2024/08/08/js%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="js操作数组方法"><a href="#js操作数组方法" class="headerlink" title="js操作数组方法"></a>js操作数组方法</h2><ol>
-<li>Array.map(function)，<code>map</code> 方法用于遍历数组，并对数组中的每个元素执行提供的函数，生成一个新的数组。原数组不变。</li>
+<li>Array.map(function)，<code>map</code> 方法用于遍历数组，并对数组中的每个元素<strong>执行提供的函数</strong>，<strong>生成一个新的数组</strong>。原数组不变。</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//示例：根据pets数组，每次执行函数返回pets每一项的url，返回一个只有url的新数组urls</span><br><span class="line">let urls = pets.value.map(item =&gt; item.url)</span><br></pre></td></tr></table></figure>
 
@@ -3585,26 +3618,45 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 </ol>
 </blockquote>
 <ol start="3">
-<li>Array.filter(function)，过滤数组中，符合条件的元素并返回一个新的数组。原数组不变。</li>
+<li>Array.filter((item) &#x3D;&gt; 条件)，过滤数组中，符合条件的元素并返回一个新的数组。原数组不变。</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5]</span><br><span class="line">var newArr = arr.filter(x =&gt; x&gt;3);</span><br><span class="line">//4,5</span><br></pre></td></tr></table></figure>
 
 
 
 <ol start="4">
-<li><p>Array.every((item) &#x3D;&gt; item.selected &#x3D;&#x3D;&#x3D; true)，对数组中的每一项进行判断，若都符合则返回true，否则返回false。原数组不变。</p>
+<li>Array.every((item) &#x3D;&gt; 条件)对数组中的每一项进行判断，若都符合则返回true，否则返回false。原数组不变。</li>
+</ol>
+<p>​	应用场景：单选框全选后，全选框要自动选上。</p>
+<p>​	<code>Array.every((item) =&gt; item.selected === true)，</code></p>
+<ol start="5">
+<li><p>Array.find((item) &#x3D;&gt; 条件)，<strong>找到符合条件的那一项</strong>。</p>
+<p><code>const item = cartList.value.find((item) =&gt; item.skuId === skuId)</code></p>
 </li>
-<li><p>Array.find( (item) &#x3D;&gt; 条件 )，<strong>找到符合条件的那一项</strong>，<code>const item = cartList.value.find((item) =&gt; item.skuId === skuId)</code></p>
+<li><p>Array.findIndex( (item) &#x3D;&gt; 条件)，<strong>找到符合条件的下标</strong>。</p>
+<p><code>const index = cartList.value.findIndex(item =&gt; skuId === item.skuId) //找到要删除的下标</code></p>
 </li>
-<li><p>Array.findIndex()，<strong>找到符合条件的下标</strong>。<code>const index = cartList.value.findIndex(item =&gt; skuId === item.skuId) //找到要删除的下标</code></p>
+<li><p>累加：cartList.value.reduce((a,c)&#x3D;&gt;a+c.count,0)，a为累加总数，c为cartList的每一项</p>
 </li>
-<li><p>累加：cartList.value.reduce((a,c)&#x3D;&gt;a+c.count,0),a为累加总数，c为cartList的每一项</p>
-</li>
-<li><p>Array.splice(a,b)，从下标为a开始删除b个元素。</p>
+<li><p>Array.includes()，判断数组中是否存在某个值</p>
 </li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers.<span class="title function_">includes</span>(<span class="number">3</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers.<span class="title function_">includes</span>(<span class="number">6</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="9">
+<li>Array.slice(a,b)，<strong>截取</strong>数组下标a到b的元素并返回一个新数组，<strong>原数组不变</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">4</span>));<span class="comment">//只保存（从第一开始数（不包括第一个），数到第四个）//  [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="10">
+<li>Array.splice(a,b)，从下标为a开始删除b个元素。<strong>原数组改变</strong></li>
+</ol>
 <blockquote>
-<p>push,pop,shift,unshift,sort,splice</p>
+<p>push,pop,shift,unshift,sort</p>
 </blockquote>
 ]]></content>
       <tags>
@@ -3717,6 +3769,142 @@ addEventListener(&#39;click&#39;,函数名，true/false) 默认是false（事件
 ]]></content>
       <tags>
         <tag>Axure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试笔记</title>
+    <url>/2024/10/24/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>安全测试-主要针对的是<strong>sql注入</strong></p>
+<p><strong>sql注入</strong>：允许攻击者将恶意SQL代码插入到应用程序的输入参数中，这些参数随后被传递给‌数据库服务器执行。</p>
+<h4 id="SQL注入攻击的总体思路"><a href="#SQL注入攻击的总体思路" class="headerlink" title="SQL注入攻击的总体思路"></a>SQL注入攻击的总体思路</h4><ul>
+<li>寻找到SQL注入的位置</li>
+<li>判断服务器类型和后台数据库类型</li>
+<li>针对不同的服务器和数据库特点进行SQL注入攻击</li>
+</ul>
+<hr>
+<h4 id="通用用例编写"><a href="#通用用例编写" class="headerlink" title="通用用例编写"></a>通用用例编写</h4><p>正逆向：主要考虑以下方面</p>
+<ol>
+<li>为空(逆向)</li>
+<li>类型</li>
+<li>长度</li>
+<li>规则<ul>
+<li>可选项</li>
+<li>存在与否</li>
+<li>已登录？</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>正向用例：选最多那一个，尽可能覆盖</li>
+<li>逆向用例：全部加起来</li>
+</ul>
+<hr>
+<h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><h4 id="一、接口测试用例"><a href="#一、接口测试用例" class="headerlink" title="一、接口测试用例"></a>一、接口测试用例</h4><p>接口测试正向：</p>
+<ol>
+<li>必填参数</li>
+<li>全部参数</li>
+</ol>
+<p>接口测试逆向，主要考虑必填参数以下方面（同功能测试）：</p>
+<ol>
+<li>为空</li>
+<li>类型</li>
+<li>长度</li>
+<li>规则</li>
+</ol>
+<p>测试用例<strong>预期结果</strong>内容：</p>
+<ol>
+<li>响应状态码</li>
+<li>响应数据</li>
+</ol>
+<p><strong>postman代码与断言：</strong></p>
+<ol>
+<li>将响应数据(json格式)的某些数据保存到环境变量：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存json数据</span></span><br><span class="line"><span class="keyword">const</span> jsonData = pm.<span class="property">response</span>.<span class="title function_">json</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">//将json数据的key为uuid的值保存到环境变量</span></span><br><span class="line">pm.<span class="property">environment</span>.<span class="title function_">set</span>(<span class="string">&quot;uuid2&quot;</span>,jsonData.<span class="property">uuid</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>响应状态码断言:</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断响应状态码是否等于200</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;status code is 200&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	pm.<span class="property">response</span>.<span class="property">to</span>.<span class="property">have</span>.<span class="title function_">status</span>(<span class="number">200</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pm.<span class="title function_">test</span>()函数:</span><br><span class="line">参数<span class="number">1</span>：字符串-测试断言名称</span><br><span class="line">参数<span class="number">2</span>：回调函数一具体断言语句</span><br><span class="line"></span><br><span class="line">pm.<span class="property">response</span>.<span class="property">to</span>.<span class="property">have</span>.<span class="property">status</span>（<span class="attr">code</span>:<span class="title class_">Number</span>）：判断是否包含指定的状态码</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>包含指定字符串断言：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断响应结果是否包含指定字符串</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;Body matches string&quot;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">	pm.<span class="title function_">expect</span>(pm.<span class="property">response</span>.<span class="title function_">text</span>()).<span class="property">to</span>.<span class="title function_">include</span>(<span class="string">&quot;string_you_want_to_search&quot;</span>) ;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过一系列调用链判断是否符合预期</span></span><br><span class="line">pm.<span class="property">expect</span>（）：接收实际结果</span><br><span class="line">.<span class="property">to</span>：连接符，用于连接断言与判断</span><br><span class="line">.<span class="property">include</span>（）：用于指定断言方式和预期结果</span><br><span class="line">pm.<span class="property">presponse</span>.<span class="property">text</span>（）：获取响应结果的文本格式数据</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>JSON数据断言</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//校验响应的JSON数据</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;Your test name&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> jsonData = pm.<span class="property">response</span>.<span class="title function_">json</span>();</span><br><span class="line">	pm.<span class="title function_">expect</span>(jsonData.<span class="property">value</span>).<span class="property">to</span>.<span class="title function_">eql</span>(<span class="number">100</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pm.<span class="property">response</span>.<span class="title function_">json</span>()获取响应结果的json数据</span><br><span class="line">.<span class="title function_">eq1</span>():用于指定断言方式和预期结果</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.to：连接符，用于连接断言与判断</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//针对状态码</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;响应状态码为200&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    pm.<span class="property">response</span>.<span class="property">to</span>.<span class="property">have</span>.<span class="title function_">status</span>(<span class="number">200</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//针对文本</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;响应数据包含成功&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    pm.<span class="title function_">expect</span>(pm.<span class="property">response</span>.<span class="title function_">text</span>()).<span class="property">to</span>.<span class="title function_">include</span>(<span class="string">&quot;成功&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//针对json的某个key是否等于某个值</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;msg为操作成功&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    pm.<span class="title function_">expect</span>(pm.<span class="property">response</span>.<span class="title function_">json</span>().<span class="property">msg</span>).<span class="property">to</span>.<span class="title function_">eql</span>(<span class="string">&#x27;操作成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>文档参数化</strong>：</p>
+<p>将<strong>请求数据+预期结果</strong>放到json文件参数化</p>
+<p>将测试数据放到json文件，只需一个请求就可以使用多个测试数据。</p>
+<ol>
+<li><p>请求数据参数化，请求体数据参数化直接读取json文件，<code>&#123;&#123;key&#125;&#125;</code></p>
+</li>
+<li><p>预期结果参数化，断言数据参数化直接读取json文件，<code>data.key</code></p>
+</li>
+</ol>
+<h3 id="pytest自动化接口测试"><a href="#pytest自动化接口测试" class="headerlink" title="pytest自动化接口测试"></a>pytest自动化接口测试</h3><h4 id="文件命名："><a href="#文件命名：" class="headerlink" title="文件命名："></a>文件命名：</h4><ol>
+<li>文件以test开头或结尾</li>
+<li>类名，函数名以test开头或结尾</li>
+</ol>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><p>allure使用步骤：</p>
+<ol>
+<li>将pytest配置文件中的命令行参数加上如下下代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--alluredir report</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写好测试脚本后，在命令行行中运行pytest</li>
+</ol>
+<p><code>pytest.ini</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[pytest]</span><br><span class="line">addopts = -s --alluredir report # 运行模式 allure 目录</span><br><span class="line">testpaths = ./scripts			# 脚本目录</span><br><span class="line">python_files = test*.py			# 需要运行的文件test开头</span><br><span class="line">python_classes = Test*			# 文件内的测试类</span><br><span class="line">python_functions = test*		# 文件内的测试方法</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>程序运行结束后，会在项目的report目录中生成一些json文件</li>
+<li>使用allure生成在线报告</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">安装：</span><br><span class="line"><span class="bullet">1.</span> https://github.com/allure-framework/allure2/releases 下载 allure</span><br><span class="line">2.解压缩安装包到一个不包含中文路径的目录</span><br><span class="line">3.将压缩包内的 bin 目录配置到 path 系统环境变量</span><br><span class="line">4.右键我的电脑－属性－高级设置－环境变量－找到系统环境变量的path项－增加 allure到bin目录</span><br><span class="line">5.在命令行中输入 allure--version 命令，能显示allure版本信息，即为成功</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>运行项目生成测试文件（json）</li>
+</ol>
+<p>​	<code>pytest</code></p>
+<ol start="6">
+<li><p>生成报告</p>
+<p><code>allure serve report</code></p>
+</li>
+</ol>
+<p>配置文件<code>config.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 存放被测试项目基本信息，如baseURL地址等</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 操作系统库</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置项目环境域名</span></span><br><span class="line">BASE_URL = <span class="string">&quot;http://kdtx-test.itheima.net&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取项目根路径</span></span><br><span class="line">BASE_PATH = os.path.dirname(__file__)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="pytest数据驱动"><a href="#pytest数据驱动" class="headerlink" title="pytest数据驱动"></a>pytest数据驱动</h4><blockquote>
+<p>概念:以测试数据驱动脚本执行，维护焦点从脚本转向测试数据文件</p>
+<p>好处：提高代码可维护性。脚本只需要介绍请求体数据即可，脚本不会有什么变化，只有测试数据会有变化</p>
+</blockquote>
+<p>pytest中parametrize装饰器</p>
+<p>作用：遍历所有测试数据并运行测试方法。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@pytest.mark.parametrize（②保存数据参数名，①测试数据）</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_method</span>(<span class="params">self, ③参数名</span>)</span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">测试数据：格式列表嵌套元组</span><br><span class="line">保存数据参数名：参数个数必须与数据个数相等</span><br><span class="line">参数名：直接复制②即可</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试数据</span></span><br><span class="line">test_data = [</span><br><span class="line">    <span class="comment"># 用户名 密码 响应码 msg code</span></span><br><span class="line">    (<span class="string">&quot;admin&quot;</span>, <span class="string">&quot;HM_2023_test&quot;</span>, <span class="number">200</span>, <span class="string">&#x27;成功&#x27;</span>, <span class="number">200</span>),</span><br><span class="line">    (<span class="string">&quot;&quot;</span>, <span class="string">&quot;HM_2023_test&quot;</span>, <span class="number">200</span>, <span class="string">&#x27;错误&#x27;</span>, <span class="number">500</span>),</span><br><span class="line">    (<span class="string">&quot;coffeelin&quot;</span>, <span class="string">&quot;HM_2023_test&quot;</span>, <span class="number">200</span>, <span class="string">&#x27;错误&#x27;</span>, <span class="number">500</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(<span class="params"><span class="string">&quot;username,password,status,message,code&quot;</span>,test_data</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login</span>(<span class="params">self,username,password,status,message,code</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 前提：准备测试数据的json文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取json文件,转换为列表格式</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_data</span>(<span class="params">json_file</span>):</span><br><span class="line">    <span class="comment"># 定义空列表</span></span><br><span class="line">    test_data = []</span><br><span class="line">    <span class="comment"># 打开json文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(json_file,<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 加载json</span></span><br><span class="line">        json_data = json.load(f)</span><br><span class="line">        <span class="comment"># 遍历json_data,并添加到test_data</span></span><br><span class="line">        <span class="keyword">for</span> case_data <span class="keyword">in</span> json_data:</span><br><span class="line">            <span class="comment"># 转换数据格式[&#123;key:val&#125;,&#123;key:val&#125;]==&gt;[(val),(val)]</span></span><br><span class="line">            username = case_data.get(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">            passwoed = case_data.get(<span class="string">&quot;passwoed&quot;</span>)</span><br><span class="line">            status = case_data.get(<span class="string">&quot;status&quot;</span>)</span><br><span class="line">            message = case_data.get(<span class="string">&quot;message&quot;</span>)</span><br><span class="line">            code = case_data.get(<span class="string">&quot;code&quot;</span>)</span><br><span class="line">            test_data.append((username,passwoed,status,message,code))</span><br><span class="line">    <span class="comment"># 返回处理后数据</span></span><br><span class="line">    <span class="keyword">return</span> test_data</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(<span class="params"><span class="string">&quot;username,password,status,message,code&quot;</span>,build_data(<span class="params">json_file=<span class="string">&quot;../data/login.json&quot;</span></span>)</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_login</span>(<span class="params">self,username,password,status,message,code</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>

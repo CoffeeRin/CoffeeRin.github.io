@@ -6,7 +6,7 @@
   <link href="https://coffeerin.github.io/atom.xml" rel="self"/>
   
   <link href="https://coffeerin.github.io/"/>
-  <updated>2024-10-03T12:48:36.313Z</updated>
+  <updated>2024-10-24T03:13:36.839Z</updated>
   <id>https://coffeerin.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试笔记</title>
+    <link href="https://coffeerin.github.io/2024/10/24/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/"/>
+    <id>https://coffeerin.github.io/2024/10/24/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-10-24T03:13:17.000Z</published>
+    <updated>2024-10-24T03:13:36.839Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;安全测试-主要针对的是&lt;strong&gt;sql注入&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;sql注入&lt;/strong&gt;：允许攻击者将恶意SQL代码插入到应用程序的输入参数中，这些参数随后被传递给‌数据库服务器执行。&lt;/p&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    
+    <category term="测试" scheme="https://coffeerin.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Axure快捷键</title>
@@ -95,7 +120,7 @@
     <link href="https://coffeerin.github.io/2024/08/08/js%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"/>
     <id>https://coffeerin.github.io/2024/08/08/js%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/</id>
     <published>2024-08-08T08:11:52.000Z</published>
-    <updated>2024-08-08T08:12:14.471Z</updated>
+    <updated>2024-10-09T11:24:53.838Z</updated>
     
     
       
@@ -119,7 +144,7 @@
     <link href="https://coffeerin.github.io/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/"/>
     <id>https://coffeerin.github.io/2024/08/07/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/</id>
     <published>2024-08-07T06:47:35.000Z</published>
-    <updated>2024-08-07T07:57:10.465Z</updated>
+    <updated>2024-10-20T13:27:54.961Z</updated>
     
     
       
@@ -132,6 +157,8 @@
     
     
     
+    
+    <category term="Vue" scheme="https://coffeerin.github.io/tags/Vue/"/>
     
   </entry>
   
@@ -392,7 +419,7 @@
     <link href="https://coffeerin.github.io/2024/06/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>https://coffeerin.github.io/2024/06/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2024-06-24T15:48:55.000Z</published>
-    <updated>2024-09-11T15:04:52.586Z</updated>
+    <updated>2024-10-20T12:18:16.702Z</updated>
     
     
       
@@ -441,29 +468,6 @@
     <id>https://coffeerin.github.io/2024/05/30/MyBatis%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%97%B6%E4%B9%B1%E7%A0%81/</id>
     <published>2024-05-30T08:47:17.000Z</published>
     <updated>2024-05-30T08:47:57.229Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot;&gt;&lt;a href=&quot;#问题解决：使用Mybatis向数据库插入数据时，中文数据乱码？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="问题解决" scheme="https://coffeerin.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>问题解决：mybatis插入数据中文乱码</title>
-    <link href="https://coffeerin.github.io/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
-    <id>https://coffeerin.github.io/2024/05/10/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%9Amybatis%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</id>
-    <published>2024-05-10T07:36:18.000Z</published>
-    <updated>2024-06-10T09:32:03.897Z</updated>
     
     
       
